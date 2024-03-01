@@ -36,7 +36,6 @@ namespace Vietinak_Kho.f_Taikhoan
             UpdateButtonCounts(allUsers);
             btnTotalAcc.PerformClick();
         }
-
         private void UpdateButtonColor(Button clickedButton)
         {
             if (activeButton != null)
@@ -109,7 +108,6 @@ namespace Vietinak_Kho.f_Taikhoan
             btnAdminAcc.Text = "Tài khoản quản trị: " + users.Count(x => x.Role == "Admin").ToString();
             btnUserAcc.Text = "Tài khoản người dùng: " + users.Count(x => x.Role == "User").ToString();
         }
-
         private void cbLocbophan_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValue = cbLocbophan.SelectedValue.ToString();
@@ -139,6 +137,85 @@ namespace Vietinak_Kho.f_Taikhoan
 
             UpdateDataGridView(filteredUsers);
         }
+
+        private void txtLoctukhoa_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtLoctukhoa.Text.Trim();
+            List<User> filteredUsers;
+
+            // Get the selected value from the ComboBox
+            string selectedValue = cbLocbophan.SelectedValue.ToString();
+
+            // Kiểm tra nút nào đang được chọn
+            if (btnTotalAcc.BackColor == SystemColors.ActiveBorder)
+            {
+                // Nếu nút "Tất cả tài khoản" đang được chọn, lọc dữ liệu tất cả các tài khoản
+                if (selectedValue == "Không chọn")
+                {
+                    filteredUsers = allUsers.ToList();
+                }
+                else
+                {
+                    filteredUsers = allUsers.Where(x => x.Bophan == selectedValue).ToList();
+                }
+            }
+            else if (btnAdminAcc.BackColor == SystemColors.ActiveBorder)
+            {
+                // Nếu nút "Tài khoản quản trị" đang được chọn, lọc dữ liệu các tài khoản quản trị
+                if (selectedValue == "Không chọn")
+                {
+                    filteredUsers = allUsers.Where(x => x.Role == "Admin").ToList();
+                }
+                else
+                {
+                    filteredUsers = allUsers.Where(x => x.Bophan == selectedValue && x.Role == "Admin").ToList();
+                }
+            }
+            else if (btnUserAcc.BackColor == SystemColors.ActiveBorder)
+            {
+                // Nếu nút "Tài khoản người dùng" đang được chọn, lọc dữ liệu các tài khoản người dùng
+                if (selectedValue == "Không chọn")
+                {
+                    filteredUsers = allUsers.Where(x => x.Role == "User").ToList();
+                }
+                else
+                {
+                    filteredUsers = allUsers.Where(x => x.Bophan == selectedValue && x.Role == "User").ToList();
+                }
+            }
+            else
+            {
+                // Trường hợp mặc định, lọc dữ liệu tất cả các tài khoản
+                if (selectedValue == "Không chọn")
+                {
+                    filteredUsers = allUsers.ToList();
+                }
+                else
+                {
+                    filteredUsers = allUsers.Where(x => x.Bophan == selectedValue).ToList();
+                }
+            }
+
+            // Nếu có dữ liệu tìm kiếm, lọc dữ liệu tương ứng
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                filteredUsers = filteredUsers.Where(user =>
+                    user.Hoten.ToLower().Contains(searchText.ToLower()) || // Check if the user's name contains the search text (case-insensitive)
+                    user.Bophan.ToLower().Contains(searchText.ToLower()) || // Check if the user's department contains the search text (case-insensitive)
+                    user.Role.ToLower().Contains(searchText.ToLower()) || // Check if the user's role contains the search text (case-insensitive)
+                    user.Manhanvien.ToLower().Contains(searchText.ToLower()) || // Check if the user's ID contains the search text (case-insensitive)
+                    user.Chucvu.ToLower().Contains(searchText.ToLower()) || // Check if the user's position contains the search text (case-insensitive)
+                    user.Matkhau.ToLower().Contains(searchText.ToLower()) // Check if the user's password contains the search text (case-insensitive)
+                ).ToList();
+            }
+
+            // Update the DataGridView with the filtered users
+            UpdateDataGridView(filteredUsers);
+
+        }
+
+
+
 
     }
 }

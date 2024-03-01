@@ -20,13 +20,14 @@ namespace Vietinak_Kho.f_Taikhoan
         }
 
         private void btnLammoi_Click(object sender, EventArgs e)
-        {
-            txtHoten.Clear();
-            txtManhanvien.Clear();
-            txtMatkhau.Clear();
+        {          
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnXacNhan_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtHoten.Text) ||
                 string.IsNullOrWhiteSpace(txtManhanvien.Text) ||
@@ -37,7 +38,7 @@ namespace Vietinak_Kho.f_Taikhoan
             {
                 MessageBox.Show("Cần nhập đầy đủ các thông tin!",
                     "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; 
+                return;
             }
             var newUser = new User()
             {
@@ -54,9 +55,15 @@ namespace Vietinak_Kho.f_Taikhoan
             {
                 MessageBox.Show("Tạo tài khoản mới thành công!",
                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
+        }
 
-
+        private void btnLammoi_Click_1(object sender, EventArgs e)
+        {
+            txtHoten.Clear();
+            txtManhanvien.Clear();
+            txtMatkhau.Clear();
         }
     }
 }

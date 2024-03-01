@@ -30,7 +30,6 @@ namespace Vietinak_Kho.DTO
         {
             get { return id; }
             set { id = value; }
-
         }
 
         private string name;

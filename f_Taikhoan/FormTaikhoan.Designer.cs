@@ -53,41 +53,37 @@
             // 
             // btnTaikhoancuaban
             // 
-            this.btnTaikhoancuaban.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnTaikhoancuaban.Image = ((System.Drawing.Image)(resources.GetObject("btnTaikhoancuaban.Image")));
             this.btnTaikhoancuaban.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTaikhoancuaban.Name = "btnTaikhoancuaban";
-            this.btnTaikhoancuaban.Size = new System.Drawing.Size(106, 22);
+            this.btnTaikhoancuaban.Size = new System.Drawing.Size(122, 22);
             this.btnTaikhoancuaban.Text = "Tài khoản của bạn";
             this.btnTaikhoancuaban.Click += new System.EventHandler(this.btnTaikhoancuaban_Click);
             // 
             // btnQuanlydanhsachtaikhoan
             // 
-            this.btnQuanlydanhsachtaikhoan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnQuanlydanhsachtaikhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanlydanhsachtaikhoan.Image")));
             this.btnQuanlydanhsachtaikhoan.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnQuanlydanhsachtaikhoan.Name = "btnQuanlydanhsachtaikhoan";
-            this.btnQuanlydanhsachtaikhoan.Size = new System.Drawing.Size(161, 22);
+            this.btnQuanlydanhsachtaikhoan.Size = new System.Drawing.Size(177, 22);
             this.btnQuanlydanhsachtaikhoan.Text = "Quản lý danh sách tài khoản";
             this.btnQuanlydanhsachtaikhoan.Click += new System.EventHandler(this.btnQuanlydanhsachtaikhoan_Click);
             // 
             // btnSuathongtintaikhoan
             // 
-            this.btnSuathongtintaikhoan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSuathongtintaikhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnSuathongtintaikhoan.Image")));
             this.btnSuathongtintaikhoan.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSuathongtintaikhoan.Name = "btnSuathongtintaikhoan";
-            this.btnSuathongtintaikhoan.Size = new System.Drawing.Size(134, 22);
+            this.btnSuathongtintaikhoan.Size = new System.Drawing.Size(150, 22);
             this.btnSuathongtintaikhoan.Text = "Sửa thông tin tài khoản";
             this.btnSuathongtintaikhoan.Click += new System.EventHandler(this.btnSuathongtintaikhoan_Click);
             // 
             // btnTaotaikhoanmoi
             // 
-            this.btnTaotaikhoanmoi.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnTaotaikhoanmoi.Image = ((System.Drawing.Image)(resources.GetObject("btnTaotaikhoanmoi.Image")));
             this.btnTaotaikhoanmoi.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTaotaikhoanmoi.Name = "btnTaotaikhoanmoi";
-            this.btnTaotaikhoanmoi.Size = new System.Drawing.Size(106, 22);
+            this.btnTaotaikhoanmoi.Size = new System.Drawing.Size(122, 22);
             this.btnTaotaikhoanmoi.Text = "Tạo tài khoản mới";
             this.btnTaotaikhoanmoi.Click += new System.EventHandler(this.btnTaotaikhoanmoi_Click);
             // 

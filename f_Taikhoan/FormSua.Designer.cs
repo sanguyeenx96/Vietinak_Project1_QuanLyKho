@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -53,18 +54,18 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.cbBophan = new System.Windows.Forms.ComboBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbChucvu = new System.Windows.Forms.ComboBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacnhan = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -80,7 +81,6 @@
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,6 +117,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(394, 36);
             this.panel2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(9, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -312,6 +325,7 @@
             // cbBophan
             // 
             this.cbBophan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBophan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBophan.FormattingEnabled = true;
             this.cbBophan.Location = new System.Drawing.Point(0, 0);
             this.cbBophan.Name = "cbBophan";
@@ -320,63 +334,61 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.comboBox2);
+            this.panel13.Controls.Add(this.cbChucvu);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(126, 87);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(261, 22);
             this.panel13.TabIndex = 1;
             // 
-            // comboBox2
+            // cbChucvu
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Staff",
-            "Leader",
-            "Managetr"});
-            this.comboBox2.Location = new System.Drawing.Point(0, 0);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(261, 21);
-            this.comboBox2.TabIndex = 0;
+            this.cbChucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbChucvu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChucvu.FormattingEnabled = true;
+            this.cbChucvu.Location = new System.Drawing.Point(0, 0);
+            this.cbChucvu.Name = "cbChucvu";
+            this.cbChucvu.Size = new System.Drawing.Size(261, 21);
+            this.cbChucvu.TabIndex = 0;
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.comboBox3);
+            this.panel14.Controls.Add(this.cbRole);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(126, 115);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(261, 22);
             this.panel14.TabIndex = 1;
             // 
-            // comboBox3
+            // cbRole
             // 
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.comboBox3.Location = new System.Drawing.Point(0, 0);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(261, 21);
-            this.comboBox3.TabIndex = 0;
+            this.cbRole.Location = new System.Drawing.Point(0, 0);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(261, 21);
+            this.cbRole.TabIndex = 0;
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.textBox1);
+            this.panel15.Controls.Add(this.txtMatkhau);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(126, 143);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(261, 23);
             this.panel15.TabIndex = 2;
             // 
-            // textBox1
+            // txtMatkhau
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtMatkhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMatkhau.Location = new System.Drawing.Point(0, 0);
+            this.txtMatkhau.Name = "txtMatkhau";
+            this.txtMatkhau.Size = new System.Drawing.Size(261, 20);
+            this.txtMatkhau.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -395,8 +407,9 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.White;
+            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuybo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.Image")));
             this.btnHuybo.Location = new System.Drawing.Point(3, 3);
@@ -411,8 +424,9 @@
             // 
             // btnXacnhan
             // 
-            this.btnXacnhan.BackColor = System.Drawing.Color.White;
+            this.btnXacnhan.BackColor = System.Drawing.Color.LightGreen;
             this.btnXacnhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXacnhan.FlatAppearance.BorderSize = 0;
             this.btnXacnhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXacnhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacnhan.Image")));
             this.btnXacnhan.Location = new System.Drawing.Point(200, 3);
@@ -423,35 +437,27 @@
             this.btnXacnhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXacnhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacnhan.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.btnXacnhan.Click += new System.EventHandler(this.btnXacnhan_Click);
             // 
             // FormSua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(400, 262);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormSua";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sửa thông tin tài khoản";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormSua_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -476,7 +482,6 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,13 +513,13 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMatkhau;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnHuybo;
         private System.Windows.Forms.Button btnXacnhan;
         private System.Windows.Forms.ComboBox cbBophan;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbChucvu;
+        private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

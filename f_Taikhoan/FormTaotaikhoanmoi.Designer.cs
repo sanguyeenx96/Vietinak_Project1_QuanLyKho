@@ -343,14 +343,10 @@
             "PDC",
             "GA",
             "PE"});
-            this.cbBophan.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbBophan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbBophan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBophan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBophan.FormattingEnabled = true;
-            this.cbBophan.Items.AddRange(new object[] {
-            "PDC",
-            "GA",
-            "PE"});
             this.cbBophan.Location = new System.Drawing.Point(0, 0);
             this.cbBophan.Name = "cbBophan";
             this.cbBophan.Size = new System.Drawing.Size(264, 21);
@@ -371,9 +367,9 @@
             "Staff",
             "Leader",
             "Manager"});
-            this.cbChucvu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbChucvu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbChucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbChucvu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChucvu.FormattingEnabled = true;
             this.cbChucvu.Items.AddRange(new object[] {
             "Staff",
@@ -398,9 +394,9 @@
             this.cbRole.AutoCompleteCustomSource.AddRange(new string[] {
             "User",
             "Admin"});
-            this.cbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "User",
@@ -453,8 +449,9 @@
             // 
             // btnLammoi
             // 
-            this.btnLammoi.BackColor = System.Drawing.Color.White;
+            this.btnLammoi.BackColor = System.Drawing.Color.Goldenrod;
             this.btnLammoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLammoi.FlatAppearance.BorderSize = 0;
             this.btnLammoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLammoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi.Image")));
             this.btnLammoi.Location = new System.Drawing.Point(3, 3);
@@ -465,11 +462,13 @@
             this.btnLammoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLammoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLammoi.UseVisualStyleBackColor = false;
+            this.btnLammoi.Click += new System.EventHandler(this.btnLammoi_Click_1);
             // 
             // btnXacNhan
             // 
-            this.btnXacNhan.BackColor = System.Drawing.Color.White;
+            this.btnXacNhan.BackColor = System.Drawing.Color.LightGreen;
             this.btnXacNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXacNhan.FlatAppearance.BorderSize = 0;
             this.btnXacNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
             this.btnXacNhan.Location = new System.Drawing.Point(200, 3);
@@ -480,16 +479,20 @@
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXacNhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click_1);
             // 
             // FormTaotaikhoanmoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(400, 262);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTaotaikhoanmoi";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tạo tài khoản mới";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

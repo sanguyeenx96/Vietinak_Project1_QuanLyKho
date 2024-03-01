@@ -115,7 +115,8 @@
             // 
             // btnTimkiem
             // 
-            this.btnTimkiem.BackColor = System.Drawing.Color.White;
+            this.btnTimkiem.BackColor = System.Drawing.Color.LightGreen;
+            this.btnTimkiem.FlatAppearance.BorderSize = 0;
             this.btnTimkiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimkiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimkiem.Image")));
             this.btnTimkiem.Location = new System.Drawing.Point(190, 3);
@@ -142,6 +143,7 @@
             this.txtManhanvien.Name = "txtManhanvien";
             this.txtManhanvien.Size = new System.Drawing.Size(100, 20);
             this.txtManhanvien.TabIndex = 1;
+            this.txtManhanvien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtManhanvien_KeyPress);
             // 
             // groupBox1
             // 
@@ -161,6 +163,7 @@
             this.dgvThongtintaikhoan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvThongtintaikhoan.Location = new System.Drawing.Point(3, 16);
             this.dgvThongtintaikhoan.Name = "dgvThongtintaikhoan";
+            this.dgvThongtintaikhoan.ReadOnly = true;
             this.dgvThongtintaikhoan.Size = new System.Drawing.Size(805, 282);
             this.dgvThongtintaikhoan.TabIndex = 0;
             // 
@@ -201,8 +204,9 @@
             // 
             // btnSuathongtin
             // 
-            this.btnSuathongtin.BackColor = System.Drawing.Color.White;
+            this.btnSuathongtin.BackColor = System.Drawing.Color.Goldenrod;
             this.btnSuathongtin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSuathongtin.FlatAppearance.BorderSize = 0;
             this.btnSuathongtin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuathongtin.Image = ((System.Drawing.Image)(resources.GetObject("btnSuathongtin.Image")));
             this.btnSuathongtin.Location = new System.Drawing.Point(3, 3);
@@ -217,8 +221,9 @@
             // 
             // btnXoataikhoan
             // 
-            this.btnXoataikhoan.BackColor = System.Drawing.Color.White;
+            this.btnXoataikhoan.BackColor = System.Drawing.Color.LightCoral;
             this.btnXoataikhoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoataikhoan.FlatAppearance.BorderSize = 0;
             this.btnXoataikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoataikhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnXoataikhoan.Image")));
             this.btnXoataikhoan.Location = new System.Drawing.Point(132, 3);
@@ -229,6 +234,7 @@
             this.btnXoataikhoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoataikhoan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoataikhoan.UseVisualStyleBackColor = false;
+            this.btnXoataikhoan.Click += new System.EventHandler(this.btnXoataikhoan_Click);
             // 
             // FormSuaxoataikhoan
             // 

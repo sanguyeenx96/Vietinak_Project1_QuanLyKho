@@ -36,7 +36,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLoctukhoa = new System.Windows.Forms.TextBox();
             this.cbLocbophan = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,6 +113,7 @@
             this.dgvDanhsachtaikhoan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDanhsachtaikhoan.Location = new System.Drawing.Point(3, 16);
             this.dgvDanhsachtaikhoan.Name = "dgvDanhsachtaikhoan";
+            this.dgvDanhsachtaikhoan.ReadOnly = true;
             this.dgvDanhsachtaikhoan.Size = new System.Drawing.Size(805, 340);
             this.dgvDanhsachtaikhoan.TabIndex = 0;
             // 
@@ -138,7 +139,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtLoctukhoa);
             this.panel4.Controls.Add(this.cbLocbophan);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
@@ -149,12 +150,13 @@
             this.panel4.Size = new System.Drawing.Size(808, 37);
             this.panel4.TabIndex = 1;
             // 
-            // textBox1
+            // txtLoctukhoa
             // 
-            this.textBox1.Location = new System.Drawing.Point(738, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(64, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtLoctukhoa.Location = new System.Drawing.Point(738, 8);
+            this.txtLoctukhoa.Name = "txtLoctukhoa";
+            this.txtLoctukhoa.Size = new System.Drawing.Size(64, 20);
+            this.txtLoctukhoa.TabIndex = 3;
+            this.txtLoctukhoa.TextChanged += new System.EventHandler(this.txtLoctukhoa_TextChanged);
             // 
             // cbLocbophan
             // 
@@ -204,6 +206,7 @@
             // 
             this.btnTotalAcc.BackColor = System.Drawing.Color.White;
             this.btnTotalAcc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTotalAcc.FlatAppearance.BorderSize = 0;
             this.btnTotalAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTotalAcc.Location = new System.Drawing.Point(3, 3);
             this.btnTotalAcc.Name = "btnTotalAcc";
@@ -217,6 +220,7 @@
             // 
             this.btnAdminAcc.BackColor = System.Drawing.Color.White;
             this.btnAdminAcc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdminAcc.FlatAppearance.BorderSize = 0;
             this.btnAdminAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminAcc.Location = new System.Drawing.Point(158, 3);
             this.btnAdminAcc.Name = "btnAdminAcc";
@@ -230,6 +234,7 @@
             // 
             this.btnUserAcc.BackColor = System.Drawing.Color.White;
             this.btnUserAcc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUserAcc.FlatAppearance.BorderSize = 0;
             this.btnUserAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserAcc.Location = new System.Drawing.Point(313, 3);
             this.btnUserAcc.Name = "btnUserAcc";
@@ -280,7 +285,7 @@
         private System.Windows.Forms.Button btnAdminAcc;
         private System.Windows.Forms.Button btnUserAcc;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLoctukhoa;
         private System.Windows.Forms.ComboBox cbLocbophan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

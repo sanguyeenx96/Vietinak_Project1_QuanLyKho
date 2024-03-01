@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.f_Caidat;
+using Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu;
 using Vietinak_Kho.f_Taikhoan;
 
 namespace Vietinak_Kho
@@ -49,7 +50,14 @@ namespace Vietinak_Kho
 
         private void FormCaidat_Load(object sender, EventArgs e)
         {
-            btnBophanchucvu.PerformClick();
+            btnThongtinnguyenvatlieu.PerformClick();
+        }
+
+        private void btnThongtinnguyenvatlieu_Click(object sender, EventArgs e)
+        {
+            FormThongtinnguyenvatlieu fThongtinnguyenvatlieu = new FormThongtinnguyenvatlieu();
+            loadform(fThongtinnguyenvatlieu);
+            UpdateButtonColor(sender as ToolStripButton);
         }
     }
 }

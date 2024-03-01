@@ -95,6 +95,7 @@
             this.dgvBophan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBophan.Location = new System.Drawing.Point(3, 16);
             this.dgvBophan.Name = "dgvBophan";
+            this.dgvBophan.ReadOnly = true;
             this.dgvBophan.Size = new System.Drawing.Size(396, 335);
             this.dgvBophan.TabIndex = 0;
             // 
@@ -116,6 +117,7 @@
             this.dgvChucvu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChucvu.Location = new System.Drawing.Point(3, 16);
             this.dgvChucvu.Name = "dgvChucvu";
+            this.dgvChucvu.ReadOnly = true;
             this.dgvChucvu.Size = new System.Drawing.Size(397, 335);
             this.dgvChucvu.TabIndex = 0;
             // 
@@ -158,8 +160,9 @@
             // 
             // btnThembophan
             // 
-            this.btnThembophan.BackColor = System.Drawing.Color.White;
+            this.btnThembophan.BackColor = System.Drawing.Color.LightGreen;
             this.btnThembophan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThembophan.FlatAppearance.BorderSize = 0;
             this.btnThembophan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThembophan.Image = ((System.Drawing.Image)(resources.GetObject("btnThembophan.Image")));
             this.btnThembophan.Location = new System.Drawing.Point(3, 3);
@@ -174,8 +177,9 @@
             // 
             // btnSuabophan
             // 
-            this.btnSuabophan.BackColor = System.Drawing.Color.White;
+            this.btnSuabophan.BackColor = System.Drawing.Color.Goldenrod;
             this.btnSuabophan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSuabophan.FlatAppearance.BorderSize = 0;
             this.btnSuabophan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuabophan.Image = ((System.Drawing.Image)(resources.GetObject("btnSuabophan.Image")));
             this.btnSuabophan.Location = new System.Drawing.Point(132, 3);
@@ -190,8 +194,9 @@
             // 
             // btnXoabophan
             // 
-            this.btnXoabophan.BackColor = System.Drawing.Color.White;
+            this.btnXoabophan.BackColor = System.Drawing.Color.LightCoral;
             this.btnXoabophan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoabophan.FlatAppearance.BorderSize = 0;
             this.btnXoabophan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoabophan.Image = ((System.Drawing.Image)(resources.GetObject("btnXoabophan.Image")));
             this.btnXoabophan.Location = new System.Drawing.Point(261, 3);
@@ -243,8 +248,9 @@
             // 
             // btnThemchucvu
             // 
-            this.btnThemchucvu.BackColor = System.Drawing.Color.White;
+            this.btnThemchucvu.BackColor = System.Drawing.Color.LightGreen;
             this.btnThemchucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThemchucvu.FlatAppearance.BorderSize = 0;
             this.btnThemchucvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemchucvu.Image = ((System.Drawing.Image)(resources.GetObject("btnThemchucvu.Image")));
             this.btnThemchucvu.Location = new System.Drawing.Point(3, 3);
@@ -259,8 +265,9 @@
             // 
             // btnSuachucvu
             // 
-            this.btnSuachucvu.BackColor = System.Drawing.Color.White;
+            this.btnSuachucvu.BackColor = System.Drawing.Color.Goldenrod;
             this.btnSuachucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSuachucvu.FlatAppearance.BorderSize = 0;
             this.btnSuachucvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuachucvu.Image = ((System.Drawing.Image)(resources.GetObject("btnSuachucvu.Image")));
             this.btnSuachucvu.Location = new System.Drawing.Point(132, 3);
@@ -275,8 +282,9 @@
             // 
             // btnXoachucvu
             // 
-            this.btnXoachucvu.BackColor = System.Drawing.Color.White;
+            this.btnXoachucvu.BackColor = System.Drawing.Color.LightCoral;
             this.btnXoachucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXoachucvu.FlatAppearance.BorderSize = 0;
             this.btnXoachucvu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoachucvu.Image = ((System.Drawing.Image)(resources.GetObject("btnXoachucvu.Image")));
             this.btnXoachucvu.Location = new System.Drawing.Point(261, 3);

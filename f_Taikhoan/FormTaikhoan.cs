@@ -52,8 +52,16 @@ namespace Vietinak_Kho
 
         private void btnQuanlydanhsachtaikhoan_Click(object sender, EventArgs e)
         {
-            loadform(new FormQuanlydanhsachtaikhoan());
-            UpdateButtonColor(sender as ToolStripButton);
+            if (userInfo.Role != "Admin")
+            {
+                MessageBox.Show("Chỉ tài khoản quản trị được phép truy cập!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                loadform(new FormQuanlydanhsachtaikhoan());
+                UpdateButtonColor(sender as ToolStripButton);
+            }
         }
 
         private void FormTaikhoan_Load(object sender, EventArgs e)
@@ -68,14 +76,30 @@ namespace Vietinak_Kho
 
         private void btnSuathongtintaikhoan_Click(object sender, EventArgs e)
         {
-            loadform(new FormSuaxoataikhoan());
-            UpdateButtonColor(sender as ToolStripButton);
+            if (userInfo.Role != "Admin")
+            {
+                MessageBox.Show("Chỉ tài khoản quản trị được phép truy cập!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                loadform(new FormSuaxoataikhoan());
+                UpdateButtonColor(sender as ToolStripButton);
+            }            
         }
 
         private void btnTaotaikhoanmoi_Click(object sender, EventArgs e)
         {
-            FormTaotaikhoanmoi f = new FormTaotaikhoanmoi();
-            f.ShowDialog();
+            if (userInfo.Role != "Admin")
+            {
+                MessageBox.Show("Chỉ tài khoản quản trị được phép truy cập!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                FormTaotaikhoanmoi f = new FormTaotaikhoanmoi();
+                f.ShowDialog();
+            }            
         }
     }
 }

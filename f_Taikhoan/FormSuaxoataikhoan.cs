@@ -52,7 +52,8 @@ namespace Vietinak_Kho.f_Taikhoan
                     Role = Convert.ToString(selectedRow.Cells["Role"].Value),
                     Manhanvien = Convert.ToString(selectedRow.Cells["Manhanvien"].Value),
                     Chucvu = Convert.ToString(selectedRow.Cells["Chucvu"].Value),
-                    Matkhau = Convert.ToString(selectedRow.Cells["Matkhau"].Value)
+                    Matkhau = Convert.ToString(selectedRow.Cells["Matkhau"].Value),
+                    Id = Convert.ToInt32(selectedRow.Cells["Id"].Value)
                 };
 
                 // Open the FormSua dialog with the userInfo object
@@ -64,5 +65,46 @@ namespace Vietinak_Kho.f_Taikhoan
                 MessageBox.Show("Vui lòng chọn một dòng để sửa thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void txtManhanvien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra xem phím được nhấn có phải là phím "Enter" không (mã ASCII: 13)
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                // Thực hiện hành động tìm kiếm
+                btnTimkiem.PerformClick(); // Gọi sự kiện click của nút tìm kiếm
+                e.Handled = true; // Đánh dấu đã xử lý sự kiện để ngăn việc thêm ký tự "Enter" vào TextBox
+            }
+        }
+
+        private void btnXoataikhoan_Click(object sender, EventArgs e)
+        {
+            if (dgvThongtintaikhoan.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvThongtintaikhoan.SelectedRows[0];
+
+                // Extract values from the selected row and assign them to the User object
+                User userInfo = new User()
+                {
+                    Hoten = Convert.ToString(selectedRow.Cells["Hoten"].Value),
+                    Bophan = Convert.ToString(selectedRow.Cells["Bophan"].Value),
+                    Role = Convert.ToString(selectedRow.Cells["Role"].Value),
+                    Manhanvien = Convert.ToString(selectedRow.Cells["Manhanvien"].Value),
+                    Chucvu = Convert.ToString(selectedRow.Cells["Chucvu"].Value),
+                    Matkhau = Convert.ToString(selectedRow.Cells["Matkhau"].Value),
+                    Id = Convert.ToInt32(selectedRow.Cells["Id"].Value)
+                };
+
+                // Open the FormSua dialog with the userInfo object
+                FormXoataikhoan f = new FormXoataikhoan(userInfo);
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng để xóa thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 }

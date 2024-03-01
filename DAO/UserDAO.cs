@@ -82,5 +82,80 @@ namespace Vietinak_Kho.DAO
             return tableList;
         }
 
+        public bool Update(User updatedUser)
+        {
+            try
+            {
+                string checkQuery = string.Format("SELECT COUNT(*) FROM dbo.tbluser WHERE manhanvien = N'{0}'", updatedUser.Manhanvien);
+                int existingUserCount = (int)DataProvider.Instance.ExecuteScalar(checkQuery);
+                if (existingUserCount == 0)
+                {
+                    MessageBox.Show("Không tìm thấy người dùng có mã nhân viên này!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                // Update the user's information in the database
+                string query = string.Format("UPDATE dbo.tbluser SET hoten = N'{0}', bophan = N'{1}', chucvu = N'{2}', matkhau = N'{3}', role = N'{4}' WHERE manhanvien = N'{5}'", updatedUser.Hoten, updatedUser.Bophan, updatedUser.Chucvu, updatedUser.Matkhau, updatedUser.Role, updatedUser.Manhanvien);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (rowsAffected > 0)
+                {                    
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật thông tin người dùng!",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật thông tin người dùng: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool DeleteTaikhoan(int id)
+        {
+            try
+            {
+                string deleteQuery = $"DELETE FROM dbo.tbluser WHERE id = {id}";
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(deleteQuery);
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi xóa tài khoản: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool UpdatePassword(int id, string newPassword)
+        {
+            try
+            {            
+                string query = string.Format("UPDATE dbo.tbluser SET matkhau = N'{0}' WHERE id = N'{1}'", newPassword,id);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật thông tin người dùng!",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật thông tin người dùng: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
     }
 }
