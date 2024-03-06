@@ -36,7 +36,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupboxDoimatkhau = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtMatkhaucu = new System.Windows.Forms.TextBox();
+            this.txtMatkhauhientai = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -72,7 +72,7 @@
             this.btnDoimatkhau = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgvUserlogs = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -98,6 +98,7 @@
             this.panel13.SuspendLayout();
             this.panel16.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserlogs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -161,7 +162,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.txtMatkhaucu, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.txtMatkhauhientai, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel17, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel18, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtMatkhaumoi, 1, 1);
@@ -177,13 +178,14 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(384, 88);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // txtMatkhaucu
+            // txtMatkhauhientai
             // 
-            this.txtMatkhaucu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMatkhaucu.Location = new System.Drawing.Point(195, 3);
-            this.txtMatkhaucu.Name = "txtMatkhaucu";
-            this.txtMatkhaucu.Size = new System.Drawing.Size(186, 20);
-            this.txtMatkhaucu.TabIndex = 4;
+            this.txtMatkhauhientai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMatkhauhientai.Location = new System.Drawing.Point(195, 3);
+            this.txtMatkhauhientai.Name = "txtMatkhauhientai";
+            this.txtMatkhauhientai.Size = new System.Drawing.Size(186, 20);
+            this.txtMatkhauhientai.TabIndex = 4;
+            this.txtMatkhauhientai.UseSystemPasswordChar = true;
             // 
             // panel17
             // 
@@ -200,9 +202,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(25, 4);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.Size = new System.Drawing.Size(92, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Mật khẩu cũ.";
+            this.label7.Text = "Mật khẩu hiện tại.";
             // 
             // panel18
             // 
@@ -230,11 +232,13 @@
             this.txtMatkhaumoi.Name = "txtMatkhaumoi";
             this.txtMatkhaumoi.Size = new System.Drawing.Size(186, 20);
             this.txtMatkhaumoi.TabIndex = 4;
+            this.txtMatkhaumoi.UseSystemPasswordChar = true;
             // 
             // btnXacnhandoimatkhau
             // 
-            this.btnXacnhandoimatkhau.BackColor = System.Drawing.Color.White;
+            this.btnXacnhandoimatkhau.BackColor = System.Drawing.Color.LightGreen;
             this.btnXacnhandoimatkhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXacnhandoimatkhau.FlatAppearance.BorderSize = 0;
             this.btnXacnhandoimatkhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXacnhandoimatkhau.Image = ((System.Drawing.Image)(resources.GetObject("btnXacnhandoimatkhau.Image")));
             this.btnXacnhandoimatkhau.Location = new System.Drawing.Point(195, 61);
@@ -245,11 +249,13 @@
             this.btnXacnhandoimatkhau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXacnhandoimatkhau.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacnhandoimatkhau.UseVisualStyleBackColor = false;
+            this.btnXacnhandoimatkhau.Click += new System.EventHandler(this.btnXacnhandoimatkhau_Click);
             // 
             // btnHuybodoimatkhau
             // 
-            this.btnHuybodoimatkhau.BackColor = System.Drawing.Color.White;
+            this.btnHuybodoimatkhau.BackColor = System.Drawing.Color.LightCoral;
             this.btnHuybodoimatkhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHuybodoimatkhau.FlatAppearance.BorderSize = 0;
             this.btnHuybodoimatkhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuybodoimatkhau.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybodoimatkhau.Image")));
             this.btnHuybodoimatkhau.Location = new System.Drawing.Point(3, 61);
@@ -422,9 +428,9 @@
             // txtHoten
             // 
             this.txtHoten.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHoten.Enabled = false;
             this.txtHoten.Location = new System.Drawing.Point(0, 0);
             this.txtHoten.Name = "txtHoten";
+            this.txtHoten.ReadOnly = true;
             this.txtHoten.Size = new System.Drawing.Size(261, 20);
             this.txtHoten.TabIndex = 0;
             // 
@@ -440,9 +446,9 @@
             // txtManhanvien
             // 
             this.txtManhanvien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtManhanvien.Enabled = false;
             this.txtManhanvien.Location = new System.Drawing.Point(0, 0);
             this.txtManhanvien.Name = "txtManhanvien";
+            this.txtManhanvien.ReadOnly = true;
             this.txtManhanvien.Size = new System.Drawing.Size(261, 20);
             this.txtManhanvien.TabIndex = 0;
             // 
@@ -458,9 +464,9 @@
             // txtBophan
             // 
             this.txtBophan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBophan.Enabled = false;
             this.txtBophan.Location = new System.Drawing.Point(0, 0);
             this.txtBophan.Name = "txtBophan";
+            this.txtBophan.ReadOnly = true;
             this.txtBophan.Size = new System.Drawing.Size(261, 20);
             this.txtBophan.TabIndex = 0;
             // 
@@ -476,9 +482,9 @@
             // txtChucvu
             // 
             this.txtChucvu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtChucvu.Enabled = false;
             this.txtChucvu.Location = new System.Drawing.Point(0, 0);
             this.txtChucvu.Name = "txtChucvu";
+            this.txtChucvu.ReadOnly = true;
             this.txtChucvu.Size = new System.Drawing.Size(261, 20);
             this.txtChucvu.TabIndex = 0;
             // 
@@ -494,9 +500,9 @@
             // txtRole
             // 
             this.txtRole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRole.Enabled = false;
             this.txtRole.Location = new System.Drawing.Point(0, 0);
             this.txtRole.Name = "txtRole";
+            this.txtRole.ReadOnly = true;
             this.txtRole.Size = new System.Drawing.Size(261, 20);
             this.txtRole.TabIndex = 0;
             // 
@@ -511,8 +517,9 @@
             // 
             // btnDoimatkhau
             // 
-            this.btnDoimatkhau.BackColor = System.Drawing.Color.White;
+            this.btnDoimatkhau.BackColor = System.Drawing.Color.Goldenrod;
             this.btnDoimatkhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDoimatkhau.FlatAppearance.BorderSize = 0;
             this.btnDoimatkhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoimatkhau.Image = ((System.Drawing.Image)(resources.GetObject("btnDoimatkhau.Image")));
             this.btnDoimatkhau.Location = new System.Drawing.Point(0, 0);
@@ -536,7 +543,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox2.Controls.Add(this.dgvUserlogs);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -545,13 +552,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lịch sử hoạt động";
             // 
-            // flowLayoutPanel1
+            // dgvUserlogs
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(397, 400);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.dgvUserlogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUserlogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserlogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUserlogs.Location = new System.Drawing.Point(3, 16);
+            this.dgvUserlogs.Name = "dgvUserlogs";
+            this.dgvUserlogs.ReadOnly = true;
+            this.dgvUserlogs.Size = new System.Drawing.Size(397, 400);
+            this.dgvUserlogs.TabIndex = 0;
             // 
             // contextMenuStrip1
             // 
@@ -606,6 +616,7 @@
             this.panel13.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserlogs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -644,17 +655,17 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupboxDoimatkhau;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtMatkhaucu;
+        private System.Windows.Forms.TextBox txtMatkhauhientai;
         private System.Windows.Forms.TextBox txtMatkhaumoi;
         private System.Windows.Forms.Button btnXacnhandoimatkhau;
         private System.Windows.Forms.Button btnHuybodoimatkhau;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridView dgvUserlogs;
     }
 }

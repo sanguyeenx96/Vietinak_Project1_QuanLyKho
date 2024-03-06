@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Khohang;
+using Vietinak_Kho.f_Nghiemthu;
 
 namespace Vietinak_Kho
 {
@@ -42,7 +44,7 @@ namespace Vietinak_Kho
             txtRole.Text = userInfo.Role;
             txtCode.Text = userInfo.Manhanvien;
 
-            btnTrangchinh.PerformClick();
+            btnNhapXuat.PerformClick();
         }
 
         private void timerClock_Tick(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace Vietinak_Kho
 
         private void btnTrangchinh_Click(object sender, EventArgs e)
         {
-            loadform(new FormTrangchinh());
+            loadform(new FormBieudo());
             UpdateButtonColor(sender as Button);
         }
 
@@ -86,22 +88,35 @@ namespace Vietinak_Kho
 
         private void btnDonhang_Click(object sender, EventArgs e)
         {
-            loadform(new FormDonhang());
+            FormNhapXuat fNhapxuat = new FormNhapXuat(userInfo);
+            loadform(fNhapxuat);
             UpdateButtonColor(sender as Button);
         }
 
         private void btnDanhsach_Click(object sender, EventArgs e)
         {
-            loadform(new FormDanhsach());
+            loadform(new FormThongke());
             UpdateButtonColor(sender as Button);
-
         }
 
         private void btnCaidat_Click(object sender, EventArgs e)
         {
-            loadform(new FormCaidat());
-            UpdateButtonColor(sender as Button);
+            if (userInfo.Role != "Admin")
+            {
+                MessageBox.Show("Chỉ tài khoản quản trị được phép truy cập!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                loadform(new FormCaidat());
+                UpdateButtonColor(sender as Button);
+            }
+        }
 
+        private void btnNghiemthu_Click(object sender, EventArgs e)
+        {
+            loadform(new FormNghiemthu());
+            UpdateButtonColor(sender as Button);
         }
     }
 }

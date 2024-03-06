@@ -174,6 +174,7 @@
             // cbChucvu
             // 
             this.cbChucvu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbChucvu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbChucvu.FormattingEnabled = true;
             this.cbChucvu.Location = new System.Drawing.Point(0, 0);
             this.cbChucvu.Name = "cbChucvu";
@@ -206,8 +207,9 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.White;
+            this.btnHuybo.BackColor = System.Drawing.Color.LightGreen;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuybo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.Image")));
             this.btnHuybo.Location = new System.Drawing.Point(3, 3);
@@ -222,8 +224,9 @@
             // 
             // btnXacNhanXoa
             // 
-            this.btnXacNhanXoa.BackColor = System.Drawing.Color.White;
+            this.btnXacNhanXoa.BackColor = System.Drawing.Color.LightCoral;
             this.btnXacNhanXoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnXacNhanXoa.FlatAppearance.BorderSize = 0;
             this.btnXacNhanXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXacNhanXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhanXoa.Image")));
             this.btnXacNhanXoa.Location = new System.Drawing.Point(200, 3);
@@ -240,9 +243,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(400, 121);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormXoachucvu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Xóa chức vụ";

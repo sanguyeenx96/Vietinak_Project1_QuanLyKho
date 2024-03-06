@@ -50,7 +50,6 @@ namespace Vietinak_Kho.DAO
             return (connectstring);
         }
 
-
         public DataTable ExecuteQuery(string query, object[] paramater = null)
         {
             DataTable data = new DataTable();

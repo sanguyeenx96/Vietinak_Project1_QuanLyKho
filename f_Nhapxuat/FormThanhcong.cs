@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vietinak_Kho
+namespace Vietinak_Kho.f_Nhapxuat
 {
-    public partial class FormTrangchinh : Form
+    public partial class FormThanhcong : Form
     {
-        public FormTrangchinh()
+        public FormThanhcong()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
