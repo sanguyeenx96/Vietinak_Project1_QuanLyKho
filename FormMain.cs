@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
 using Vietinak_Kho.f_Khohang;
+using Vietinak_Kho.f_Nghiemthu;
 
 namespace Vietinak_Kho
 {
@@ -112,5 +113,10 @@ namespace Vietinak_Kho
             }
         }
 
+        private void btnNghiemthu_Click(object sender, EventArgs e)
+        {
+            loadform(new FormNghiemthu());
+            UpdateButtonColor(sender as Button);
+        }
     }
 }

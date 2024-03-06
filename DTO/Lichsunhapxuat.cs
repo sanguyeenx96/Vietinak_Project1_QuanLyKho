@@ -15,7 +15,7 @@ namespace Vietinak_Kho.DTO
             string manhanvien, string bophan, string loaithaotac, string thoigian, 
             float soluongnhap, string nhapvaokho, float tonkhotruocnhapVTN, float tonkhosaunhapVTN,
             float tonkhotruocnhapDRG, float tonkhosaunhapDRG,float soluongxuat, string mucdichxuat, float tonkhotruocxuatVTN,
-            float tonkhosauxuatVTN, float tonkhotruocxuatDRG,float tonkhosauxuatDRG)
+            float tonkhosauxuatVTN, float tonkhotruocxuatDRG,float tonkhosauxuatDRG,string trangthai)
         {
             this.Id = id;
             this.Vattuid = vattuid;
@@ -38,11 +38,13 @@ namespace Vietinak_Kho.DTO
             this.TonkhosauxuatVTN = tonkhosauxuatVTN;
             this.TonkhotruocxuatDRG = tonkhotruocxuatDRG;
             this.TonkhosauxuatDRG = tonkhosauxuatDRG;
+            this.Trangthai = trangthai;
         }
         public Lichsunhapxuat(DataRow row)
         {
             // Kiểm tra và gán giá trị cho các thuộc tính
             this.Id = Convert.ToInt32(row["id"]);
+            this.Trangthai = row["trangthai"].ToString();
             this.Vattuid = Convert.ToInt32(row["vattuid"]);
             this.Mavattu = row["mavattu"].ToString();
             this.Donvi = row["donvi"].ToString();
@@ -89,6 +91,7 @@ namespace Vietinak_Kho.DTO
         private float tonkhosauxuatVTN;
         private float tonkhotruocxuatDRG;
         private float tonkhosauxuatDRG;
+        private string trangthai;
 
         public int Id { get => id; set => id = value; }
         public int Vattuid { get => vattuid; set => vattuid = value; }
@@ -111,5 +114,7 @@ namespace Vietinak_Kho.DTO
         public float TonkhosauxuatVTN { get => tonkhosauxuatVTN; set => tonkhosauxuatVTN = value; }
         public float TonkhotruocxuatDRG { get => tonkhotruocxuatDRG; set => tonkhotruocxuatDRG = value; }
         public float TonkhosauxuatDRG { get => tonkhosauxuatDRG; set => tonkhosauxuatDRG = value; }
+        public string Trangthai { get => trangthai; set => trangthai = value; }
+
     }
 }

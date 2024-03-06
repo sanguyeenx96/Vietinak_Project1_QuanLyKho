@@ -37,7 +37,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCount = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbLocdonvi = new System.Windows.Forms.ComboBox();
             this.cbLocdiengiai = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLoctukhoa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.btnThemnguyenvatlieu = new System.Windows.Forms.Button();
             this.btnSuanguyenvatlieu = new System.Windows.Forms.Button();
             this.btnXoanguyenvatlieu = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbLocdonvi = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 425);
+            this.panel1.Size = new System.Drawing.Size(947, 576);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -80,10 +80,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 425);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.9375F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.95139F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 576);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -92,7 +92,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 291);
+            this.groupBox1.Size = new System.Drawing.Size(941, 443);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách nguyên vật liệu";
@@ -105,7 +105,7 @@
             this.dgvDanhsachnguyenvatlieu.Location = new System.Drawing.Point(3, 16);
             this.dgvDanhsachnguyenvatlieu.Name = "dgvDanhsachnguyenvatlieu";
             this.dgvDanhsachnguyenvatlieu.ReadOnly = true;
-            this.dgvDanhsachnguyenvatlieu.Size = new System.Drawing.Size(805, 272);
+            this.dgvDanhsachnguyenvatlieu.Size = new System.Drawing.Size(935, 424);
             this.dgvDanhsachnguyenvatlieu.TabIndex = 0;
             // 
             // groupBox2
@@ -120,7 +120,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(811, 57);
+            this.groupBox2.Size = new System.Drawing.Size(941, 57);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lọc dữ liệu";
@@ -130,7 +130,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.Info;
             this.panel3.Controls.Add(this.txtCount);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(618, 10);
+            this.panel3.Location = new System.Drawing.Point(751, 11);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(187, 42);
             this.panel3.TabIndex = 3;
@@ -153,6 +153,16 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Số lượng nguyên vật liệu";
             // 
+            // cbLocdonvi
+            // 
+            this.cbLocdonvi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLocdonvi.FormattingEnabled = true;
+            this.cbLocdonvi.Location = new System.Drawing.Point(486, 22);
+            this.cbLocdonvi.Name = "cbLocdonvi";
+            this.cbLocdonvi.Size = new System.Drawing.Size(121, 21);
+            this.cbLocdonvi.TabIndex = 2;
+            this.cbLocdonvi.SelectedIndexChanged += new System.EventHandler(this.cbLocdonvi_SelectedIndexChanged);
+            // 
             // cbLocdiengiai
             // 
             this.cbLocdiengiai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -162,6 +172,15 @@
             this.cbLocdiengiai.Size = new System.Drawing.Size(121, 21);
             this.cbLocdiengiai.TabIndex = 2;
             this.cbLocdiengiai.SelectedIndexChanged += new System.EventHandler(this.cbLocdiengiai_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(422, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Lọc đơn vị";
             // 
             // label2
             // 
@@ -193,9 +212,9 @@
             // 
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 363);
+            this.groupBox3.Location = new System.Drawing.Point(3, 515);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(811, 59);
+            this.groupBox3.Size = new System.Drawing.Size(941, 58);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
@@ -206,7 +225,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(3, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(531, 40);
+            this.panel2.Size = new System.Drawing.Size(531, 39);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -277,30 +296,11 @@
             this.btnXoanguyenvatlieu.UseVisualStyleBackColor = false;
             this.btnXoanguyenvatlieu.Click += new System.EventHandler(this.btnXoanguyenvatlieu_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(422, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Lọc đơn vị";
-            // 
-            // cbLocdonvi
-            // 
-            this.cbLocdonvi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLocdonvi.FormattingEnabled = true;
-            this.cbLocdonvi.Location = new System.Drawing.Point(486, 22);
-            this.cbLocdonvi.Name = "cbLocdonvi";
-            this.cbLocdonvi.Size = new System.Drawing.Size(121, 21);
-            this.cbLocdonvi.TabIndex = 2;
-            this.cbLocdonvi.SelectedIndexChanged += new System.EventHandler(this.cbLocdonvi_SelectedIndexChanged);
-            // 
             // FormThongtinnguyenvatlieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 425);
+            this.ClientSize = new System.Drawing.Size(947, 576);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormThongtinnguyenvatlieu";

@@ -72,9 +72,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.70588F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.29412F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 425);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.58334F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.41667F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 576);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -83,7 +83,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 354);
+            this.groupBox1.Size = new System.Drawing.Size(467, 510);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách bộ phận";
@@ -96,16 +96,16 @@
             this.dgvBophan.Location = new System.Drawing.Point(3, 16);
             this.dgvBophan.Name = "dgvBophan";
             this.dgvBophan.ReadOnly = true;
-            this.dgvBophan.Size = new System.Drawing.Size(396, 335);
+            this.dgvBophan.Size = new System.Drawing.Size(461, 491);
             this.dgvBophan.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvChucvu);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(411, 3);
+            this.groupBox2.Location = new System.Drawing.Point(476, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(403, 354);
+            this.groupBox2.Size = new System.Drawing.Size(468, 510);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách chức vụ";
@@ -118,16 +118,16 @@
             this.dgvChucvu.Location = new System.Drawing.Point(3, 16);
             this.dgvChucvu.Name = "dgvChucvu";
             this.dgvChucvu.ReadOnly = true;
-            this.dgvChucvu.Size = new System.Drawing.Size(397, 335);
+            this.dgvChucvu.Size = new System.Drawing.Size(462, 491);
             this.dgvChucvu.TabIndex = 0;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 363);
+            this.groupBox3.Location = new System.Drawing.Point(3, 519);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(402, 59);
+            this.groupBox3.Size = new System.Drawing.Size(467, 54);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
@@ -138,7 +138,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 16);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(396, 40);
+            this.panel1.Size = new System.Drawing.Size(461, 35);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -213,9 +213,9 @@
             // 
             this.groupBox4.Controls.Add(this.panel2);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(411, 363);
+            this.groupBox4.Location = new System.Drawing.Point(476, 519);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(403, 59);
+            this.groupBox4.Size = new System.Drawing.Size(468, 54);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chức năng";
@@ -226,7 +226,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(397, 40);
+            this.panel2.Size = new System.Drawing.Size(462, 35);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -301,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 425);
+            this.ClientSize = new System.Drawing.Size(947, 576);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBophanvachucvu";

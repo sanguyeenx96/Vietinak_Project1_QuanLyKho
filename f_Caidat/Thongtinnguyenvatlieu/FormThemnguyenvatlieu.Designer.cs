@@ -49,7 +49,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.txtMavattu = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cbDonvi = new System.Windows.Forms.ComboBox();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -64,6 +63,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
+            this.cbMavattu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -296,20 +296,12 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.txtMavattu);
+            this.panel9.Controls.Add(this.cbMavattu);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(127, 3);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(264, 22);
             this.panel9.TabIndex = 1;
-            // 
-            // txtMavattu
-            // 
-            this.txtMavattu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMavattu.Location = new System.Drawing.Point(0, 0);
-            this.txtMavattu.Name = "txtMavattu";
-            this.txtMavattu.Size = new System.Drawing.Size(264, 20);
-            this.txtMavattu.TabIndex = 0;
             // 
             // panel10
             // 
@@ -332,6 +324,7 @@
             this.cbDonvi.Name = "cbDonvi";
             this.cbDonvi.Size = new System.Drawing.Size(264, 21);
             this.cbDonvi.TabIndex = 0;
+            this.cbDonvi.Enter += new System.EventHandler(this.cbDonvi_Enter);
             // 
             // panel11
             // 
@@ -460,6 +453,15 @@
             this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
+            // cbMavattu
+            // 
+            this.cbMavattu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbMavattu.FormattingEnabled = true;
+            this.cbMavattu.Location = new System.Drawing.Point(0, 0);
+            this.cbMavattu.Name = "cbMavattu";
+            this.cbMavattu.Size = new System.Drawing.Size(264, 21);
+            this.cbMavattu.TabIndex = 0;
+            // 
             // FormThemnguyenvatlieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +496,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -532,7 +533,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox txtMavattu;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
@@ -547,5 +547,6 @@
         private System.Windows.Forms.TextBox txtDiengiai;
         private System.Windows.Forms.TextBox txtTonkhoVTN;
         private System.Windows.Forms.Button btnHuybo;
+        private System.Windows.Forms.ComboBox cbMavattu;
     }
 }

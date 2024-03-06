@@ -47,16 +47,23 @@ namespace Vietinak_Kho
             loadform(fBophanvachucvu);
             UpdateButtonColor(sender as ToolStripButton);
         }
-
+        
         private void FormCaidat_Load(object sender, EventArgs e)
         {
-            btnThongtinnguyenvatlieu.PerformClick();
+            btnDanhsachNVL.PerformClick();
         }
 
         private void btnThongtinnguyenvatlieu_Click(object sender, EventArgs e)
         {
             FormThongtinnguyenvatlieu fThongtinnguyenvatlieu = new FormThongtinnguyenvatlieu();
             loadform(fThongtinnguyenvatlieu);
+            UpdateButtonColor(sender as ToolStripButton);
+        }
+
+        private void btnDanhsachNVL_Click(object sender, EventArgs e)
+        {
+            FormDanhsachnguyenvatlieu fDanhsachnguyenvatlieu = new FormDanhsachnguyenvatlieu();
+            loadform(fDanhsachnguyenvatlieu);
             UpdateButtonColor(sender as ToolStripButton);
         }
     }

@@ -29,7 +29,6 @@ namespace Vietinak_Kho
         {
             chart.Series.Clear();
             chart.ChartAreas.Clear();
-
             // Tạo ChartArea
             ChartArea chartArea = new ChartArea();
             chart.ChartAreas.Add(chartArea);
@@ -39,7 +38,6 @@ namespace Vietinak_Kho
             seriesNhap.Color = Color.LightGreen;
             seriesNhap.ChartType = SeriesChartType.Column;
             seriesNhap.CustomProperties = "DrawingStyle=Cylinder";
-
             chart.Series.Add(seriesNhap);
 
             // Tạo series cho dữ liệu xuất
@@ -47,9 +45,7 @@ namespace Vietinak_Kho
             seriesXuat.Color = Color.Goldenrod;
             seriesXuat.ChartType = SeriesChartType.Column;
             seriesXuat.CustomProperties = "DrawingStyle=Cylinder";
-
             chart.Series.Add(seriesXuat);
-
             // Thêm dữ liệu từ DataTable nhập vào series nhập
             for (int i = 0; i < dataNhap.Rows.Count; i++)
             {
@@ -60,7 +56,6 @@ namespace Vietinak_Kho
                 // Thêm điểm dữ liệu và đặt nhãn giá trị dưới cột
                 seriesNhap.Points.Add(soluongNhap).Label = soluongNhap.ToString() + " " + donvi;
             }
-
             // Thêm dữ liệu từ DataTable xuất vào series xuất
             for (int i = 0; i < dataXuat.Rows.Count; i++)
             {
@@ -71,7 +66,6 @@ namespace Vietinak_Kho
                 // Thêm điểm dữ liệu và đặt nhãn giá trị dưới cột
                 seriesXuat.Points.Add(soluongXuat).Label = soluongXuat.ToString() + " " + donvi;
             }
-
             // Cài đặt trục x
             chartArea.AxisX.Interval = 0.1; // Cài đặt khoảng cách giữa các cột là 1
             chartArea.AxisX.LabelStyle.Angle = -45; // Xoay nhãn trục x để tránh chồng chéo
@@ -288,7 +282,7 @@ namespace Vietinak_Kho
             if (cbloc.Text != "Tất cả")
             {
                 DataRow[] rowsNhap = originalDataNhap.Select("Donvi = '" + cbloc.Text + "'");
-                DataTable filteredDataNhap = originalDataNhap.Clone(); // Tạo một bản sao của schema (cấu trúc) của DataTable dataNhap
+                DataTable filteredDataNhap = originalDataNhap.Clone(); 
                 foreach (DataRow row in rowsNhap)
                 {
                     filteredDataNhap.ImportRow(row); // Thêm các dòng đã lọc vào DataTable mới

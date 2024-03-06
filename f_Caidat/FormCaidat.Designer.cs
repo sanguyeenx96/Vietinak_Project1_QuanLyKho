@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnDanhsachNVL = new System.Windows.Forms.ToolStripButton();
             this.btnThongtinnguyenvatlieu = new System.Windows.Forms.ToolStripButton();
             this.btnBophanchucvu = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
@@ -45,7 +46,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 450);
+            this.panel1.Size = new System.Drawing.Size(947, 601);
             this.panel1.TabIndex = 0;
             // 
             // panelMain
@@ -53,27 +54,38 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 25);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(817, 425);
+            this.panelMain.Size = new System.Drawing.Size(947, 576);
             this.panelMain.TabIndex = 1;
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDanhsachNVL,
             this.btnThongtinnguyenvatlieu,
             this.btnBophanchucvu});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(817, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(947, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnDanhsachNVL
+            // 
+            this.btnDanhsachNVL.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsachNVL.Image")));
+            this.btnDanhsachNVL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDanhsachNVL.Name = "btnDanhsachNVL";
+            this.btnDanhsachNVL.Size = new System.Drawing.Size(290, 22);
+            this.btnDanhsachNVL.Text = "Danh sách chi tiết thông tin nguyên vật liệu (PPC)";
+            this.btnDanhsachNVL.Click += new System.EventHandler(this.btnDanhsachNVL_Click);
             // 
             // btnThongtinnguyenvatlieu
             // 
             this.btnThongtinnguyenvatlieu.Image = ((System.Drawing.Image)(resources.GetObject("btnThongtinnguyenvatlieu.Image")));
             this.btnThongtinnguyenvatlieu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThongtinnguyenvatlieu.Name = "btnThongtinnguyenvatlieu";
-            this.btnThongtinnguyenvatlieu.Size = new System.Drawing.Size(162, 22);
-            this.btnThongtinnguyenvatlieu.Text = "Thông tin nguyên vật liệu";
+            this.btnThongtinnguyenvatlieu.Size = new System.Drawing.Size(274, 22);
+            this.btnThongtinnguyenvatlieu.Text = "Danh sách thông tin nguyên vật liệu kho (VTN)";
+            this.btnThongtinnguyenvatlieu.ToolTipText = "Thông tin nguyên vật liệu kho";
             this.btnThongtinnguyenvatlieu.Click += new System.EventHandler(this.btnThongtinnguyenvatlieu_Click);
             // 
             // btnBophanchucvu
@@ -89,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 450);
+            this.ClientSize = new System.Drawing.Size(947, 601);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCaidat";
@@ -110,5 +122,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnBophanchucvu;
         private System.Windows.Forms.ToolStripButton btnThongtinnguyenvatlieu;
+        private System.Windows.Forms.ToolStripButton btnDanhsachNVL;
     }
 }

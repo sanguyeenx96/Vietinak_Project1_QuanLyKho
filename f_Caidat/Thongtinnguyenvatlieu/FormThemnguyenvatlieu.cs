@@ -16,9 +16,22 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
 {
     public partial class FormThemnguyenvatlieu : Form
     {
+        private List<Danhsachnguyenvatlieu> allDanhsachNVL;
         public FormThemnguyenvatlieu()
         {
             InitializeComponent();
+            LoadMavattuToComboBox();
+        }
+        private void LoadMavattuToComboBox()
+        {
+            allDanhsachNVL = DanhsachnguyenvatlieuDAO.Instance.LoadTableList_Danhsachnguyenvatlieu();
+            foreach (Danhsachnguyenvatlieu item in allDanhsachNVL)
+            {
+                cbMavattu.Items.Add(item.Materialvtn);
+            }
+            // Thiết lập cho ComboBox tự động gợi ý các giá trị khi gõ
+            cbMavattu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbMavattu.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private bool IsNumeric(string input)
         {
@@ -28,7 +41,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
         }
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMavattu.Text) ||
+            if (string.IsNullOrWhiteSpace(cbMavattu.Text) ||
                 string.IsNullOrWhiteSpace(cbDonvi.Text) ||
                 string.IsNullOrWhiteSpace(txtKgtrenbao.Text) ||
                 string.IsNullOrWhiteSpace(txtDiengiai.Text) ||
@@ -40,7 +53,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
                 return;
             }
 
-            string mavattu = txtMavattu.Text;
+            string mavattu = cbMavattu.Text;
             string donvi = cbDonvi.Text.ToString();
             string diengiai = txtDiengiai.Text;
             string kgtrenbao = txtKgtrenbao.Text;
@@ -76,6 +89,16 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
         private void btnHuybo_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbDonvi_Enter(object sender, EventArgs e)
+        {
+            string userInput = cbMavattu.Text;
+            if (allDanhsachNVL.Where(x => x.Materialvtn == userInput).Count() == 0)
+            {
+                MessageBox.Show("Chỉ được thêm vật tư trong danh sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);           
+                cbMavattu.Focus();
+            }
         }
     }
 }

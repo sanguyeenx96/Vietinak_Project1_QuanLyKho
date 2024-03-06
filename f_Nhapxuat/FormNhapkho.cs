@@ -20,7 +20,6 @@ namespace Vietinak_Kho.f_Nhapxuat
         private List<Thongtinvattu> allThongtinvattu;
         private Thongtinvattu infoThongtinvattu;
 
-
         public FormNhapkho(User userInfo)
         {
             InitializeComponent();
@@ -50,7 +49,6 @@ namespace Vietinak_Kho.f_Nhapxuat
             txtNgaygionhap.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             txtNguoithaotac.Text = userInfo.Hoten;
             cbmavattu.Focus();
-            cbNhapvaokho.SelectedItem = "VTN";
         }
 
         private void cbmavattu_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,19 +64,21 @@ namespace Vietinak_Kho.f_Nhapxuat
                 txttonkhodrg.Text = infoThongtinvattu.Tonkhodrg.ToString();
                 txtdonvi2.Text = infoThongtinvattu.Donvi.ToString();
             }
-
         }
 
         private void cbmavattu_Leave(object sender, EventArgs e)
         {
-
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbmavattu.Text) ||
+            if (
+                string.IsNullOrWhiteSpace(txtinvoiceno.Text) ||
+                string.IsNullOrWhiteSpace(txtpartno.Text) ||
+                string.IsNullOrWhiteSpace(cbmavattu.Text) ||
                 string.IsNullOrWhiteSpace(txtSoluongnhap.Text) ||
-                string.IsNullOrWhiteSpace(cbNhapvaokho.Text))
+                string.IsNullOrWhiteSpace(cbNhapvaokho.Text)
+                )
             {
                 MessageBox.Show("Cần nhập đầy đủ các thông tin!",
                     "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -102,32 +102,34 @@ namespace Vietinak_Kho.f_Nhapxuat
             //Tính toán sô lượng hàng nhập
             float tonkhotruocnhapVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
             float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
-            float tonkhosaunhapVTN = tonkhotruocnhapVTN; // Khởi tạo biến tồn kho sau nhập vào VTN
-            float tonkhosaunhapDRG = tonkhotruocnhapDRG; // Khởi tạo biến tồn kho sau nhập vào DRAGON
+            float tonkhosaunhapVTN = tonkhotruocnhapVTN;
+            float tonkhosaunhapDRG = tonkhotruocnhapDRG; 
             if (nhapvaokho == "VTN")
             {
-                tonkhosaunhapVTN += soluongnhap; // Tăng tồn kho sau nhập vào VTN
+                tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
             }
             else if (nhapvaokho == "DRAGON")
             {
-                tonkhosaunhapDRG += soluongnhap; // Tăng tồn kho sau nhập vào DRAGON
+                tonkhosaunhapDRG += soluongnhap; //Tăng tồn kho sau nhập vào DRAGON
             }
             else if (nhapvaokho == "NHẬP LẠI")
             {
-                tonkhosaunhapDRG -= soluongnhap; // Giảm tồn kho DRAGON
-                tonkhosaunhapVTN += soluongnhap; // Tăng tồn kho VTN
+                tonkhosaunhapDRG -= soluongnhap; //Giảm tồn kho DRAGON
+                tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho VTN
             }
+            string trangthai = "CHỜ NGHIỆM THU";
 
             bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, donvi, tennguoithaotac,
              manhanvien, bophan, loaithaotac, thoigian,
              soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
-            tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+            tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
 
             bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
             if (success1 && success2)
             {
                 allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-
+                txtinvoiceno.Text = "";
+                txtpartno.Text = "";
                 txtDiengiai.Text = "";
                 txtDonvitinh.Text = "";
                 txtKgtrenbao.Text = "";
@@ -139,9 +141,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 cbmavattu.Focus();
                 FormThanhcong fthanhcong = new FormThanhcong();
                 fthanhcong.ShowDialog();
-
             }
-
         }
 
         private void btnHuybo_Click(object sender, EventArgs e)
@@ -172,5 +172,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 cbmavattu.Focus();
             }
         }
+
+  
     }
 }

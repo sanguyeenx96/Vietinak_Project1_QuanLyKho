@@ -25,13 +25,13 @@ namespace Vietinak_Kho.f_Caidat
         private void UpdateDataGridViewBophan(List<Bophan> bophans)
         {
             dgvBophan.DataSource = bophans;
-            dgvBophan.Columns["Id"].HeaderText = "Id";
+            dgvBophan.Columns["Id"].Visible = false;
             dgvBophan.Columns["Name"].HeaderText = "Tên bộ phận";
         }
         private void UpdateDataGridViewChucvu(List<Chucvu> chucvus)
         {
             dgvChucvu.DataSource = chucvus;
-            dgvChucvu.Columns["Id"].HeaderText = "Id";
+            dgvChucvu.Columns["Id"].Visible = false;
             dgvChucvu.Columns["Name"].HeaderText = "Tên chức vụ";
         }
         private void FormBophanvachucvu_Load(object sender, EventArgs e)
