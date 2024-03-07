@@ -1,6 +1,6 @@
-﻿namespace Vietinak_Kho.f_Khohang
+﻿namespace Vietinak_Kho.f_Qccheck
 {
-    partial class FormThongke
+    partial class FormQccheck
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThongke));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQccheck));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnDanhsachvattu = new System.Windows.Forms.ToolStripButton();
-            this.btnLichsunhap = new System.Windows.Forms.ToolStripButton();
-            this.btnLichsuxuat = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panelChinh = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -40,41 +38,20 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnLichsunhap,
-            this.btnLichsuxuat,
-            this.btnDanhsachvattu});
+            this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(947, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnDanhsachvattu
+            // toolStripButton1
             // 
-            this.btnDanhsachvattu.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsachvattu.Image")));
-            this.btnDanhsachvattu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDanhsachvattu.Name = "btnDanhsachvattu";
-            this.btnDanhsachvattu.Size = new System.Drawing.Size(115, 22);
-            this.btnDanhsachvattu.Text = "Danh sách vật tư";
-            this.btnDanhsachvattu.Click += new System.EventHandler(this.btnDanhsachvattu_Click);
-            // 
-            // btnLichsunhap
-            // 
-            this.btnLichsunhap.Image = ((System.Drawing.Image)(resources.GetObject("btnLichsunhap.Image")));
-            this.btnLichsunhap.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLichsunhap.Name = "btnLichsunhap";
-            this.btnLichsunhap.Size = new System.Drawing.Size(97, 22);
-            this.btnLichsunhap.Text = "Lịch sử nhập ";
-            this.btnLichsunhap.Click += new System.EventHandler(this.btnLichsunhap_Click);
-            // 
-            // btnLichsuxuat
-            // 
-            this.btnLichsuxuat.Image = ((System.Drawing.Image)(resources.GetObject("btnLichsuxuat.Image")));
-            this.btnLichsuxuat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLichsuxuat.Name = "btnLichsuxuat";
-            this.btnLichsuxuat.Size = new System.Drawing.Size(93, 22);
-            this.btnLichsuxuat.Text = "Lịch sử xuất ";
-            this.btnLichsuxuat.Click += new System.EventHandler(this.btnLichsuxuat_Click);
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(159, 22);
+            this.toolStripButton1.Text = "Danh sách chờ QC check";
             // 
             // panelChinh
             // 
@@ -84,7 +61,7 @@
             this.panelChinh.Size = new System.Drawing.Size(947, 576);
             this.panelChinh.TabIndex = 1;
             // 
-            // FormThongke
+            // FormQccheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,9 +69,8 @@
             this.Controls.Add(this.panelChinh);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormThongke";
-            this.Text = "FormKhohang";
-            this.Load += new System.EventHandler(this.FormThongke_Load);
+            this.Name = "FormQccheck";
+            this.Text = "FormQccheck";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -105,9 +81,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnDanhsachvattu;
-        private System.Windows.Forms.ToolStripButton btnLichsunhap;
-        private System.Windows.Forms.ToolStripButton btnLichsuxuat;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Panel panelChinh;
     }
 }

@@ -9,24 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Nghiemthu;
 
-namespace Vietinak_Kho.f_Nghiemthu
+namespace Vietinak_Kho.f_Qccheck
 {
-    public partial class FormDanhsachchonghiemthu : Form
+    public partial class FormDanhsachchoqccheck : Form
     {
         private User userInfo;
+        private List<Lichsunhapxuat> allCQC;
 
-        private List<Lichsunhapxuat> allCNT;
-        public FormDanhsachchonghiemthu(User userInfo)
+        public FormDanhsachchoqccheck(User userInfo)
         {
             InitializeComponent();
             this.userInfo = userInfo;
         }
 
-        private void FormDanhsachchonghiemthu_Load(object sender, EventArgs e)
+        private void FormDanhsachchoqccheck_Load(object sender, EventArgs e)
         {
-            allCNT = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchonghiemthu();
-            foreach (var lichsu in allCNT)
+            allCQC = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchoqccheck();
+            foreach (var lichsu in allCQC)
             {
                 // Tạo một Button để hiển thị thông tin của mỗi phần tử
                 Button itemButton = new Button();
@@ -36,7 +37,9 @@ namespace Vietinak_Kho.f_Nghiemthu
                     + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
                     + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
                     + "Thời gian nhập: " + lichsu.Thoigian + "\n";
-                itemButton.BackColor = Color.Gold; // Tuỳ chỉnh màu nền và kích thước
+                itemButton.BackColor = Color.Teal;
+                itemButton.ForeColor = Color.White;
+
                 itemButton.Tag = lichsu;
                 itemButton.Click += ItemButtonClick;
                 // Thêm Button vào FlowLayoutPanel
@@ -52,6 +55,5 @@ namespace Vietinak_Kho.f_Nghiemthu
             fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
             fthnt.ShowDialog();
         }
-
     }
 }

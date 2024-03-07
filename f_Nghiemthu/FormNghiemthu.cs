@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vietinak_Kho.DTO;
 using Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu;
 
 namespace Vietinak_Kho.f_Nghiemthu
@@ -14,10 +15,12 @@ namespace Vietinak_Kho.f_Nghiemthu
     public partial class FormNghiemthu : Form
     {
         private ToolStripButton activeButton;
+        private User userInfo;
 
-        public FormNghiemthu()
+        public FormNghiemthu(User userInfo)
         {
             InitializeComponent();
+            this.userInfo = userInfo;
         }
         public void loadform(Form frm)
         {
@@ -46,8 +49,9 @@ namespace Vietinak_Kho.f_Nghiemthu
 
         private void btnDanhsachchonghiemthu_Click(object sender, EventArgs e)
         {
-            FormDanhsachchonghiemthu fThongtinnguyenvatlieu = new FormDanhsachchonghiemthu();
-            loadform(fThongtinnguyenvatlieu);
+            
+            FormDanhsachchonghiemthu fcnt = new FormDanhsachchonghiemthu(userInfo);
+            loadform(fcnt);
             UpdateButtonColor(sender as ToolStripButton);
         }
     }
