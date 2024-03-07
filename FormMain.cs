@@ -11,6 +11,7 @@ using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
 using Vietinak_Kho.f_Khohang;
 using Vietinak_Kho.f_Nghiemthu;
+using Vietinak_Kho.f_Qccheck;
 
 namespace Vietinak_Kho
 {
@@ -115,7 +116,15 @@ namespace Vietinak_Kho
 
         private void btnNghiemthu_Click(object sender, EventArgs e)
         {
-            loadform(new FormNghiemthu());
+            FormNghiemthu fnt = new FormNghiemthu(userInfo);
+            loadform(fnt);
+            UpdateButtonColor(sender as Button);
+        }
+
+        private void btnqccheck_Click(object sender, EventArgs e)
+        {
+            FormDanhsachchoqccheck fqcc = new FormDanhsachchoqccheck(userInfo);
+            loadform(fqcc);
             UpdateButtonColor(sender as Button);
         }
     }

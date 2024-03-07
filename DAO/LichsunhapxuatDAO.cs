@@ -160,5 +160,52 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+
+        public List<Lichsunhapxuat> LoadTableList_Lichsuchoqccheck()
+        {
+            List<Lichsunhapxuat> tableList = new List<Lichsunhapxuat>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE trangthai= N'CHỜ QC CHECK' ");
+            foreach (DataRow item in data.Rows)
+            {
+                Lichsunhapxuat table = new Lichsunhapxuat(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+
+        public bool UpdateXacNhanNghiemThu(int id)
+        {
+            try
+            {
+                string checkQuery = string.Format("SELECT COUNT(*) FROM dbo.tbllichsunhapxuat WHERE id = N'{0}'", id);
+                int existingUserCount = (int)DataProvider.Instance.ExecuteScalar(checkQuery);
+                if (existingUserCount == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu lịch sử nghiệm thu này!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                // Update the user's information in the database
+                string query = string.Format("UPDATE dbo.tbllichsunhapxuat SET trangthai = N'{0}' WHERE id = N'{1}'", "CHỜ QC CHECK", id);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật dữ liệu nghiệm thu!",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật dữ liệu nghiệm thu: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }

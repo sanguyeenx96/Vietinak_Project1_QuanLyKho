@@ -51,7 +51,7 @@
     <Compile Include="DAO\ChucvuDAO.cs" />
     <Compile Include="DAO\DanhsachnguyenvatlieuDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="DAO\LichsunghiemthuDAO.cs" />
+    <Compile Include="DAO\LichsunhapchitietDAO.cs" />
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
     <Compile Include="DAO\ThongtinvattuDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="DTO\Bophan.cs" />
     <Compile Include="DTO\Chucvu.cs" />
     <Compile Include="DTO\Danhsachnguyenvatlieu.cs" />
-    <Compile Include="DTO\Lichsunghiemthu.cs" />
+    <Compile Include="DTO\Lichsunhapchitiet.cs" />
     <Compile Include="DTO\Lichsunhapxuat.cs" />
     <Compile Include="DTO\Thongtinvattu.cs" />
     <Compile Include="DTO\User.cs" />
@@ -190,11 +190,35 @@
     <Compile Include="f_Nhapxuat\FormXuatkho.Designer.cs">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_Qccheck\FormDanhsachchoqccheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Qccheck\FormDanhsachchoqccheck.Designer.cs">
+      <DependentUpon>FormDanhsachchoqccheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Qccheck\FormQccheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Qccheck\FormQccheck.Designer.cs">
+      <DependentUpon>FormQccheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Qccheck\FormTienhanhqccheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Qccheck\FormTienhanhqccheck.Designer.cs">
+      <DependentUpon>FormTienhanhqccheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_Thongke\FormDanhsachvattu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="f_Thongke\FormDanhsachvattu.Designer.cs">
       <DependentUpon>FormDanhsachvattu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunghiemthuxemnhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunghiemthuxemnhanh.Designer.cs">
+      <DependentUpon>FormLichsunghiemthuxemnhanh.cs</DependentUpon>
     </Compile>
     <Compile Include="f_Thongke\FormLichsuxuat.cs">
       <SubType>Form</SubType>
@@ -362,8 +386,20 @@
     <EmbeddedResource Include="f_Nhapxuat\FormXuatkho.resx">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_Qccheck\FormDanhsachchoqccheck.resx">
+      <DependentUpon>FormDanhsachchoqccheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Qccheck\FormQccheck.resx">
+      <DependentUpon>FormQccheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Qccheck\FormTienhanhqccheck.resx">
+      <DependentUpon>FormTienhanhqccheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_Thongke\FormDanhsachvattu.resx">
       <DependentUpon>FormDanhsachvattu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Thongke\FormLichsunghiemthuxemnhanh.resx">
+      <DependentUpon>FormLichsunghiemthuxemnhanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_Thongke\FormLichsuxuat.resx">
       <DependentUpon>FormLichsuxuat.cs</DependentUpon>

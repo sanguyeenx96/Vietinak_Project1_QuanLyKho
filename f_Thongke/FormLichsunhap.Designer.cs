@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDenngay = new System.Windows.Forms.DateTimePicker();
+            this.dtpXemtheongay = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
             this.dtpTungay = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxLichsunhap = new System.Windows.Forms.GroupBox();
@@ -79,8 +81,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtThoigian = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dtpXemtheongay = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -109,7 +109,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 425);
+            this.panel1.Size = new System.Drawing.Size(947, 576);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -123,10 +123,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.77228F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.22772F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.75771F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.24229F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 425);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 576);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -143,7 +143,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 63);
+            this.groupBox1.Size = new System.Drawing.Size(941, 61);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc dữ liệu";
@@ -153,7 +153,7 @@
             this.panel14.BackColor = System.Drawing.Color.Black;
             this.panel14.Controls.Add(this.txtTongso);
             this.panel14.Controls.Add(this.label15);
-            this.panel14.Location = new System.Drawing.Point(673, 23);
+            this.panel14.Location = new System.Drawing.Point(803, 20);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(135, 27);
             this.panel14.TabIndex = 3;
@@ -181,7 +181,7 @@
             // 
             // txtLoctukhoa
             // 
-            this.txtLoctukhoa.Location = new System.Drawing.Point(549, 27);
+            this.txtLoctukhoa.Location = new System.Drawing.Point(69, 25);
             this.txtLoctukhoa.Name = "txtLoctukhoa";
             this.txtLoctukhoa.Size = new System.Drawing.Size(100, 20);
             this.txtLoctukhoa.TabIndex = 2;
@@ -190,7 +190,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(496, 31);
+            this.label3.Location = new System.Drawing.Point(16, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 0;
@@ -199,7 +199,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 42);
+            this.label2.Location = new System.Drawing.Point(464, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
@@ -207,15 +207,32 @@
             // 
             // dtpDenngay
             // 
-            this.dtpDenngay.Location = new System.Drawing.Point(319, 38);
+            this.dtpDenngay.Location = new System.Drawing.Point(523, 39);
             this.dtpDenngay.Name = "dtpDenngay";
             this.dtpDenngay.Size = new System.Drawing.Size(147, 20);
             this.dtpDenngay.TabIndex = 1;
             this.dtpDenngay.ValueChanged += new System.EventHandler(this.dtpDenngay_ValueChanged);
             // 
+            // dtpXemtheongay
+            // 
+            this.dtpXemtheongay.Location = new System.Drawing.Point(280, 25);
+            this.dtpXemtheongay.Name = "dtpXemtheongay";
+            this.dtpXemtheongay.Size = new System.Drawing.Size(147, 20);
+            this.dtpXemtheongay.TabIndex = 1;
+            this.dtpXemtheongay.ValueChanged += new System.EventHandler(this.dtpXemtheongay_ValueChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(196, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Xem theo ngày";
+            // 
             // dtpTungay
             // 
-            this.dtpTungay.Location = new System.Drawing.Point(319, 12);
+            this.dtpTungay.Location = new System.Drawing.Point(523, 13);
             this.dtpTungay.Name = "dtpTungay";
             this.dtpTungay.Size = new System.Drawing.Size(147, 20);
             this.dtpTungay.TabIndex = 1;
@@ -224,7 +241,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 18);
+            this.label1.Location = new System.Drawing.Point(472, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
@@ -234,9 +251,9 @@
             // 
             this.groupBoxLichsunhap.Controls.Add(this.dgvLichsunhap);
             this.groupBoxLichsunhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxLichsunhap.Location = new System.Drawing.Point(3, 72);
+            this.groupBoxLichsunhap.Location = new System.Drawing.Point(3, 70);
             this.groupBoxLichsunhap.Name = "groupBoxLichsunhap";
-            this.groupBoxLichsunhap.Size = new System.Drawing.Size(811, 228);
+            this.groupBoxLichsunhap.Size = new System.Drawing.Size(941, 381);
             this.groupBoxLichsunhap.TabIndex = 2;
             this.groupBoxLichsunhap.TabStop = false;
             this.groupBoxLichsunhap.Text = "Lịch sử nhập";
@@ -249,8 +266,7 @@
             this.dgvLichsunhap.Location = new System.Drawing.Point(3, 16);
             this.dgvLichsunhap.Name = "dgvLichsunhap";
             this.dgvLichsunhap.ReadOnly = true;
-            this.dgvLichsunhap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLichsunhap.Size = new System.Drawing.Size(805, 209);
+            this.dgvLichsunhap.Size = new System.Drawing.Size(935, 362);
             this.dgvLichsunhap.TabIndex = 0;
             this.dgvLichsunhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichsunhap_CellClick);
             // 
@@ -258,9 +274,9 @@
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel2);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 306);
+            this.groupBox3.Location = new System.Drawing.Point(3, 457);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(811, 116);
+            this.groupBox3.Size = new System.Drawing.Size(941, 116);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin chi tiết";
@@ -292,7 +308,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(805, 97);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(935, 97);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
@@ -303,7 +319,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(194, 25);
+            this.panel2.Size = new System.Drawing.Size(226, 25);
             this.panel2.TabIndex = 0;
             // 
             // txtMavattu
@@ -331,9 +347,9 @@
             this.panel3.Controls.Add(this.txtSoluongnhap);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(205, 4);
+            this.panel3.Location = new System.Drawing.Point(237, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 25);
+            this.panel3.Size = new System.Drawing.Size(226, 25);
             this.panel3.TabIndex = 0;
             // 
             // txtSoluongnhap
@@ -361,9 +377,9 @@
             this.panel4.Controls.Add(this.txtDonvi);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(406, 4);
+            this.panel4.Location = new System.Drawing.Point(470, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(194, 25);
+            this.panel4.Size = new System.Drawing.Size(226, 25);
             this.panel4.TabIndex = 0;
             // 
             // txtDonvi
@@ -391,9 +407,9 @@
             this.panel5.Controls.Add(this.txtNhapvaokho);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(607, 4);
+            this.panel5.Location = new System.Drawing.Point(703, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(194, 25);
+            this.panel5.Size = new System.Drawing.Size(228, 25);
             this.panel5.TabIndex = 0;
             // 
             // txtNhapvaokho
@@ -421,9 +437,9 @@
             this.panel6.Controls.Add(this.txtTonkhosaunhapDRG);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(607, 36);
+            this.panel6.Location = new System.Drawing.Point(703, 36);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(194, 25);
+            this.panel6.Size = new System.Drawing.Size(228, 25);
             this.panel6.TabIndex = 0;
             // 
             // txtTonkhosaunhapDRG
@@ -451,9 +467,9 @@
             this.panel7.Controls.Add(this.txtTonkhotruocnhapDRG);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(406, 36);
+            this.panel7.Location = new System.Drawing.Point(470, 36);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(194, 25);
+            this.panel7.Size = new System.Drawing.Size(226, 25);
             this.panel7.TabIndex = 0;
             // 
             // txtTonkhotruocnhapDRG
@@ -481,9 +497,9 @@
             this.panel8.Controls.Add(this.txtTonkhosaunhapVTN);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(205, 36);
+            this.panel8.Location = new System.Drawing.Point(237, 36);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(194, 25);
+            this.panel8.Size = new System.Drawing.Size(226, 25);
             this.panel8.TabIndex = 0;
             // 
             // txtTonkhosaunhapVTN
@@ -513,7 +529,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(4, 36);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(194, 25);
+            this.panel9.Size = new System.Drawing.Size(226, 25);
             this.panel9.TabIndex = 0;
             // 
             // txtTonkhotruocnhapVTN
@@ -543,7 +559,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 68);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(194, 25);
+            this.panel10.Size = new System.Drawing.Size(226, 25);
             this.panel10.TabIndex = 0;
             // 
             // txtNguoithaotac
@@ -571,9 +587,9 @@
             this.panel11.Controls.Add(this.txtManhanvien);
             this.panel11.Controls.Add(this.label13);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(205, 68);
+            this.panel11.Location = new System.Drawing.Point(237, 68);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(194, 25);
+            this.panel11.Size = new System.Drawing.Size(226, 25);
             this.panel11.TabIndex = 0;
             // 
             // txtManhanvien
@@ -601,9 +617,9 @@
             this.panel12.Controls.Add(this.txtBophan);
             this.panel12.Controls.Add(this.label14);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(406, 68);
+            this.panel12.Location = new System.Drawing.Point(470, 68);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(194, 25);
+            this.panel12.Size = new System.Drawing.Size(226, 25);
             this.panel12.TabIndex = 0;
             // 
             // txtBophan
@@ -630,9 +646,9 @@
             this.panel13.BackColor = System.Drawing.SystemColors.Info;
             this.panel13.Controls.Add(this.txtThoigian);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(607, 68);
+            this.panel13.Location = new System.Drawing.Point(703, 68);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(194, 25);
+            this.panel13.Size = new System.Drawing.Size(228, 25);
             this.panel13.TabIndex = 0;
             // 
             // txtThoigian
@@ -645,28 +661,11 @@
             this.txtThoigian.TabIndex = 1;
             this.txtThoigian.Text = "_";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(9, 31);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Xem theo ngày";
-            // 
-            // dtpXemtheongay
-            // 
-            this.dtpXemtheongay.Location = new System.Drawing.Point(93, 28);
-            this.dtpXemtheongay.Name = "dtpXemtheongay";
-            this.dtpXemtheongay.Size = new System.Drawing.Size(147, 20);
-            this.dtpXemtheongay.TabIndex = 1;
-            this.dtpXemtheongay.ValueChanged += new System.EventHandler(this.dtpXemtheongay_ValueChanged);
-            // 
             // FormLichsunhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 425);
+            this.ClientSize = new System.Drawing.Size(947, 576);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormLichsunhap";

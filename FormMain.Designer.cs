@@ -51,13 +51,14 @@
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnqccheck = new System.Windows.Forms.Button();
+            this.btnNghiemthu = new System.Windows.Forms.Button();
             this.btnCaidat = new System.Windows.Forms.Button();
             this.btnKhohang = new System.Windows.Forms.Button();
             this.btnNhapXuat = new System.Windows.Forms.Button();
             this.btnTaikhoan = new System.Windows.Forms.Button();
             this.btnTrangchinh = new System.Windows.Forms.Button();
             this.panelTong = new System.Windows.Forms.Panel();
-            this.btnNghiemthu = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -273,6 +274,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnqccheck);
             this.panel5.Controls.Add(this.btnNghiemthu);
             this.panel5.Controls.Add(this.btnCaidat);
             this.panel5.Controls.Add(this.btnKhohang);
@@ -282,8 +284,42 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(88, 450);
+            this.panel5.Size = new System.Drawing.Size(88, 514);
             this.panel5.TabIndex = 0;
+            // 
+            // btnqccheck
+            // 
+            this.btnqccheck.BackColor = System.Drawing.Color.Transparent;
+            this.btnqccheck.FlatAppearance.BorderSize = 0;
+            this.btnqccheck.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnqccheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnqccheck.Image = ((System.Drawing.Image)(resources.GetObject("btnqccheck.Image")));
+            this.btnqccheck.Location = new System.Drawing.Point(3, 120);
+            this.btnqccheck.Name = "btnqccheck";
+            this.btnqccheck.Size = new System.Drawing.Size(82, 51);
+            this.btnqccheck.TabIndex = 0;
+            this.btnqccheck.Text = "QC Check";
+            this.btnqccheck.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnqccheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnqccheck.UseVisualStyleBackColor = false;
+            this.btnqccheck.Click += new System.EventHandler(this.btnqccheck_Click);
+            // 
+            // btnNghiemthu
+            // 
+            this.btnNghiemthu.BackColor = System.Drawing.Color.Transparent;
+            this.btnNghiemthu.FlatAppearance.BorderSize = 0;
+            this.btnNghiemthu.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNghiemthu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNghiemthu.Image = ((System.Drawing.Image)(resources.GetObject("btnNghiemthu.Image")));
+            this.btnNghiemthu.Location = new System.Drawing.Point(3, 63);
+            this.btnNghiemthu.Name = "btnNghiemthu";
+            this.btnNghiemthu.Size = new System.Drawing.Size(82, 51);
+            this.btnNghiemthu.TabIndex = 0;
+            this.btnNghiemthu.Text = "Nghiệm thu";
+            this.btnNghiemthu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnNghiemthu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNghiemthu.UseVisualStyleBackColor = false;
+            this.btnNghiemthu.Click += new System.EventHandler(this.btnNghiemthu_Click);
             // 
             // btnCaidat
             // 
@@ -292,7 +328,7 @@
             this.btnCaidat.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCaidat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaidat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaidat.Image")));
-            this.btnCaidat.Location = new System.Drawing.Point(3, 291);
+            this.btnCaidat.Location = new System.Drawing.Point(3, 348);
             this.btnCaidat.Name = "btnCaidat";
             this.btnCaidat.Size = new System.Drawing.Size(82, 51);
             this.btnCaidat.TabIndex = 0;
@@ -343,7 +379,7 @@
             this.btnTaikhoan.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTaikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaikhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnTaikhoan.Image")));
-            this.btnTaikhoan.Location = new System.Drawing.Point(3, 234);
+            this.btnTaikhoan.Location = new System.Drawing.Point(3, 291);
             this.btnTaikhoan.Name = "btnTaikhoan";
             this.btnTaikhoan.Size = new System.Drawing.Size(82, 51);
             this.btnTaikhoan.TabIndex = 0;
@@ -360,7 +396,7 @@
             this.btnTrangchinh.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTrangchinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrangchinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTrangchinh.Image")));
-            this.btnTrangchinh.Location = new System.Drawing.Point(3, 120);
+            this.btnTrangchinh.Location = new System.Drawing.Point(3, 234);
             this.btnTrangchinh.Name = "btnTrangchinh";
             this.btnTrangchinh.Size = new System.Drawing.Size(82, 51);
             this.btnTrangchinh.TabIndex = 0;
@@ -377,23 +413,6 @@
             this.panelTong.Name = "panelTong";
             this.panelTong.Size = new System.Drawing.Size(947, 601);
             this.panelTong.TabIndex = 3;
-            // 
-            // btnNghiemthu
-            // 
-            this.btnNghiemthu.BackColor = System.Drawing.Color.Transparent;
-            this.btnNghiemthu.FlatAppearance.BorderSize = 0;
-            this.btnNghiemthu.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnNghiemthu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNghiemthu.Image = ((System.Drawing.Image)(resources.GetObject("btnNghiemthu.Image")));
-            this.btnNghiemthu.Location = new System.Drawing.Point(3, 63);
-            this.btnNghiemthu.Name = "btnNghiemthu";
-            this.btnNghiemthu.Size = new System.Drawing.Size(82, 51);
-            this.btnNghiemthu.TabIndex = 0;
-            this.btnNghiemthu.Text = "Nghiệm thu";
-            this.btnNghiemthu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnNghiemthu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNghiemthu.UseVisualStyleBackColor = false;
-            this.btnNghiemthu.Click += new System.EventHandler(this.btnNghiemthu_Click);
             // 
             // FormMain
             // 
@@ -456,6 +475,7 @@
         private System.Windows.Forms.Button btnKhohang;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnNghiemthu;
+        private System.Windows.Forms.Button btnqccheck;
     }
 }
 
