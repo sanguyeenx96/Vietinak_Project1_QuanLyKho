@@ -38,18 +38,18 @@
             this.txtTongsovattu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txttongpcsvtn = new System.Windows.Forms.Label();
             this.txttongkgvtn = new System.Windows.Forms.Label();
             this.txtTongsovattuVTN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txttongpcsdrg = new System.Windows.Forms.Label();
+            this.txttongkgdrg = new System.Windows.Forms.Label();
             this.txtTongsovattuDRG = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtLoc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txttongpcsvtn = new System.Windows.Forms.Label();
-            this.txttongkgdrg = new System.Windows.Forms.Label();
-            this.txttongpcsdrg = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 425);
+            this.panel1.Size = new System.Drawing.Size(947, 576);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -81,18 +81,18 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.05882F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.94118F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(817, 425);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.0625F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.9375F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 576);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvDanhsachvattu);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 83);
+            this.groupBox1.Location = new System.Drawing.Point(3, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 339);
+            this.groupBox1.Size = new System.Drawing.Size(941, 489);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách vật tư";
@@ -105,16 +105,19 @@
             this.dgvDanhsachvattu.Location = new System.Drawing.Point(3, 16);
             this.dgvDanhsachvattu.Name = "dgvDanhsachvattu";
             this.dgvDanhsachvattu.ReadOnly = true;
-            this.dgvDanhsachvattu.Size = new System.Drawing.Size(805, 320);
+            this.dgvDanhsachvattu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDanhsachvattu.Size = new System.Drawing.Size(935, 470);
             this.dgvDanhsachvattu.TabIndex = 0;
+            this.dgvDanhsachvattu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhsachvattu_CellClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Info;
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(811, 74);
+            this.groupBox2.Size = new System.Drawing.Size(941, 75);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tổng quan";
@@ -135,17 +138,17 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(805, 55);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(935, 56);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Info;
             this.panel2.Controls.Add(this.txtTongsovattu);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(195, 49);
+            this.panel2.Size = new System.Drawing.Size(227, 50);
             this.panel2.TabIndex = 0;
             // 
             // txtTongsovattu
@@ -153,7 +156,7 @@
             this.txtTongsovattu.Location = new System.Drawing.Point(94, 15);
             this.txtTongsovattu.Name = "txtTongsovattu";
             this.txtTongsovattu.ReadOnly = true;
-            this.txtTongsovattu.Size = new System.Drawing.Size(82, 20);
+            this.txtTongsovattu.Size = new System.Drawing.Size(119, 20);
             this.txtTongsovattu.TabIndex = 1;
             this.txtTongsovattu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -168,15 +171,26 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Info;
+            this.panel3.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel3.Controls.Add(this.txttongpcsvtn);
             this.panel3.Controls.Add(this.txttongkgvtn);
             this.panel3.Controls.Add(this.txtTongsovattuVTN);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(204, 3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(236, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(195, 49);
+            this.panel3.Size = new System.Drawing.Size(227, 50);
             this.panel3.TabIndex = 0;
+            // 
+            // txttongpcsvtn
+            // 
+            this.txttongpcsvtn.AutoSize = true;
+            this.txttongpcsvtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttongpcsvtn.Location = new System.Drawing.Point(109, 29);
+            this.txttongpcsvtn.Name = "txttongpcsvtn";
+            this.txttongpcsvtn.Size = new System.Drawing.Size(14, 13);
+            this.txttongpcsvtn.TabIndex = 2;
+            this.txttongpcsvtn.Text = "_";
             // 
             // txttongkgvtn
             // 
@@ -193,7 +207,7 @@
             this.txtTongsovattuVTN.Location = new System.Drawing.Point(128, 4);
             this.txtTongsovattuVTN.Name = "txtTongsovattuVTN";
             this.txtTongsovattuVTN.ReadOnly = true;
-            this.txtTongsovattuVTN.Size = new System.Drawing.Size(59, 20);
+            this.txtTongsovattuVTN.Size = new System.Drawing.Size(88, 20);
             this.txtTongsovattuVTN.TabIndex = 1;
             this.txtTongsovattuVTN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -208,22 +222,43 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Info;
+            this.panel4.BackColor = System.Drawing.Color.LightSalmon;
             this.panel4.Controls.Add(this.txttongpcsdrg);
             this.panel4.Controls.Add(this.txttongkgdrg);
             this.panel4.Controls.Add(this.txtTongsovattuDRG);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(405, 3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(469, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(195, 49);
+            this.panel4.Size = new System.Drawing.Size(227, 50);
             this.panel4.TabIndex = 0;
+            // 
+            // txttongpcsdrg
+            // 
+            this.txttongpcsdrg.AutoSize = true;
+            this.txttongpcsdrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttongpcsdrg.Location = new System.Drawing.Point(110, 29);
+            this.txttongpcsdrg.Name = "txttongpcsdrg";
+            this.txttongpcsdrg.Size = new System.Drawing.Size(14, 13);
+            this.txttongpcsdrg.TabIndex = 2;
+            this.txttongpcsdrg.Text = "_";
+            // 
+            // txttongkgdrg
+            // 
+            this.txttongkgdrg.AutoSize = true;
+            this.txttongkgdrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttongkgdrg.Location = new System.Drawing.Point(13, 29);
+            this.txttongkgdrg.Name = "txttongkgdrg";
+            this.txttongkgdrg.Size = new System.Drawing.Size(14, 13);
+            this.txttongkgdrg.TabIndex = 2;
+            this.txttongkgdrg.Text = "_";
             // 
             // txtTongsovattuDRG
             // 
             this.txtTongsovattuDRG.Location = new System.Drawing.Point(128, 3);
             this.txtTongsovattuDRG.Name = "txtTongsovattuDRG";
             this.txtTongsovattuDRG.ReadOnly = true;
-            this.txtTongsovattuDRG.Size = new System.Drawing.Size(59, 20);
+            this.txtTongsovattuDRG.Size = new System.Drawing.Size(87, 20);
             this.txtTongsovattuDRG.TabIndex = 1;
             this.txtTongsovattuDRG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -240,63 +275,35 @@
             // 
             this.panel5.Controls.Add(this.txtLoc);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(606, 3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(702, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(195, 49);
+            this.panel5.Size = new System.Drawing.Size(230, 50);
             this.panel5.TabIndex = 0;
             // 
             // txtLoc
             // 
-            this.txtLoc.Location = new System.Drawing.Point(89, 15);
+            this.txtLoc.Location = new System.Drawing.Point(94, 15);
             this.txtLoc.Name = "txtLoc";
-            this.txtLoc.Size = new System.Drawing.Size(100, 20);
+            this.txtLoc.Size = new System.Drawing.Size(124, 20);
             this.txtLoc.TabIndex = 1;
             this.txtLoc.TextChanged += new System.EventHandler(this.txtLoc_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 18);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(9, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tìm kiếm vật tư";
             // 
-            // txttongpcsvtn
-            // 
-            this.txttongpcsvtn.AutoSize = true;
-            this.txttongpcsvtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttongpcsvtn.Location = new System.Drawing.Point(109, 29);
-            this.txttongpcsvtn.Name = "txttongpcsvtn";
-            this.txttongpcsvtn.Size = new System.Drawing.Size(14, 13);
-            this.txttongpcsvtn.TabIndex = 2;
-            this.txttongpcsvtn.Text = "_";
-            // 
-            // txttongkgdrg
-            // 
-            this.txttongkgdrg.AutoSize = true;
-            this.txttongkgdrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttongkgdrg.Location = new System.Drawing.Point(13, 29);
-            this.txttongkgdrg.Name = "txttongkgdrg";
-            this.txttongkgdrg.Size = new System.Drawing.Size(14, 13);
-            this.txttongkgdrg.TabIndex = 2;
-            this.txttongkgdrg.Text = "_";
-            // 
-            // txttongpcsdrg
-            // 
-            this.txttongpcsdrg.AutoSize = true;
-            this.txttongpcsdrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttongpcsdrg.Location = new System.Drawing.Point(110, 29);
-            this.txttongpcsdrg.Name = "txttongpcsdrg";
-            this.txttongpcsdrg.Size = new System.Drawing.Size(14, 13);
-            this.txttongpcsdrg.TabIndex = 2;
-            this.txttongpcsdrg.Text = "_";
-            // 
             // FormDanhsachvattu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 425);
+            this.ClientSize = new System.Drawing.Size(947, 576);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDanhsachvattu";

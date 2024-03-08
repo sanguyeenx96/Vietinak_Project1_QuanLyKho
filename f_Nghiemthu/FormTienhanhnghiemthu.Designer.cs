@@ -84,6 +84,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNhapvaokho);
@@ -101,7 +102,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(571, 45);
+            this.label6.Location = new System.Drawing.Point(571, 38);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 0;
@@ -110,7 +111,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(311, 45);
+            this.label2.Location = new System.Drawing.Point(311, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 0;
@@ -120,7 +121,7 @@
             // 
             this.txtNhapvaokho.AutoSize = true;
             this.txtNhapvaokho.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhapvaokho.Location = new System.Drawing.Point(652, 42);
+            this.txtNhapvaokho.Location = new System.Drawing.Point(652, 35);
             this.txtNhapvaokho.Name = "txtNhapvaokho";
             this.txtNhapvaokho.Size = new System.Drawing.Size(35, 18);
             this.txtNhapvaokho.TabIndex = 0;
@@ -130,7 +131,7 @@
             // 
             this.txtSoluongnhap.AutoSize = true;
             this.txtSoluongnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoluongnhap.Location = new System.Drawing.Point(393, 42);
+            this.txtSoluongnhap.Location = new System.Drawing.Point(393, 35);
             this.txtSoluongnhap.Name = "txtSoluongnhap";
             this.txtSoluongnhap.Size = new System.Drawing.Size(35, 18);
             this.txtSoluongnhap.TabIndex = 0;
@@ -140,7 +141,7 @@
             // 
             this.txtMavattu.AutoSize = true;
             this.txtMavattu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMavattu.Location = new System.Drawing.Point(82, 42);
+            this.txtMavattu.Location = new System.Drawing.Point(82, 35);
             this.txtMavattu.Name = "txtMavattu";
             this.txtMavattu.Size = new System.Drawing.Size(35, 18);
             this.txtMavattu.TabIndex = 0;
@@ -149,7 +150,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 45);
+            this.label1.Location = new System.Drawing.Point(24, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 0;

@@ -36,8 +36,23 @@ namespace Vietinak_Kho.f_Thongke
             dgv.DataSource = lsnt;
             dgv.Columns["Id"].Visible = false;
             dgv.Columns["Lichsunhapid"].Visible = false;
+            dgv.Columns["Conlai"].Visible = false;
+
+            dgv.Columns["Mavattu"].HeaderText = "Mã vật tư";
             dgv.Columns["Lotno"].HeaderText = "Lot No.";
             dgv.Columns["Soluong"].HeaderText = "Số lượng thực tế";
+            dgv.Columns["Donvi"].HeaderText = "Đơn vị";
+            dgv.Columns["Hansudung"].HeaderText = "Hạn sử dụng";
+            dgv.Columns["Ngaygionhap"].HeaderText = "Ngày giờ nhập";
+            dgv.Columns["Ngaygionghiemthu"].HeaderText = "Ngày giờ nghiệm thu";
+            dgv.Columns["Ngaygioqccheck"].HeaderText = "Ngày giờ QC Check";
+            dgv.Columns["Tennguoithaotacnghiemthu"].HeaderText = "Người thao tác nghiệm thu";
+            dgv.Columns["Manhanviennghiemthu"].HeaderText = "Mã nhân viên nghiệm thu";
+            dgv.Columns["Bophannghiemthu"].HeaderText = "Bộ phận nghiệm thu";
+
+            dgv.Columns["Tennguoithaotacqccheck"].HeaderText = "Người thao tác QC Check";
+            dgv.Columns["Manhanvienqccheck"].HeaderText = "Mã nhân viên QC Check";
+            dgv.Columns["Bophanqccheck"].HeaderText = "Bộ phận QC Check";
 
             float tongSoLuong = 0;
             foreach (DataGridViewRow row in dgv.Rows)
@@ -55,6 +70,22 @@ namespace Vietinak_Kho.f_Thongke
             else
             {
                 panel3.BackColor = Color.Green;
+            }
+        }
+
+        private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                var cellValue = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (cellValue != null)
+                {
+                    if (string.IsNullOrWhiteSpace(cellValue.ToString()))
+                    {
+                        // Tô màu vàng cho ô trống
+                        e.CellStyle.BackColor = Color.Yellow;
+                    }
+                }
             }
         }
     }

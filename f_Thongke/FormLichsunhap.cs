@@ -108,9 +108,14 @@ namespace Vietinak_Kho.f_Khohang
                         FormLichsunghiemthuxemnhanh fls = new FormLichsunghiemthuxemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho,soluongnhap, donvi);
                         fls.ShowDialog();
                     }
-                    else
+                }
+                if (trangThaiValue != null && trangThaiValue.ToString() == "NHẬP HOÀN THÀNH")
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu & QC Check không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
                     {
-                        // Người dùng chọn No, không thực hiện hành động gì
+                        FormLichsunghiemthuxemnhanh fls = new FormLichsunghiemthuxemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
+                        fls.ShowDialog();
                     }
                 }
             }
@@ -190,7 +195,12 @@ namespace Vietinak_Kho.f_Khohang
             }
             if (!dgvLichsunhap.Rows[e.RowIndex].IsNewRow && dgvLichsunhap.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "CHỜ QC CHECK")
             {
-                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Teal;
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+            if (!dgvLichsunhap.Rows[e.RowIndex].IsNewRow && dgvLichsunhap.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "NHẬP HOÀN THÀNH")
+            {
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
                 dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
             }
         }

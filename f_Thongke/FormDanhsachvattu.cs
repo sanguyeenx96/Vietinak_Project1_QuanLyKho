@@ -85,6 +85,17 @@ namespace Vietinak_Kho.f_Thongke
             UpdateDataGridViewThongtinvattu(filteredttvt);
         }
 
+        private void dgvDanhsachvattu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvDanhsachvattu.Rows[e.RowIndex];               
+                string mavattu = selectedRow.Cells["Mavattu"].Value.ToString();
+                string idValue = selectedRow.Cells["Id"].Value.ToString();
 
+                FormChitietvattu fls = new FormChitietvattu(mavattu);
+                fls.ShowDialog();
+            }
+        }
     }
 }

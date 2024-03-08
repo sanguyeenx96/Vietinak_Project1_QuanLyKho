@@ -43,7 +43,7 @@ namespace Vietinak_Kho.f_Nhapxuat
         }
         private void FormXuatkho_Load(object sender, EventArgs e)
         {
-            txtNgaygioxuat.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            txtNgaygioxuat.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             txtNguoithaotac.Text = userInfo.Hoten;
             cbmavattu.Focus();
         }
@@ -139,7 +139,6 @@ namespace Vietinak_Kho.f_Nhapxuat
                 cbmavattu.Focus();
                 FormThanhcong fthanhcong = new FormThanhcong();
                 fthanhcong.ShowDialog();
-
             }
         }
 

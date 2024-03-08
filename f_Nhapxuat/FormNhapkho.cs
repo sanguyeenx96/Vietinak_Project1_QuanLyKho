@@ -46,7 +46,7 @@ namespace Vietinak_Kho.f_Nhapxuat
 
         private void FormNhapkho_Load(object sender, EventArgs e)
         {
-            txtNgaygionhap.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            txtNgaygionhap.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             txtNguoithaotac.Text = userInfo.Hoten;
             cbmavattu.Focus();
         }
