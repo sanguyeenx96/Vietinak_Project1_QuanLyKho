@@ -131,6 +131,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
             this.groupBox1.Controls.Add(this.panel14);
             this.groupBox1.Controls.Add(this.txtLoctukhoa);
             this.groupBox1.Controls.Add(this.label3);

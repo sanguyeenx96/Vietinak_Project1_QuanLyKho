@@ -50,7 +50,7 @@ namespace Vietinak_Kho
 
         private void timerClock_Tick(object sender, EventArgs e)
         {
-            txtClock.Text = DateTime.Now.ToString("HH:mm:ss tt");
+            txtClock.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
         private void UpdateButtonColor(Button clickedButton)
         {
@@ -123,7 +123,7 @@ namespace Vietinak_Kho
 
         private void btnqccheck_Click(object sender, EventArgs e)
         {
-            FormDanhsachchoqccheck fqcc = new FormDanhsachchoqccheck(userInfo);
+            FormQccheck fqcc = new FormQccheck(userInfo);
             loadform(fqcc);
             UpdateButtonColor(sender as Button);
         }

@@ -31,6 +31,18 @@ namespace Vietinak_Kho.DAO
             return tableList;
         }
 
+        public List<Thongtinvattu> LoadThongtinvattu(string mavattu)
+        {
+            List<Thongtinvattu> tableList = new List<Thongtinvattu>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tblthongtinvattu WHERE mavattu =N'"+mavattu+"' ");
+            foreach (DataRow item in data.Rows)
+            {
+                Thongtinvattu table = new Thongtinvattu(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+
         public bool Create(string mavattu, string donvi, string kgtrenbao, string diengiai,
             string tonkhovtn, string tonkhodrg)
         {

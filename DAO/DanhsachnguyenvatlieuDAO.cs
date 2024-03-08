@@ -29,6 +29,18 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+
+        public List<Danhsachnguyenvatlieu> LoadThongtinvattu(string mavattu)
+        {
+            List<Danhsachnguyenvatlieu> tableList = new List<Danhsachnguyenvatlieu>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbldanhsachnguyenvatlieu WHERE materialvtn =N'" + mavattu + "' ");
+            foreach (DataRow item in data.Rows)
+            {
+                Danhsachnguyenvatlieu table = new Danhsachnguyenvatlieu(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
         public bool Create(string code, int materialno, string suppliername, string materialppc,
           string materialvtn, string maker, string addressiso, string addresscoabox,
           bool diachitrencoacotrenisokhong, string isoiatfcertificate, string expirydate, string note,

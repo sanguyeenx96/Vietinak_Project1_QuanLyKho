@@ -37,7 +37,7 @@ namespace Vietinak_Kho.f_Qccheck
                     + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
                     + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
                     + "Thời gian nhập: " + lichsu.Thoigian + "\n";
-                itemButton.BackColor = Color.Teal;
+                itemButton.BackColor = Color.Blue;
                 itemButton.ForeColor = Color.White;
 
                 itemButton.Tag = lichsu;
@@ -51,9 +51,9 @@ namespace Vietinak_Kho.f_Qccheck
         {
             Button clickedButton = (Button)sender;
             Lichsunhapxuat lichsu = (Lichsunhapxuat)clickedButton.Tag;
-            FormTienhanhnghiemthu fthnt = new FormTienhanhnghiemthu(userInfo);
-            fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
-            fthnt.ShowDialog();
+            FormTienhanhqccheck fthqcc = new FormTienhanhqccheck(userInfo);
+            fthqcc.LoadData(lichsu); // Truyền thông tin vào form fthnt
+            fthqcc.ShowDialog();
         }
     }
 }

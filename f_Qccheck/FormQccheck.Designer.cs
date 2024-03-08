@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQccheck));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnDanhsach = new System.Windows.Forms.ToolStripButton();
             this.panelChinh = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -38,20 +38,21 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.btnDanhsach});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(947, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnDanhsach
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(159, 22);
-            this.toolStripButton1.Text = "Danh sách chờ QC check";
+            this.btnDanhsach.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsach.Image")));
+            this.btnDanhsach.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDanhsach.Name = "btnDanhsach";
+            this.btnDanhsach.Size = new System.Drawing.Size(159, 22);
+            this.btnDanhsach.Text = "Danh sách chờ QC check";
+            this.btnDanhsach.Click += new System.EventHandler(this.btnDanhsach_Click);
             // 
             // panelChinh
             // 
@@ -71,6 +72,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormQccheck";
             this.Text = "FormQccheck";
+            this.Load += new System.EventHandler(this.FormQccheck_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -81,7 +83,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnDanhsach;
         private System.Windows.Forms.Panel panelChinh;
     }
 }

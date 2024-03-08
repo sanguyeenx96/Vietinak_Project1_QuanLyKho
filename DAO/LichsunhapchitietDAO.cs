@@ -12,11 +12,13 @@ namespace Vietinak_Kho.DAO
     public class LichsunhapchitietDAO
     {
         private static LichsunhapchitietDAO instance;
+
         public static LichsunhapchitietDAO Instance
         {
             get { if (instance == null) instance = new LichsunhapchitietDAO(); return LichsunhapchitietDAO.instance; }
             private set { LichsunhapchitietDAO.instance = value; }
         }
+
         private LichsunhapchitietDAO() { }
 
         public List<Lichsunhapchitiet> LoadTableList_Lichsunghiemthu()
@@ -30,10 +32,11 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+
         public List<Lichsunhapchitiet> LoadTableList_Lichsunghiemthu(int id)
         {
             List<Lichsunhapchitiet> tableList = new List<Lichsunhapchitiet>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE lichsunhapid ='" + id+"'");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE lichsunhapid ='" + id + "'");
             foreach (DataRow item in data.Rows)
             {
                 Lichsunhapchitiet table = new Lichsunhapchitiet(item);
@@ -42,10 +45,45 @@ namespace Vietinak_Kho.DAO
             return tableList;
         }
 
-        public bool Create(int lichsunhapid, string mavattu, string lotno, string soluong, string ngaygio, string tennguoithaotac,
+        public List<Lichsunhapchitiet> LoadTableList_Lichsunhap(string mavattu)
+        {
+            List<Lichsunhapchitiet> tableList = new List<Lichsunhapchitiet>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'");
+            foreach (DataRow item in data.Rows)
+            {
+                Lichsunhapchitiet table = new Lichsunhapchitiet(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+
+        public bool Checktrung(string mavattu, string lotno)
+        {
+            // Kiểm tra xem lotno của mavattu có bị trùng không
+            string queryCheck = string.Format("SELECT COUNT(*) FROM dbo.tbllichsunhapchitiet WHERE lotno = N'{0}' AND mavattu = N'{1}'", lotno, mavattu);
+            int count = (int)DataProvider.Instance.ExecuteScalar(queryCheck);
+            if (count > 0)
+            {
+                return false;
+            }
+            else
+            {                
+                return true; //Không trùng
+            }
+        }
+
+        public bool Create(int lichsunhapid, string mavattu, string vitri, string lotno, string soluong, string donvi, string ngaygionhap, string ngaygionghiemthu, string tennguoithaotac,
          string manhanvien, string bophan)
-        {        
-            string query = string.Format("INSERT dbo.tbllichsunhapchitiet (lichsunhapid, mavattu, lotno, soluong, ngaygio,tennguoithaotac,manhanvien,bophan) VALUES  (N'{0}', N'{1}', N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')", lichsunhapid, mavattu, lotno, soluong, ngaygio, tennguoithaotac, manhanvien, bophan);
+        {
+            string query = string.Format("INSERT dbo.tbllichsunhapchitiet (lichsunhapid, mavattu,vitri, lotno, soluong, conlai, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotacnghiemthu,manhanviennghiemthu,bophannghiemthu) VALUES  (N'{0}', N'{1}', N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}',N'{8}',N'{9}',N'{10}',N'{11}')", lichsunhapid, mavattu,vitri, lotno, soluong, soluong, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotac, manhanvien, bophan);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateHSD(int id, string hansudung, string ngaygioqccheck, string tennguoithaotac,
+         string manhanvien, string bophan)
+        {
+            string query = string.Format("UPDATE dbo.tbllichsunhapchitiet SET hansudung = N'{0}', ngaygioqccheck = N'{1}', tennguoithaotacqccheck = N'{2}', manhanvienqccheck = N'{3}', bophanqccheck = N'{4}' WHERE id = N'{5}'", hansudung, ngaygioqccheck, tennguoithaotac, manhanvien, bophan, id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

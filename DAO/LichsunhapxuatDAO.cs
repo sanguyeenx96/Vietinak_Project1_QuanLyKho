@@ -152,7 +152,7 @@ namespace Vietinak_Kho.DAO
         public List<Lichsunhapxuat> LoadTableList_Lichsuchonghiemthu()
         {
             List<Lichsunhapxuat> tableList = new List<Lichsunhapxuat>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE trangthai= N'CHỜ NGHIỆM THU' ");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE trangthai= N'CHỜ NGHIỆM THU' ORDER BY Thoigian");
             foreach (DataRow item in data.Rows)
             {
                 Lichsunhapxuat table = new Lichsunhapxuat(item);
@@ -164,7 +164,7 @@ namespace Vietinak_Kho.DAO
         public List<Lichsunhapxuat> LoadTableList_Lichsuchoqccheck()
         {
             List<Lichsunhapxuat> tableList = new List<Lichsunhapxuat>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE trangthai= N'CHỜ QC CHECK' ");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE trangthai= N'CHỜ QC CHECK' ORDER BY Thoigian ");
             foreach (DataRow item in data.Rows)
             {
                 Lichsunhapxuat table = new Lichsunhapxuat(item);
@@ -203,6 +203,41 @@ namespace Vietinak_Kho.DAO
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi khi cập nhật dữ liệu nghiệm thu: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool UpdateXacNhanQcCheck(int id)
+        {
+            try
+            {
+                string checkQuery = string.Format("SELECT COUNT(*) FROM dbo.tbllichsunhapxuat WHERE id = N'{0}'", id);
+                int existingUserCount = (int)DataProvider.Instance.ExecuteScalar(checkQuery);
+                if (existingUserCount == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu này!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                // Update the user's information in the database
+                string query = string.Format("UPDATE dbo.tbllichsunhapxuat SET trangthai = N'{0}' WHERE id = N'{1}'", "NHẬP HOÀN THÀNH", id);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật dữ liệu QC Check!",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật dữ liệu QC Check: " + ex.Message,
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
