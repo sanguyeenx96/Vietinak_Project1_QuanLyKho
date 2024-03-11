@@ -114,6 +114,7 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -134,9 +135,9 @@
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuybo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.Image")));
-            this.btnHuybo.Location = new System.Drawing.Point(3, 3);
+            this.btnHuybo.Location = new System.Drawing.Point(4, 4);
             this.btnHuybo.Name = "btnHuybo";
-            this.btnHuybo.Size = new System.Drawing.Size(385, 26);
+            this.btnHuybo.Size = new System.Drawing.Size(383, 24);
             this.btnHuybo.TabIndex = 1;
             this.btnHuybo.Text = "Hủy bỏ";
             this.btnHuybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,9 +152,9 @@
             this.btnXacNhan.FlatAppearance.BorderSize = 0;
             this.btnXacNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
-            this.btnXacNhan.Location = new System.Drawing.Point(394, 3);
+            this.btnXacNhan.Location = new System.Drawing.Point(394, 4);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(385, 26);
+            this.btnXacNhan.Size = new System.Drawing.Size(384, 24);
             this.btnXacNhan.TabIndex = 0;
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -165,11 +166,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormTienhanhqccheck";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QC Check";

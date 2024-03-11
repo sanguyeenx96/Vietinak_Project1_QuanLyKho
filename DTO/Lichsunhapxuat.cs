@@ -11,7 +11,7 @@ namespace Vietinak_Kho.DTO
 {
     public class Lichsunhapxuat
     {
-        public Lichsunhapxuat(int id, int vattuid, string mavattu, string donvi, string tennguoithaotac,
+        public Lichsunhapxuat(int id, int vattuid, string mavattu, string invoiceno, string partno, string donvi, string tennguoithaotac,
             string manhanvien, string bophan, string loaithaotac, string thoigian, 
             float soluongnhap, string nhapvaokho, float tonkhotruocnhapVTN, float tonkhosaunhapVTN,
             float tonkhotruocnhapDRG, float tonkhosaunhapDRG,float soluongxuat, string mucdichxuat, float tonkhotruocxuatVTN,
@@ -20,6 +20,8 @@ namespace Vietinak_Kho.DTO
             this.Id = id;
             this.Vattuid = vattuid;
             this.Mavattu = mavattu;
+            this.Invoiceno = invoiceno;
+            this.Partno = partno;
             this.Donvi = donvi;
             this.Tennguoithaotac = tennguoithaotac;
             this.Manhanvien = manhanvien;
@@ -47,6 +49,8 @@ namespace Vietinak_Kho.DTO
             this.Trangthai = row["trangthai"].ToString();
             this.Vattuid = Convert.ToInt32(row["vattuid"]);
             this.Mavattu = row["mavattu"].ToString();
+            this.Invoiceno = row["invoiceno"].ToString();
+            this.Partno = row["partno"].ToString();
             this.Donvi = row["donvi"].ToString();
             this.Tennguoithaotac = row["tennguoithaotac"].ToString();
             this.Manhanvien = row["manhanvien"].ToString();
@@ -72,6 +76,8 @@ namespace Vietinak_Kho.DTO
         private int id;
         private int vattuid;
         private string mavattu;
+        private string invoiceno;
+        private string partno;
         private string donvi;
         private string tennguoithaotac;
         private string manhanvien;
@@ -96,6 +102,8 @@ namespace Vietinak_Kho.DTO
         public int Id { get => id; set => id = value; }
         public int Vattuid { get => vattuid; set => vattuid = value; }
         public string Mavattu { get => mavattu; set => mavattu = value; }
+        public string Invoiceno { get => invoiceno; set => invoiceno = value; }
+        public string Partno { get => partno; set => partno = value; }
         public string Donvi { get => donvi; set => donvi = value; }
         public string Tennguoithaotac { get => tennguoithaotac; set => tennguoithaotac = value; }
         public string Manhanvien { get => manhanvien; set => manhanvien = value; }
@@ -115,6 +123,5 @@ namespace Vietinak_Kho.DTO
         public float TonkhotruocxuatDRG { get => tonkhotruocxuatDRG; set => tonkhotruocxuatDRG = value; }
         public float TonkhosauxuatDRG { get => tonkhosauxuatDRG; set => tonkhosauxuatDRG = value; }
         public string Trangthai { get => trangthai; set => trangthai = value; }
-
     }
 }

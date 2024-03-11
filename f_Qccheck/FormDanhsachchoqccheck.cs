@@ -31,12 +31,15 @@ namespace Vietinak_Kho.f_Qccheck
             {
                 // Tạo một Button để hiển thị thông tin của mỗi phần tử
                 Button itemButton = new Button();
-                itemButton.Size = new Size(220, 100);
+                itemButton.Size = new Size(220, 130);
                 itemButton.Text = lichsu.Mavattu + "\n"
-                     + "\n"
-                    + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
-                    + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
-                    + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+                + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                + "Part No.: " + lichsu.Partno + "\n"
+                 + "\n"
+                + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
+                + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+
                 itemButton.BackColor = Color.Blue;
                 itemButton.ForeColor = Color.White;
 

@@ -48,7 +48,19 @@ namespace Vietinak_Kho.DAO
         public List<Lichsunhapchitiet> LoadTableList_Lichsunhap(string mavattu)
         {
             List<Lichsunhapchitiet> tableList = new List<Lichsunhapchitiet>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'  ORDER BY ngaygionhap DESC");
+            foreach (DataRow item in data.Rows)
+            {
+                Lichsunhapchitiet table = new Lichsunhapchitiet(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+
+        public List<Lichsunhapchitiet> LoadTableList_Lichsunhaporderbyhsd(string mavattu)
+        {
+            List<Lichsunhapchitiet> tableList = new List<Lichsunhapchitiet>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'  ORDER BY hansudung");
             foreach (DataRow item in data.Rows)
             {
                 Lichsunhapchitiet table = new Lichsunhapchitiet(item);
@@ -72,10 +84,10 @@ namespace Vietinak_Kho.DAO
             }
         }
 
-        public bool Create(int lichsunhapid, string mavattu, string vitri, string lotno, string soluong, string donvi, string ngaygionhap, string ngaygionghiemthu, string tennguoithaotac,
+        public bool Create(int lichsunhapid, string mavattu, string vitri,string invoiceno, string partno, string lotno, string soluong, string donvi, string ngaygionhap, string ngaygionghiemthu, string tennguoithaotac,
          string manhanvien, string bophan)
         {
-            string query = string.Format("INSERT dbo.tbllichsunhapchitiet (lichsunhapid, mavattu,vitri, lotno, soluong, conlai, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotacnghiemthu,manhanviennghiemthu,bophannghiemthu) VALUES  (N'{0}', N'{1}', N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}',N'{8}',N'{9}',N'{10}',N'{11}')", lichsunhapid, mavattu,vitri, lotno, soluong, soluong, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotac, manhanvien, bophan);
+            string query = string.Format("INSERT dbo.tbllichsunhapchitiet (lichsunhapid, mavattu,vitri, invoiceno, partno, lotno, soluong, conlai, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotacnghiemthu,manhanviennghiemthu,bophannghiemthu) VALUES  (N'{0}', N'{1}', N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}',N'{8}',N'{9}',N'{10}',N'{11}',N'{12}',N'{13}')", lichsunhapid, mavattu,vitri, invoiceno, partno, lotno, soluong, soluong, donvi, ngaygionhap, ngaygionghiemthu, tennguoithaotac, manhanvien, bophan);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -84,6 +96,13 @@ namespace Vietinak_Kho.DAO
          string manhanvien, string bophan)
         {
             string query = string.Format("UPDATE dbo.tbllichsunhapchitiet SET hansudung = N'{0}', ngaygioqccheck = N'{1}', tennguoithaotacqccheck = N'{2}', manhanvienqccheck = N'{3}', bophanqccheck = N'{4}' WHERE id = N'{5}'", hansudung, ngaygioqccheck, tennguoithaotac, manhanvien, bophan, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool UpdateTonkho(string soluongtonkho, int id)
+        {
+            string query = string.Format("UPDATE dbo.tbllichsunhapchitiet SET conlai = N'{0}' WHERE id = N'{1}'", soluongtonkho, id);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

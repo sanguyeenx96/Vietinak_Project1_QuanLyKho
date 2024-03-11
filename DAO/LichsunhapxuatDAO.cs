@@ -31,6 +31,17 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+        public List<Lichsunhapxuat> LoadTableList_Lichsunhapxuat(string mavattu)
+        {
+            List<Lichsunhapxuat> tableList = new List<Lichsunhapxuat>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapxuat WHERE mavattu ='"+mavattu+ "' ORDER BY Thoigian DESC ");
+            foreach (DataRow item in data.Rows)
+            {
+                Lichsunhapxuat table = new Lichsunhapxuat(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
 
         public List<Lichsunhapxuat> LoadTableList_Lichsunhaphomnay()
         {
@@ -72,24 +83,45 @@ namespace Vietinak_Kho.DAO
             return tableList;
         }
 
-        public bool Nhap(int vattuid, string mavattu,string donvi, string tennguoithaotac,
+        public bool Nhap(int vattuid, string mavattu,string invoiceno, string partno,string donvi, string tennguoithaotac,
          string manhanvien, string bophan, string loaithaotac, string thoigian,
          string soluongnhap, string nhapvaokho, string tonkhotruocnhapVTN, string tonkhosaunhapVTN,
          string tonkhotruocnhapDRG, string tonkhosaunhapDRG,string trangthai)
         {
             string query = string.Format("INSERT INTO dbo.tbllichsunhapxuat " +
-            "(vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
+            "(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
             " thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN," +
             " tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai) " +
             "VALUES " +
-            "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}')",
-            vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
+            "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}',N'{15}',N'{16}')",
+            vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
             thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN,
             tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai);
 
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public int Nhaplai(int vattuid, string mavattu, string invoiceno, string partno, string donvi, string tennguoithaotac,
+        string manhanvien, string bophan, string loaithaotac, string thoigian,
+        string soluongnhap, string nhapvaokho, string tonkhotruocnhapVTN, string tonkhosaunhapVTN,
+        string tonkhotruocnhapDRG, string tonkhosaunhapDRG, string trangthai)
+        {
+            string query = string.Format("INSERT INTO dbo.tbllichsunhapxuat " +
+                "(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
+                " thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN," +
+                " tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai) " +
+                "OUTPUT INSERTED.ID " +
+                "VALUES " +
+                "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}',N'{15}',N'{16}')",
+                vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
+                thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN,
+                tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai);
+
+            object result = DataProvider.Instance.ExecuteScalar(query);
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+
 
         public bool Xuat(int vattuid, string mavattu, string donvi, string tennguoithaotac,
         string manhanvien, string bophan, string loaithaotac, string thoigian,
@@ -222,6 +254,41 @@ namespace Vietinak_Kho.DAO
                 }
                 // Update the user's information in the database
                 string query = string.Format("UPDATE dbo.tbllichsunhapxuat SET trangthai = N'{0}' WHERE id = N'{1}'", "NHẬP HOÀN THÀNH", id);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật dữ liệu QC Check!",
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi cập nhật dữ liệu QC Check: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool UpdateXacNhanNhaplai(int id)
+        {
+            try
+            {
+                string checkQuery = string.Format("SELECT COUNT(*) FROM dbo.tbllichsunhapxuat WHERE id = N'{0}'", id);
+                int existingUserCount = (int)DataProvider.Instance.ExecuteScalar(checkQuery);
+                if (existingUserCount == 0)
+                {
+                    MessageBox.Show("Không tìm thấy dữ liệu này!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                // Update the user's information in the database
+                string query = string.Format("UPDATE dbo.tbllichsunhapxuat SET trangthai = N'{0}' WHERE id = N'{1}'", "NHẬP LẠI HOÀN THÀNH", id);
                 int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
 
                 if (rowsAffected > 0)

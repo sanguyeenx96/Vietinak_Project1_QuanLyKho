@@ -27,6 +27,8 @@ namespace Vietinak_Kho.f_Nghiemthu
         private string donvi;
         private float soluongnhap;
         private string vitri;
+        private string invoiceno;
+        private string partno;
         public FormTienhanhnghiemthu(User userInfo)
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace Vietinak_Kho.f_Nghiemthu
         }
         public void LoadData(Lichsunhapxuat lichsu)
         {
+            invoiceno = lichsu.Invoiceno;
+            partno = lichsu.Partno;
             donvi = lichsu.Donvi;
             lichsunhapid = lichsu.Id;
             mavattu = lichsu.Mavattu;
@@ -117,7 +121,7 @@ namespace Vietinak_Kho.f_Nghiemthu
                             string soluong = Convert.ToString(row.Cells["soluong"].Value);
                             string ngaygionghiemthu = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
                             // Thực hiện tạo mới dữ liệu trong cơ sở dữ liệu
-                            bool created = LichsunhapchitietDAO.Instance.Create(lichsunhapid, mavattu,vitri, lotno, soluong, donvi, ngaygionhap, ngaygionghiemthu, userInfo.Hoten, userInfo.Manhanvien, userInfo.Bophan);
+                            bool created = LichsunhapchitietDAO.Instance.Create(lichsunhapid, mavattu,vitri,invoiceno, partno, lotno, soluong, donvi, ngaygionhap, ngaygionghiemthu, userInfo.Hoten, userInfo.Manhanvien, userInfo.Bophan);
                             // Nếu không thể tạo mới một dòng nào đó, đặt biến cờ thành false
                             if (!created)
                             {

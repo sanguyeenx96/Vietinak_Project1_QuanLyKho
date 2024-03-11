@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Nhapxuat;
 
 namespace Vietinak_Kho.f_Nghiemthu
 {
@@ -30,13 +31,23 @@ namespace Vietinak_Kho.f_Nghiemthu
             {
                 // Tạo một Button để hiển thị thông tin của mỗi phần tử
                 Button itemButton = new Button();
-                itemButton.Size = new Size(220, 100);
+                itemButton.Size = new Size(220, 130);
                 itemButton.Text = lichsu.Mavattu + "\n"
+                    + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                    + "Part No.: " + lichsu.Partno + "\n"
                      + "\n"
                     + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
                     + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
                     + "Thời gian nhập: " + lichsu.Thoigian + "\n";
-                itemButton.BackColor = Color.Gold; // Tuỳ chỉnh màu nền và kích thước
+                if (lichsu.Nhapvaokho == "NHẬP LẠI")
+                {
+                    itemButton.BackColor = Color.Purple;
+                    itemButton.ForeColor = Color.White;
+                }
+                else
+                {
+                    itemButton.BackColor = Color.Gold; // Tuỳ chỉnh màu nền và kích thước
+                }
                 itemButton.Tag = lichsu;
                 itemButton.Click += ItemButtonClick;
                 // Thêm Button vào FlowLayoutPanel
@@ -48,9 +59,20 @@ namespace Vietinak_Kho.f_Nghiemthu
         {
             Button clickedButton = (Button)sender;
             Lichsunhapxuat lichsu = (Lichsunhapxuat)clickedButton.Tag;
-            FormTienhanhnghiemthu fthnt = new FormTienhanhnghiemthu(userInfo);
-            fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
-            fthnt.ShowDialog();
+
+            if(lichsu.Nhapvaokho == "NHẬP LẠI")
+            {
+                FormNhaplai fnl = new FormNhaplai(userInfo);
+                fnl.LoadData(lichsu); // Truyền thông tin vào form fthnt
+                fnl.ShowDialog();
+            }
+            else
+            {
+                FormTienhanhnghiemthu fthnt = new FormTienhanhnghiemthu(userInfo);
+                fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
+                fthnt.ShowDialog();
+            }
+       
         }
 
     }
