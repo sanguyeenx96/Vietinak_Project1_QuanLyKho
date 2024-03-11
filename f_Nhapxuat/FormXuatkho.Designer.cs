@@ -386,9 +386,9 @@
             this.cbMucdichxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.cbMucdichxuat.FormattingEnabled = true;
             this.cbMucdichxuat.Items.AddRange(new object[] {
+            "XUẤT SẢN XUẤT",
             "XUẤT DRG - NHẬP VTN",
             "XUẤT VTN - NHẬP DRG",
-            "XUẤT SẢN XUẤT",
             "XUẤT NG "});
             this.cbMucdichxuat.Location = new System.Drawing.Point(347, 119);
             this.cbMucdichxuat.Name = "cbMucdichxuat";
@@ -418,7 +418,7 @@
             // 
             this.txtdonvi2.AutoSize = true;
             this.txtdonvi2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.txtdonvi2.Location = new System.Drawing.Point(705, 99);
+            this.txtdonvi2.Location = new System.Drawing.Point(705, 86);
             this.txtdonvi2.Name = "txtdonvi2";
             this.txtdonvi2.Size = new System.Drawing.Size(20, 24);
             this.txtdonvi2.TabIndex = 5;

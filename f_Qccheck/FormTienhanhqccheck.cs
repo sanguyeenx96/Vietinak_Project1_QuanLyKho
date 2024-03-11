@@ -45,6 +45,8 @@ namespace Vietinak_Kho.f_Qccheck
             dgv.Columns["Bophanqccheck"].Visible = false;
 
             dgv.Columns["Mavattu"].HeaderText = "Mã vật tư";
+            dgv.Columns["Invoiceno"].HeaderText = "Invoice No.";
+            dgv.Columns["Partno"].HeaderText = "Part No,";
             dgv.Columns["Lotno"].HeaderText = "Lot No.";
             dgv.Columns["Soluong"].HeaderText = "Số lượng";
             dgv.Columns["Donvi"].HeaderText = "Đơn vị";

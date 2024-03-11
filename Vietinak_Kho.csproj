@@ -52,6 +52,7 @@
     <Compile Include="DAO\DanhsachnguyenvatlieuDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\LichsunhapchitietDAO.cs" />
+    <Compile Include="DAO\LichsunhaplaichitietDAO.cs" />
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
     <Compile Include="DAO\LichsuxuatchitietDAO.cs" />
     <Compile Include="DAO\ThongtinvattuDAO.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DTO\Chucvu.cs" />
     <Compile Include="DTO\Danhsachnguyenvatlieu.cs" />
     <Compile Include="DTO\Lichsunhapchitiet.cs" />
+    <Compile Include="DTO\Lichsunhaplaichitiet.cs" />
     <Compile Include="DTO\Lichsunhapxuat.cs" />
     <Compile Include="DTO\Lichsuxuatchitiet.cs" />
     <Compile Include="DTO\Thongtinvattu.cs" />
@@ -186,6 +188,18 @@
     <Compile Include="f_Nghiemthu\FormTienhanhnghiemthu.Designer.cs">
       <DependentUpon>FormTienhanhnghiemthu.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_Nhapxuat\FormNhaplai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Nhapxuat\FormNhaplai.Designer.cs">
+      <DependentUpon>FormNhaplai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Nhapxuat\FormThongtinxuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Nhapxuat\FormThongtinxuat.Designer.cs">
+      <DependentUpon>FormThongtinxuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_Nhapxuat\FormXuatkho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +241,18 @@
     </Compile>
     <Compile Include="f_Thongke\FormLichsunghiemthuxemnhanh.Designer.cs">
       <DependentUpon>FormLichsunghiemthuxemnhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunhaplaixemnhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunhaplaixemnhanh.Designer.cs">
+      <DependentUpon>FormLichsunhaplaixemnhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunhapxuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Thongke\FormLichsunhapxuat.Designer.cs">
+      <DependentUpon>FormLichsunhapxuat.cs</DependentUpon>
     </Compile>
     <Compile Include="f_Thongke\FormLichsuxuat.cs">
       <SubType>Form</SubType>
@@ -324,6 +350,12 @@
     <Compile Include="f_Taikhoan\FormTaikhoancuaban.Designer.cs">
       <DependentUpon>FormTaikhoancuaban.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_Thongke\FormThongtinsoluong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_Thongke\FormThongtinsoluong.Designer.cs">
+      <DependentUpon>FormThongtinsoluong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyKhoDataSet.Designer.cs">
@@ -391,6 +423,12 @@
     <EmbeddedResource Include="f_Nghiemthu\FormTienhanhnghiemthu.resx">
       <DependentUpon>FormTienhanhnghiemthu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_Nhapxuat\FormNhaplai.resx">
+      <DependentUpon>FormNhaplai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Nhapxuat\FormThongtinxuat.resx">
+      <DependentUpon>FormThongtinxuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_Nhapxuat\FormXuatkho.resx">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +449,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_Thongke\FormLichsunghiemthuxemnhanh.resx">
       <DependentUpon>FormLichsunghiemthuxemnhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Thongke\FormLichsunhaplaixemnhanh.resx">
+      <DependentUpon>FormLichsunhaplaixemnhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Thongke\FormLichsunhapxuat.resx">
+      <DependentUpon>FormLichsunhapxuat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_Thongke\FormLichsuxuat.resx">
       <DependentUpon>FormLichsuxuat.cs</DependentUpon>
@@ -459,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_Taikhoan\FormTaikhoancuaban.resx">
       <DependentUpon>FormTaikhoancuaban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_Thongke\FormThongtinsoluong.resx">
+      <DependentUpon>FormThongtinsoluong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

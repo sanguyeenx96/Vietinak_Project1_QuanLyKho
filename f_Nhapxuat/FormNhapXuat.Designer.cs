@@ -106,7 +106,6 @@
             this.btnNhapkho.BackColor = System.Drawing.Color.LightGreen;
             this.btnNhapkho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNhapkho.FlatAppearance.BorderSize = 0;
-            this.btnNhapkho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
             this.btnNhapkho.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapkho.Image")));
             this.btnNhapkho.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -134,7 +133,6 @@
             this.btnXuatkho.BackColor = System.Drawing.Color.Goldenrod;
             this.btnXuatkho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnXuatkho.FlatAppearance.BorderSize = 0;
-            this.btnXuatkho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXuatkho.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
             this.btnXuatkho.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatkho.Image")));
             this.btnXuatkho.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -150,7 +148,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightGreen;
+            this.panel3.BackColor = System.Drawing.SystemColors.Info;
             this.panel3.Controls.Add(this.txtsolannhap);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -180,7 +178,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Goldenrod;
+            this.panel4.BackColor = System.Drawing.SystemColors.Info;
             this.panel4.Controls.Add(this.txtsolanxuat);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;

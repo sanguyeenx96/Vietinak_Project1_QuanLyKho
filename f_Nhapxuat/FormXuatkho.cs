@@ -65,14 +65,15 @@ namespace Vietinak_Kho.f_Nhapxuat
 
         private void cbmavattu_Leave(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(cbmavattu.Text) ||
-    string.IsNullOrWhiteSpace(txtSoluongxuat.Text) ||
-    string.IsNullOrWhiteSpace(cbMucdichxuat.Text))
+                string.IsNullOrWhiteSpace(txtSoluongxuat.Text) ||
+                string.IsNullOrWhiteSpace(cbMucdichxuat.Text)
+                )
             {
                 MessageBox.Show("Cần nhập đầy đủ các thông tin!",
                     "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -97,7 +98,7 @@ namespace Vietinak_Kho.f_Nhapxuat
             float tonkhotruocxuatVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
             float tonkhotruocxuatDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
             float tonkhosauxuatVTN = tonkhotruocxuatVTN;
-            float tonkhosauxuatDRG = tonkhotruocxuatDRG; 
+            float tonkhosauxuatDRG = tonkhotruocxuatDRG;
 
             if (mucdichxuat == "XUẤT DRG - NHẬP VTN")
             {
@@ -118,28 +119,31 @@ namespace Vietinak_Kho.f_Nhapxuat
                 tonkhosauxuatVTN -= soluongxuat;
             }
 
-            bool success1 = LichsunhapxuatDAO.Instance.Xuat(vattuid, mavattu, donvi, tennguoithaotac,
-             manhanvien, bophan, loaithaotac, thoigian,
-             soluongxuat.ToString().Replace(',', '.'), mucdichxuat, tonkhotruocxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatVTN.ToString().Replace(',', '.'),
-            tonkhotruocxuatDRG.ToString().Replace(',', '.'), tonkhosauxuatDRG.ToString().Replace(',', '.'));
+            FormThongtinxuat fttx = new FormThongtinxuat(mavattu,soluongxuat,mucdichxuat,donvi);
+            fttx.ShowDialog();
 
-            bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosauxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatDRG.ToString().Replace(',', '.'));
-            if (success1 && success2)
-            {
-                allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+            //bool success1 = LichsunhapxuatDAO.Instance.Xuat(vattuid, mavattu, donvi, tennguoithaotac,
+            // manhanvien, bophan, loaithaotac, thoigian,
+            // soluongxuat.ToString().Replace(',', '.'), mucdichxuat, tonkhotruocxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatVTN.ToString().Replace(',', '.'),
+            //tonkhotruocxuatDRG.ToString().Replace(',', '.'), tonkhosauxuatDRG.ToString().Replace(',', '.'));
 
-                txtDiengiai.Text = "";
-                txtDonvitinh.Text = "";
-                txtKgtrenbao.Text = "";
-                txtTonkhovtn.Text = "";
-                txttonkhodrg.Text = "";
-                txtSoluongxuat.Text = "";
-                txtdonvi2.Text = "_";
-                cbmavattu.Text = "";
-                cbmavattu.Focus();
-                FormThanhcong fthanhcong = new FormThanhcong();
-                fthanhcong.ShowDialog();
-            }
+            //bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosauxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatDRG.ToString().Replace(',', '.'));
+            //if (success1 && success2)
+            //{
+            //    allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+
+            //    txtDiengiai.Text = "";
+            //    txtDonvitinh.Text = "";
+            //    txtKgtrenbao.Text = "";
+            //    txtTonkhovtn.Text = "";
+            //    txttonkhodrg.Text = "";
+            //    txtSoluongxuat.Text = "";
+            //    txtdonvi2.Text = "_";
+            //    cbmavattu.Text = "";
+            //    cbmavattu.Focus();
+            //    FormThanhcong fthanhcong = new FormThanhcong();
+            //    fthanhcong.ShowDialog();
+            //}
         }
 
         private void btnHuybo_Click(object sender, EventArgs e)
@@ -172,3 +176,13 @@ namespace Vietinak_Kho.f_Nhapxuat
         }
     }
 }
+
+
+// Firstly, I want to thank everyone for giving me the opportunity to be here today.
+// I studied Information Technology for two years at Hanoi Vocational College of Technology
+// Then i was retook the university exam and passed to national economic university, business manager major.
+// during university studies time, i has a job at pumpkin jsc, its an outsourcing company that develops software and I discovered my passion for coding and software development.
+// After about 2 year working at that about develop winform application,I joined Canon Electronics Vietnam in the Product Engineering Department.
+// My job is making website using asp .net , making application using c# winform and python application to computer vision.
+// and after about 3 year working at that, i know mektec are hiring employee and i draw my cv to mektec. 
+// I am confident in my experience and knowledge, please give me the opportunity to show my abilities to you. Thank you!

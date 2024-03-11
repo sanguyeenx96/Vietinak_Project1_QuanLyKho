@@ -26,12 +26,14 @@ namespace Vietinak_Kho.f_Nhapxuat
             LoadMavattuToComboBox();
             this.userInfo = userInfo;
         }
+
         private bool IsNumeric(string input)
         {
             // Biểu thức chính quy kiểm tra chuỗi chỉ chứa chữ số và dấu chấm
             string pattern = @"^[0-9]*\.?[0-9]+$";
             return Regex.IsMatch(input, pattern);
         }
+
         private void LoadMavattuToComboBox()
         {
             allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
@@ -72,75 +74,139 @@ namespace Vietinak_Kho.f_Nhapxuat
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
-            if (
+            if (cbNhapvaokho.Text == "NHẬP LẠI")
+            {
+                if (
+                string.IsNullOrWhiteSpace(cbmavattu.Text) ||
+                string.IsNullOrWhiteSpace(txtSoluongnhap.Text)
+                )
+                {
+                    MessageBox.Show("Cần nhập đầy đủ các thông tin!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsNumeric(txtSoluongnhap.Text))
+                {
+                    MessageBox.Show("Vui lòng chỉ nhập số và dấu chấm cho trường số lượng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                //tonkhosaunhapDRG -= soluongnhap; //Giảm tồn kho DRAGON
+                //tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho VTN
+                int vattuid = infoThongtinvattu.Id;
+                string mavattu = infoThongtinvattu.Mavattu;
+                string invoiceno = txtinvoiceno.Text;
+                string partno = txtpartno.Text;
+                string donvi = infoThongtinvattu.Donvi;
+                string tennguoithaotac = userInfo.Hoten;
+                string manhanvien = userInfo.Manhanvien;
+                string bophan = userInfo.Bophan;
+                string loaithaotac = "Nhập";
+                string thoigian = txtNgaygionhap.Text;
+                float soluongnhap = (float)Convert.ToDouble(txtSoluongnhap.Text.ToString().Replace('.', ','));
+                string nhapvaokho = cbNhapvaokho.Text;
+                //Tính toán sô lượng hàng nhập
+                float tonkhotruocnhapVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
+                float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
+                float tonkhosaunhapVTN = tonkhotruocnhapVTN;
+                float tonkhosaunhapDRG = tonkhotruocnhapDRG;
+                if (nhapvaokho == "NHẬP LẠI")
+                {
+                    tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
+                }
+                string trangthai = "CHỜ NGHIỆM THU";
+                bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac,
+                 manhanvien, bophan, loaithaotac, thoigian,
+                 soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
+                tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
+                bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+                if (success1 && success2)
+                {
+                    allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+                    txtinvoiceno.Text = "";
+                    txtpartno.Text = "";
+                    txtDiengiai.Text = "";
+                    txtDonvitinh.Text = "";
+                    txtKgtrenbao.Text = "";
+                    txtTonkhovtn.Text = "";
+                    txttonkhodrg.Text = "";
+                    txtSoluongnhap.Text = "";
+                    txtdonvi2.Text = "_";
+                    cbmavattu.Text = "";
+                    cbmavattu.Focus();
+                    FormThanhcong fthanhcong = new FormThanhcong();
+                    fthanhcong.ShowDialog();
+                }
+
+
+            }
+            else
+            {
+                if (
                 string.IsNullOrWhiteSpace(txtinvoiceno.Text) ||
                 string.IsNullOrWhiteSpace(txtpartno.Text) ||
                 string.IsNullOrWhiteSpace(cbmavattu.Text) ||
                 string.IsNullOrWhiteSpace(txtSoluongnhap.Text) ||
                 string.IsNullOrWhiteSpace(cbNhapvaokho.Text)
                 )
-            {
-                MessageBox.Show("Cần nhập đầy đủ các thông tin!",
-                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!IsNumeric(txtSoluongnhap.Text))
-            {
-                MessageBox.Show("Vui lòng chỉ nhập số và dấu chấm cho trường số lượng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            int vattuid = infoThongtinvattu.Id;
-            string mavattu = infoThongtinvattu.Mavattu;
-            string donvi = infoThongtinvattu.Donvi;
-            string tennguoithaotac = userInfo.Hoten;
-            string manhanvien = userInfo.Manhanvien;
-            string bophan = userInfo.Bophan;
-            string loaithaotac = "Nhập";
-            string thoigian = txtNgaygionhap.Text;
-            float soluongnhap = (float)Convert.ToDouble(txtSoluongnhap.Text.ToString().Replace('.', ','));
-            string nhapvaokho = cbNhapvaokho.Text;
-            //Tính toán sô lượng hàng nhập
-            float tonkhotruocnhapVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
-            float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
-            float tonkhosaunhapVTN = tonkhotruocnhapVTN;
-            float tonkhosaunhapDRG = tonkhotruocnhapDRG; 
-            if (nhapvaokho == "VTN")
-            {
-                tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
-            }
-            else if (nhapvaokho == "DRAGON")
-            {
-                tonkhosaunhapDRG += soluongnhap; //Tăng tồn kho sau nhập vào DRAGON
-            }
-            else if (nhapvaokho == "NHẬP LẠI")
-            {
-                tonkhosaunhapDRG -= soluongnhap; //Giảm tồn kho DRAGON
-                tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho VTN
-            }
-            string trangthai = "CHỜ NGHIỆM THU";
+                {
+                    MessageBox.Show("Cần nhập đầy đủ các thông tin!",
+                        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!IsNumeric(txtSoluongnhap.Text))
+                {
+                    MessageBox.Show("Vui lòng chỉ nhập số và dấu chấm cho trường số lượng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                int vattuid = infoThongtinvattu.Id;
+                string mavattu = infoThongtinvattu.Mavattu;
+                string invoiceno = txtinvoiceno.Text;
+                string partno = txtpartno.Text;
+                string donvi = infoThongtinvattu.Donvi;
+                string tennguoithaotac = userInfo.Hoten;
+                string manhanvien = userInfo.Manhanvien;
+                string bophan = userInfo.Bophan;
+                string loaithaotac = "Nhập";
+                string thoigian = txtNgaygionhap.Text;
+                float soluongnhap = (float)Convert.ToDouble(txtSoluongnhap.Text.ToString().Replace('.', ','));
+                string nhapvaokho = cbNhapvaokho.Text;
+                //Tính toán sô lượng hàng nhập
+                float tonkhotruocnhapVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
+                float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
+                float tonkhosaunhapVTN = tonkhotruocnhapVTN;
+                float tonkhosaunhapDRG = tonkhotruocnhapDRG;
+                if (nhapvaokho == "VTN")
+                {
+                    tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
+                }
+                else if (nhapvaokho == "DRAGON")
+                {
+                    tonkhosaunhapDRG += soluongnhap; //Tăng tồn kho sau nhập vào DRAGON
+                }
+                string trangthai = "CHỜ NGHIỆM THU";
+                bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac,
+                 manhanvien, bophan, loaithaotac, thoigian,
+                 soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
+                tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
 
-            bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, donvi, tennguoithaotac,
-             manhanvien, bophan, loaithaotac, thoigian,
-             soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
-            tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
-
-            bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
-            if (success1 && success2)
-            {
-                allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-                txtinvoiceno.Text = "";
-                txtpartno.Text = "";
-                txtDiengiai.Text = "";
-                txtDonvitinh.Text = "";
-                txtKgtrenbao.Text = "";
-                txtTonkhovtn.Text = "";
-                txttonkhodrg.Text = "";
-                txtSoluongnhap.Text = "";
-                txtdonvi2.Text = "_";
-                cbmavattu.Text = "";
-                cbmavattu.Focus();
-                FormThanhcong fthanhcong = new FormThanhcong();
-                fthanhcong.ShowDialog();
+                bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+                if (success1 && success2)
+                {
+                    allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+                    txtinvoiceno.Text = "";
+                    txtpartno.Text = "";
+                    txtDiengiai.Text = "";
+                    txtDonvitinh.Text = "";
+                    txtKgtrenbao.Text = "";
+                    txtTonkhovtn.Text = "";
+                    txttonkhodrg.Text = "";
+                    txtSoluongnhap.Text = "";
+                    txtdonvi2.Text = "_";
+                    cbmavattu.Text = "";
+                    cbmavattu.Focus();
+                    FormThanhcong fthanhcong = new FormThanhcong();
+                    fthanhcong.ShowDialog();
+                }
             }
         }
 
@@ -160,7 +226,7 @@ namespace Vietinak_Kho.f_Nhapxuat
         private void txtSoluongnhap_Enter(object sender, EventArgs e)
         {
             string userInput = cbmavattu.Text;
-            if (allThongtinvattu.Where(x => x.Mavattu == userInput).Count() == 0)         
+            if (allThongtinvattu.Where(x => x.Mavattu == userInput).Count() == 0)
             {
                 MessageBox.Show("Không tìm thấy thông tin vật tư liên quan!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDiengiai.Text = "";
@@ -173,6 +239,15 @@ namespace Vietinak_Kho.f_Nhapxuat
             }
         }
 
-  
+        private void cbNhapvaokho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nhapvaokho = cbNhapvaokho.Text;
+            if (nhapvaokho == "NHẬP LẠI")
+            {
+                txtinvoiceno.Enabled = false;
+                txtpartno.Enabled = false;
+                txtSoluongnhap.Focus();
+            }
+        }
     }
 }

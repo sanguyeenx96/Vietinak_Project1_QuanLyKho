@@ -117,7 +117,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.06779F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(941, 421);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel1
             // 
@@ -146,7 +146,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 263);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(920, 149);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin vật tư";
             // 
@@ -383,7 +383,7 @@
             this.cbmavattu.Location = new System.Drawing.Point(332, 35);
             this.cbmavattu.Name = "cbmavattu";
             this.cbmavattu.Size = new System.Drawing.Size(352, 33);
-            this.cbmavattu.TabIndex = 2;
+            this.cbmavattu.TabIndex = 0;
             this.cbmavattu.SelectedIndexChanged += new System.EventHandler(this.cbmavattu_SelectedIndexChanged);
             this.cbmavattu.Leave += new System.EventHandler(this.cbmavattu_Leave);
             // 
@@ -396,89 +396,90 @@
             "VTN",
             "DRAGON",
             "NHẬP LẠI"});
-            this.cbNhapvaokho.Location = new System.Drawing.Point(332, 185);
+            this.cbNhapvaokho.Location = new System.Drawing.Point(332, 74);
             this.cbNhapvaokho.Name = "cbNhapvaokho";
             this.cbNhapvaokho.Size = new System.Drawing.Size(352, 33);
-            this.cbNhapvaokho.TabIndex = 4;
+            this.cbNhapvaokho.TabIndex = 1;
+            this.cbNhapvaokho.SelectedIndexChanged += new System.EventHandler(this.cbNhapvaokho_SelectedIndexChanged);
             // 
             // txtinvoiceno
             // 
             this.txtinvoiceno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtinvoiceno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtinvoiceno.Location = new System.Drawing.Point(332, 74);
+            this.txtinvoiceno.Location = new System.Drawing.Point(332, 113);
             this.txtinvoiceno.Name = "txtinvoiceno";
             this.txtinvoiceno.Size = new System.Drawing.Size(352, 31);
-            this.txtinvoiceno.TabIndex = 0;
+            this.txtinvoiceno.TabIndex = 2;
             this.txtinvoiceno.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
             // 
             // txtpartno
             // 
             this.txtpartno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpartno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtpartno.Location = new System.Drawing.Point(332, 111);
+            this.txtpartno.Location = new System.Drawing.Point(332, 150);
             this.txtpartno.Name = "txtpartno";
             this.txtpartno.Size = new System.Drawing.Size(352, 31);
-            this.txtpartno.TabIndex = 1;
+            this.txtpartno.TabIndex = 3;
             this.txtpartno.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
             // 
             // txtSoluongnhap
             // 
             this.txtSoluongnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 148);
+            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 187);
             this.txtSoluongnhap.Name = "txtSoluongnhap";
             this.txtSoluongnhap.Size = new System.Drawing.Size(352, 31);
-            this.txtSoluongnhap.TabIndex = 3;
+            this.txtSoluongnhap.TabIndex = 4;
             this.txtSoluongnhap.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label13.Location = new System.Drawing.Point(169, 77);
+            this.label13.Location = new System.Drawing.Point(169, 116);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(129, 25);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "2. Invoice No.";
+            this.label13.TabIndex = 7;
+            this.label13.Text = "3. Invoice No.";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label11.Location = new System.Drawing.Point(169, 188);
+            this.label11.Location = new System.Drawing.Point(169, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(152, 25);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "5. Nhập vào kho";
+            this.label11.TabIndex = 6;
+            this.label11.Text = "2. Nhập vào kho";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label12.Location = new System.Drawing.Point(169, 114);
+            this.label12.Location = new System.Drawing.Point(169, 153);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 25);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "3. Part No.";
+            this.label12.TabIndex = 8;
+            this.label12.Text = "4. Part No.";
             // 
             // txtdonvi2
             // 
             this.txtdonvi2.AutoSize = true;
             this.txtdonvi2.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.txtdonvi2.Location = new System.Drawing.Point(690, 152);
+            this.txtdonvi2.Location = new System.Drawing.Point(690, 191);
             this.txtdonvi2.Name = "txtdonvi2";
             this.txtdonvi2.Size = new System.Drawing.Size(22, 25);
-            this.txtdonvi2.TabIndex = 10;
+            this.txtdonvi2.TabIndex = 11;
             this.txtdonvi2.Text = "_";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 151);
+            this.label3.Location = new System.Drawing.Point(169, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "4. Số lượng nhập";
+            this.label3.Size = new System.Drawing.Size(115, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "5. Số lượng ";
             // 
             // label1
             // 
@@ -487,7 +488,7 @@
             this.label1.Location = new System.Drawing.Point(169, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 25);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 5;
             this.label1.Text = "1. Mã vật tư";
             // 
             // panel5
@@ -534,7 +535,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(941, 122);
-            this.tableLayoutPanel4.TabIndex = 2;
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
             // btnXacnhan
             // 

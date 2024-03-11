@@ -48,20 +48,24 @@ namespace Vietinak_Kho.f_Khohang
 
             dgvLichsunhap.Columns["Trangthai"].DisplayIndex = 0;
             dgvLichsunhap.Columns["Mavattu"].DisplayIndex = 1;
-            dgvLichsunhap.Columns["Soluongnhap"].DisplayIndex = 2;
-            dgvLichsunhap.Columns["Donvi"].DisplayIndex = 3;
-            dgvLichsunhap.Columns["Nhapvaokho"].DisplayIndex = 4;
-            dgvLichsunhap.Columns["TonkhotruocnhapVTN"].DisplayIndex = 5;
-            dgvLichsunhap.Columns["TonkhosaunhapVTN"].DisplayIndex = 6;
-            dgvLichsunhap.Columns["TonkhotruocnhapDRG"].DisplayIndex = 7;
-            dgvLichsunhap.Columns["TonkhosaunhapDRG"].DisplayIndex = 8;
-            dgvLichsunhap.Columns["Tennguoithaotac"].DisplayIndex = 9;
-            dgvLichsunhap.Columns["Manhanvien"].DisplayIndex = 10;
-            dgvLichsunhap.Columns["Bophan"].DisplayIndex = 11;
-            dgvLichsunhap.Columns["Thoigian"].DisplayIndex = 12;
+            dgvLichsunhap.Columns["Invoiceno"].DisplayIndex = 2;
+            dgvLichsunhap.Columns["Partno"].DisplayIndex = 3;
+            dgvLichsunhap.Columns["Soluongnhap"].DisplayIndex = 4;
+            dgvLichsunhap.Columns["Donvi"].DisplayIndex = 5;
+            dgvLichsunhap.Columns["Nhapvaokho"].DisplayIndex = 6;
+            dgvLichsunhap.Columns["TonkhotruocnhapVTN"].DisplayIndex = 7;
+            dgvLichsunhap.Columns["TonkhosaunhapVTN"].DisplayIndex = 8;
+            dgvLichsunhap.Columns["TonkhotruocnhapDRG"].DisplayIndex = 9;
+            dgvLichsunhap.Columns["TonkhosaunhapDRG"].DisplayIndex = 10;
+            dgvLichsunhap.Columns["Tennguoithaotac"].DisplayIndex = 11;
+            dgvLichsunhap.Columns["Manhanvien"].DisplayIndex = 12;
+            dgvLichsunhap.Columns["Bophan"].DisplayIndex = 13;
+            dgvLichsunhap.Columns["Thoigian"].DisplayIndex = 14;
 
             dgvLichsunhap.Columns["Trangthai"].HeaderText = "Trạng thái";
             dgvLichsunhap.Columns["Mavattu"].HeaderText = "Mã vật tư";
+            dgvLichsunhap.Columns["Invoiceno"].HeaderText = "Invoice No.";
+            dgvLichsunhap.Columns["Partno"].HeaderText = "Part No.";
             dgvLichsunhap.Columns["Donvi"].HeaderText = "Đơn vị";
             dgvLichsunhap.Columns["Tennguoithaotac"].HeaderText = "Người thao tác";
             dgvLichsunhap.Columns["Manhanvien"].HeaderText = "Mã nhân viên";
@@ -118,6 +122,15 @@ namespace Vietinak_Kho.f_Khohang
                         fls.ShowDialog();
                     }
                 }
+                if (trangThaiValue != null && trangThaiValue.ToString() == "NHẬP LẠI HOÀN THÀNH")
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        FormLichsunhaplaixemnhanh fls = new FormLichsunhaplaixemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
+                        fls.ShowDialog();
+                    }
+                }
             }
             else
             {
@@ -146,7 +159,9 @@ namespace Vietinak_Kho.f_Khohang
             {
                 filteredLichsunhap = filteredLichsunhap.Where(x =>
                     x.Mavattu.ToLower().Contains(searchText.ToLower()) || 
-                    x.Donvi.ToLower().Contains(searchText.ToLower()) || 
+                    x.Donvi.ToLower().Contains(searchText.ToLower()) ||
+                    x.Invoiceno.ToLower().Contains(searchText.ToLower()) ||
+                    x.Partno.ToLower().Contains(searchText.ToLower()) ||
                     x.Nhapvaokho.ToLower().Contains(searchText.ToLower()) || 
                     x.Tennguoithaotac.ToLower().Contains(searchText.ToLower()) ||
                     x.Bophan.ToLower().Contains(searchText.ToLower()) ||
@@ -201,6 +216,11 @@ namespace Vietinak_Kho.f_Khohang
             if (!dgvLichsunhap.Rows[e.RowIndex].IsNewRow && dgvLichsunhap.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "NHẬP HOÀN THÀNH")
             {
                 dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+            if (!dgvLichsunhap.Rows[e.RowIndex].IsNewRow && dgvLichsunhap.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "NHẬP LẠI HOÀN THÀNH")
+            {
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Purple;
                 dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
             }
         }
