@@ -9,12 +9,14 @@ namespace Vietinak_Kho.DTO
 {
     public class Lichsuxuatchitiet
     {
-        public Lichsuxuatchitiet(int id, int lichsuxuatid, string mavattu, string lotno, float soluong, float conlai,
+        public Lichsuxuatchitiet(int id, int lichsuxuatid, string mavattu, string invoiceno, string partno, string lotno, float soluong, float conlai,
            string donvi, string hansudung, string ngaygioxuat)
         {
             this.Id = id;
             this.Lichsuxuatid = lichsuxuatid;
             this.Mavattu = mavattu;
+            this.Invoiceno = invoiceno;
+            this.Partno = partno;
             this.Lotno = lotno;
             this.Soluong = soluong;
             this.Conlai = conlai;
@@ -28,6 +30,8 @@ namespace Vietinak_Kho.DTO
             this.Id = Convert.ToInt32(row["id"]);
             this.Lichsuxuatid = Convert.ToInt32(row["lichsuxuatid"]);
             this.Mavattu = row["mavattu"].ToString();
+            this.Invoiceno = row["invoiceno"].ToString();
+            this.Partno = row["partno"].ToString();
             this.Lotno = row["lotno"].ToString();
             this.Soluong = row["soluong"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["soluong"]);
             this.Conlai = row["conlai"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["conlai"]);
@@ -39,6 +43,8 @@ namespace Vietinak_Kho.DTO
         private int id;
         private int lichsuxuatid;
         private string mavattu;
+        private string invoiceno;
+        private string partno;
         private string lotno;
         private float soluong;
         private float conlai;
@@ -49,6 +55,8 @@ namespace Vietinak_Kho.DTO
         public int Id { get => id; set => id = value; }
         public int Lichsuxuatid { get => lichsuxuatid; set => lichsuxuatid = value; }
         public string Mavattu { get => mavattu; set => mavattu = value; }
+        public string Invoiceno { get => invoiceno; set => invoiceno = value; }
+        public string Partno { get => partno; set => partno = value; }
         public string Lotno { get => lotno; set => lotno = value; }
         public float Soluong { get => soluong; set => soluong = value; }
         public float Conlai { get => conlai; set => conlai = value; }

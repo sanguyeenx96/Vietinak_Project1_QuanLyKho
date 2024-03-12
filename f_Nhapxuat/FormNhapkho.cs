@@ -95,7 +95,6 @@ namespace Vietinak_Kho.f_Nhapxuat
                 int vattuid = infoThongtinvattu.Id;
                 string mavattu = infoThongtinvattu.Mavattu;
                 string invoiceno = txtinvoiceno.Text;
-                string partno = txtpartno.Text;
                 string donvi = infoThongtinvattu.Donvi;
                 string tennguoithaotac = userInfo.Hoten;
                 string manhanvien = userInfo.Manhanvien;
@@ -114,7 +113,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                     tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
                 }
                 string trangthai = "CHỜ NGHIỆM THU";
-                bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac,
+                bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, mavattu, donvi, tennguoithaotac,
                  manhanvien, bophan, loaithaotac, thoigian,
                  soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
                 tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
@@ -123,7 +122,6 @@ namespace Vietinak_Kho.f_Nhapxuat
                 {
                     allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
                     txtinvoiceno.Text = "";
-                    txtpartno.Text = "";
                     txtDiengiai.Text = "";
                     txtDonvitinh.Text = "";
                     txtKgtrenbao.Text = "";
@@ -136,14 +134,11 @@ namespace Vietinak_Kho.f_Nhapxuat
                     FormThanhcong fthanhcong = new FormThanhcong();
                     fthanhcong.ShowDialog();
                 }
-
-
             }
             else
             {
                 if (
                 string.IsNullOrWhiteSpace(txtinvoiceno.Text) ||
-                string.IsNullOrWhiteSpace(txtpartno.Text) ||
                 string.IsNullOrWhiteSpace(cbmavattu.Text) ||
                 string.IsNullOrWhiteSpace(txtSoluongnhap.Text) ||
                 string.IsNullOrWhiteSpace(cbNhapvaokho.Text)
@@ -161,7 +156,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 int vattuid = infoThongtinvattu.Id;
                 string mavattu = infoThongtinvattu.Mavattu;
                 string invoiceno = txtinvoiceno.Text;
-                string partno = txtpartno.Text;
+                string partno = infoThongtinvattu.Mavattu;
                 string donvi = infoThongtinvattu.Donvi;
                 string tennguoithaotac = userInfo.Hoten;
                 string manhanvien = userInfo.Manhanvien;
@@ -175,37 +170,61 @@ namespace Vietinak_Kho.f_Nhapxuat
                 float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
                 float tonkhosaunhapVTN = tonkhotruocnhapVTN;
                 float tonkhosaunhapDRG = tonkhotruocnhapDRG;
+                string trangthai = "CHỜ NGHIỆM THU";
                 if (nhapvaokho == "VTN")
                 {
                     tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
+                    bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, mavattu, donvi, tennguoithaotac,
+                    manhanvien, bophan, loaithaotac, thoigian,
+                    soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
+                    tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
+
+                    bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+                    if (success1 && success2)
+                    {
+                        allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+                        txtinvoiceno.Text = "";
+                        txtDiengiai.Text = "";
+                        txtDonvitinh.Text = "";
+                        txtKgtrenbao.Text = "";
+                        txtTonkhovtn.Text = "";
+                        txttonkhodrg.Text = "";
+                        txtSoluongnhap.Text = "";
+                        txtdonvi2.Text = "_";
+                        cbmavattu.Text = "";
+                        cbmavattu.Focus();
+                        FormThanhcong fthanhcong = new FormThanhcong();
+                        fthanhcong.ShowDialog();
+                    }
                 }
                 else if (nhapvaokho == "DRAGON")
                 {
                     tonkhosaunhapDRG += soluongnhap; //Tăng tồn kho sau nhập vào DRAGON
-                }
-                string trangthai = "CHỜ NGHIỆM THU";
-                bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac,
-                 manhanvien, bophan, loaithaotac, thoigian,
-                 soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
-                tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
+                    trangthai = "NHẬP HOÀN THÀNH";
+                    int lichsunhapid = LichsunhapxuatDAO.Instance.NhapReturnId(vattuid, mavattu, invoiceno, mavattu, donvi, tennguoithaotac,
+                    manhanvien, bophan, loaithaotac, thoigian,
+                    soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
+                    tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
 
-                bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
-                if (success1 && success2)
-                {
-                    allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-                    txtinvoiceno.Text = "";
-                    txtpartno.Text = "";
-                    txtDiengiai.Text = "";
-                    txtDonvitinh.Text = "";
-                    txtKgtrenbao.Text = "";
-                    txtTonkhovtn.Text = "";
-                    txttonkhodrg.Text = "";
-                    txtSoluongnhap.Text = "";
-                    txtdonvi2.Text = "_";
-                    cbmavattu.Text = "";
-                    cbmavattu.Focus();
-                    FormThanhcong fthanhcong = new FormThanhcong();
-                    fthanhcong.ShowDialog();
+                    bool created = LichsunhapchitietDAO.Instance.Create(lichsunhapid, mavattu, "DRAGON", invoiceno, partno, "", soluongnhap.ToString().Replace(',', '.'), donvi, thoigian, "", userInfo.Hoten, userInfo.Manhanvien, userInfo.Bophan);
+                    bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+
+                    if (created && success2)
+                    {
+                        allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+                        txtinvoiceno.Text = "";
+                        txtDiengiai.Text = "";
+                        txtDonvitinh.Text = "";
+                        txtKgtrenbao.Text = "";
+                        txtTonkhovtn.Text = "";
+                        txttonkhodrg.Text = "";
+                        txtSoluongnhap.Text = "";
+                        txtdonvi2.Text = "_";
+                        cbmavattu.Text = "";
+                        cbmavattu.Focus();
+                        FormThanhcong fthanhcong = new FormThanhcong();
+                        fthanhcong.ShowDialog();
+                    }
                 }
             }
         }
@@ -245,9 +264,18 @@ namespace Vietinak_Kho.f_Nhapxuat
             if (nhapvaokho == "NHẬP LẠI")
             {
                 txtinvoiceno.Enabled = false;
-                txtpartno.Enabled = false;
                 txtSoluongnhap.Focus();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

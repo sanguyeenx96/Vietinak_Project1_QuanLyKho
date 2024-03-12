@@ -58,11 +58,9 @@
             this.cbmavattu = new System.Windows.Forms.ComboBox();
             this.cbNhapvaokho = new System.Windows.Forms.ComboBox();
             this.txtinvoiceno = new System.Windows.Forms.TextBox();
-            this.txtpartno = new System.Windows.Forms.TextBox();
             this.txtSoluongnhap = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtdonvi2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -125,11 +123,9 @@
             this.panel1.Controls.Add(this.cbmavattu);
             this.panel1.Controls.Add(this.cbNhapvaokho);
             this.panel1.Controls.Add(this.txtinvoiceno);
-            this.panel1.Controls.Add(this.txtpartno);
             this.panel1.Controls.Add(this.txtSoluongnhap);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.txtdonvi2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -138,6 +134,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(935, 415);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // groupBox1
             // 
@@ -380,7 +377,7 @@
             // 
             this.cbmavattu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.cbmavattu.FormattingEnabled = true;
-            this.cbmavattu.Location = new System.Drawing.Point(332, 35);
+            this.cbmavattu.Location = new System.Drawing.Point(332, 45);
             this.cbmavattu.Name = "cbmavattu";
             this.cbmavattu.Size = new System.Drawing.Size(352, 33);
             this.cbmavattu.TabIndex = 0;
@@ -396,7 +393,7 @@
             "VTN",
             "DRAGON",
             "NHẬP LẠI"});
-            this.cbNhapvaokho.Location = new System.Drawing.Point(332, 74);
+            this.cbNhapvaokho.Location = new System.Drawing.Point(332, 84);
             this.cbNhapvaokho.Name = "cbNhapvaokho";
             this.cbNhapvaokho.Size = new System.Drawing.Size(352, 33);
             this.cbNhapvaokho.TabIndex = 1;
@@ -406,26 +403,16 @@
             // 
             this.txtinvoiceno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtinvoiceno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtinvoiceno.Location = new System.Drawing.Point(332, 113);
+            this.txtinvoiceno.Location = new System.Drawing.Point(332, 123);
             this.txtinvoiceno.Name = "txtinvoiceno";
             this.txtinvoiceno.Size = new System.Drawing.Size(352, 31);
             this.txtinvoiceno.TabIndex = 2;
             this.txtinvoiceno.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
             // 
-            // txtpartno
-            // 
-            this.txtpartno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtpartno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtpartno.Location = new System.Drawing.Point(332, 150);
-            this.txtpartno.Name = "txtpartno";
-            this.txtpartno.Size = new System.Drawing.Size(352, 31);
-            this.txtpartno.TabIndex = 3;
-            this.txtpartno.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
-            // 
             // txtSoluongnhap
             // 
             this.txtSoluongnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 187);
+            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 160);
             this.txtSoluongnhap.Name = "txtSoluongnhap";
             this.txtSoluongnhap.Size = new System.Drawing.Size(352, 31);
             this.txtSoluongnhap.TabIndex = 4;
@@ -435,7 +422,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label13.Location = new System.Drawing.Point(169, 116);
+            this.label13.Location = new System.Drawing.Point(169, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(129, 25);
             this.label13.TabIndex = 7;
@@ -445,27 +432,17 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label11.Location = new System.Drawing.Point(169, 77);
+            this.label11.Location = new System.Drawing.Point(169, 87);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(152, 25);
             this.label11.TabIndex = 6;
             this.label11.Text = "2. Nhập vào kho";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label12.Location = new System.Drawing.Point(169, 153);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 25);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "4. Part No.";
-            // 
             // txtdonvi2
             // 
             this.txtdonvi2.AutoSize = true;
             this.txtdonvi2.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.txtdonvi2.Location = new System.Drawing.Point(690, 191);
+            this.txtdonvi2.Location = new System.Drawing.Point(690, 164);
             this.txtdonvi2.Name = "txtdonvi2";
             this.txtdonvi2.Size = new System.Drawing.Size(22, 25);
             this.txtdonvi2.TabIndex = 11;
@@ -475,17 +452,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 190);
+            this.label3.Location = new System.Drawing.Point(169, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 25);
             this.label3.TabIndex = 9;
-            this.label3.Text = "5. Số lượng ";
+            this.label3.Text = "4. Số lượng ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label1.Location = new System.Drawing.Point(169, 38);
+            this.label1.Location = new System.Drawing.Point(169, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 5;
@@ -651,8 +628,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtdonvi2;
         private System.Windows.Forms.TextBox txtinvoiceno;
-        private System.Windows.Forms.TextBox txtpartno;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
     }
 }

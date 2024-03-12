@@ -104,24 +104,34 @@ namespace Vietinak_Kho.f_Nhapxuat
             {
                 tonkhosauxuatVTN += soluongxuat;
                 tonkhosauxuatDRG -= soluongxuat;
-            }
-            else if (mucdichxuat == "XUẤT VTN - NHẬP DRG")
-            {
-                tonkhosauxuatVTN -= soluongxuat;
-                tonkhosauxuatDRG += soluongxuat;
+                //Check số lượng tồn kho DRG của nguyên vật liệu 
+                if(tonkhotruocxuatDRG == 0)
+                {
+                    MessageBox.Show("Vật tư không có tồn kho tại kho DRG!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if(tonkhotruocxuatDRG < soluongxuat)
+                {
+                    MessageBox.Show("Tồn kho tại kho DRG ("+ tonkhotruocxuatDRG + ") nhỏ hơn số lượng cần xuất ("+soluongxuat+") ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if(tonkhotruocxuatDRG >= soluongxuat)
+                {
+                    FormThongtinxuat fttx = new FormThongtinxuat(vattuid, mavattu, soluongxuat, mucdichxuat, donvi, userInfo, tonkhotruocxuatVTN, tonkhotruocxuatDRG);
+                    fttx.ShowDialog();
+                }
+
             }
             else if (mucdichxuat == "XUẤT SẢN XUẤT")
             {
                 tonkhosauxuatVTN -= soluongxuat;
+                FormThongtinxuat fttx = new FormThongtinxuat(vattuid, mavattu, soluongxuat, mucdichxuat, donvi, userInfo, tonkhotruocxuatVTN, tonkhotruocxuatDRG);
+                fttx.ShowDialog();
             }
             else if (mucdichxuat == "XUẤT NG")
             {
                 tonkhosauxuatVTN -= soluongxuat;
             }
-
-            FormThongtinxuat fttx = new FormThongtinxuat(mavattu,soluongxuat,mucdichxuat,donvi);
-            fttx.ShowDialog();
-
+            
+            
             //bool success1 = LichsunhapxuatDAO.Instance.Xuat(vattuid, mavattu, donvi, tennguoithaotac,
             // manhanvien, bophan, loaithaotac, thoigian,
             // soluongxuat.ToString().Replace(',', '.'), mucdichxuat, tonkhotruocxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatVTN.ToString().Replace(',', '.'),

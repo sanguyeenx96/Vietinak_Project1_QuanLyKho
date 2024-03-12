@@ -80,6 +80,9 @@ namespace Vietinak_Kho.f_Thongke
                 string nhapvaokho = selectedRow.Cells["Nhapvaokho"].Value.ToString();
                 string soluongnhap = selectedRow.Cells["Soluongnhap"].Value.ToString();
                 string donvi = selectedRow.Cells["Donvi"].Value.ToString();
+                string mucdichxuat = selectedRow.Cells["Mucdichxuat"].Value.ToString();
+                string soluongxuat = selectedRow.Cells["Soluongxuat"].Value.ToString();
+
 
                 string idValue = selectedRow.Cells["Id"].Value.ToString();
                 if (trangThaiValue != null && trangThaiValue.ToString() == "CHỜ QC CHECK")
@@ -107,6 +110,15 @@ namespace Vietinak_Kho.f_Thongke
                     {
                         FormLichsunhaplaixemnhanh fls = new FormLichsunhaplaixemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
                         fls.ShowDialog();
+                    }
+                }
+                if (trangThaiValue != null && trangThaiValue.ToString() == "XUẤT HOÀN THÀNH")
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết lịch sử xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        FormLichsuxuatchitiet flsx = new FormLichsuxuatchitiet(Convert.ToInt32(idValue), mavattu, mucdichxuat, soluongxuat, donvi);
+                        flsx.ShowDialog();
                     }
                 }
             }
