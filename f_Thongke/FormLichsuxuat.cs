@@ -39,6 +39,8 @@ namespace Vietinak_Kho.f_Thongke
             dgvLichsuxuat.Columns["Loaithaotac"].Visible = false;
             dgvLichsuxuat.Columns["Soluongnhap"].Visible = false;
             dgvLichsuxuat.Columns["Nhapvaokho"].Visible = false;
+            dgvLichsuxuat.Columns["Partno"].Visible = false;
+
             dgvLichsuxuat.Columns["TonkhotruocnhapVTN"].Visible = false;
             dgvLichsuxuat.Columns["TonkhosaunhapVTN"].Visible = false;
             dgvLichsuxuat.Columns["TonkhotruocnhapDRG"].Visible = false;
@@ -120,7 +122,6 @@ namespace Vietinak_Kho.f_Thongke
                     x.Mucdichxuat.ToLower().Contains(searchText.ToLower()) ||
                     x.Tennguoithaotac.ToLower().Contains(searchText.ToLower()) ||
                     x.Bophan.ToLower().Contains(searchText.ToLower()) ||
-
                     x.TonkhotruocxuatVTN.ToString().ToLower().Contains(searchText.ToLower()) ||
                     x.TonkhosauxuatVTN.ToString().ToLower().Contains(searchText.ToLower()) ||
                     x.TonkhotruocxuatDRG.ToString().ToLower().Contains(searchText.ToLower()) ||

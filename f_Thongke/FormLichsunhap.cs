@@ -113,7 +113,7 @@ namespace Vietinak_Kho.f_Khohang
                         fls.ShowDialog();
                     }
                 }
-                if (trangThaiValue != null && trangThaiValue.ToString() == "NHẬP HOÀN THÀNH")
+                if (trangThaiValue != null && trangThaiValue.ToString() == "NHẬP HOÀN THÀNH" && nhapvaokho != "DRAGON")
                 {
                     DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu & QC Check không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)

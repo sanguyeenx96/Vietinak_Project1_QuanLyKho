@@ -102,6 +102,26 @@ namespace Vietinak_Kho.DAO
             return result > 0;
         }
 
+        public int NhapReturnId(int vattuid, string mavattu, string invoiceno, string partno, string donvi, string tennguoithaotac,
+         string manhanvien, string bophan, string loaithaotac, string thoigian,
+         string soluongnhap, string nhapvaokho, string tonkhotruocnhapVTN, string tonkhosaunhapVTN,
+         string tonkhotruocnhapDRG, string tonkhosaunhapDRG, string trangthai)
+        {
+            string query = string.Format("INSERT INTO dbo.tbllichsunhapxuat " +
+            "(vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
+            " thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN," +
+            " tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai) " +
+            "OUTPUT INSERTED.ID " +
+            "VALUES " +
+            "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}',N'{15}',N'{16}')",
+            vattuid, mavattu, invoiceno, partno, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
+            thoigian, soluongnhap, nhapvaokho, tonkhotruocnhapVTN, tonkhosaunhapVTN,
+            tonkhotruocnhapDRG, tonkhosaunhapDRG, trangthai);
+
+            object result = DataProvider.Instance.ExecuteScalar(query);
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
+
         public int Nhaplai(int vattuid, string mavattu, string invoiceno, string partno, string donvi, string tennguoithaotac,
         string manhanvien, string bophan, string loaithaotac, string thoigian,
         string soluongnhap, string nhapvaokho, string tonkhotruocnhapVTN, string tonkhosaunhapVTN,
@@ -126,20 +146,41 @@ namespace Vietinak_Kho.DAO
         public bool Xuat(int vattuid, string mavattu, string donvi, string tennguoithaotac,
         string manhanvien, string bophan, string loaithaotac, string thoigian,
         string soluongxuat, string mucdichxuat, string tonkhotruocxuatVTN, string tonkhosauxuatVTN,
-        string tonkhotruocxuatDRG, string tonkhosauxuatDRG)
+        string tonkhotruocxuatDRG, string tonkhosauxuatDRG,string trangthai)
         {
             string query = string.Format("INSERT INTO dbo.tbllichsunhapxuat " +
                 "(vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
                 " thoigian, soluongxuat, mucdichxuat, tonkhotruocxuatVTN, tonkhosauxuatVTN," +
-                " tonkhotruocxuatDRG, tonkhosauxuatDRG) " +
+                " tonkhotruocxuatDRG, tonkhosauxuatDRG,trangthai) " +
                 "VALUES " +
-                "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}')",
+                "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}')",
                 vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
                 thoigian, soluongxuat, mucdichxuat, tonkhotruocxuatVTN, tonkhosauxuatVTN,
-                tonkhotruocxuatDRG, tonkhosauxuatDRG);
+                tonkhotruocxuatDRG, tonkhosauxuatDRG,trangthai);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public int XuatReturnId(int vattuid, string mavattu, string donvi, string tennguoithaotac,
+        string manhanvien, string bophan, string loaithaotac, string thoigian,
+        string soluongxuat, string mucdichxuat, string tonkhotruocxuatVTN, string tonkhosauxuatVTN,
+        string tonkhotruocxuatDRG, string tonkhosauxuatDRG, string trangthai)
+        {
+            string query = string.Format("INSERT INTO dbo.tbllichsunhapxuat " +
+                "(vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac," +
+                " thoigian, soluongxuat, mucdichxuat, tonkhotruocxuatVTN, tonkhosauxuatVTN," +
+                " tonkhotruocxuatDRG, tonkhosauxuatDRG,trangthai) " +
+                "OUTPUT INSERTED.ID " +
+                "VALUES " +
+                "(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}',N'{13}',N'{14}')",
+                vattuid, mavattu, donvi, tennguoithaotac, manhanvien, bophan, loaithaotac,
+                thoigian, soluongxuat, mucdichxuat, tonkhotruocxuatVTN, tonkhosauxuatVTN,
+                tonkhotruocxuatDRG, tonkhosauxuatDRG, trangthai);
+
+            object result = DataProvider.Instance.ExecuteScalar(query);
+            return result != null ? Convert.ToInt32(result) : -1;      
+        }
+
 
         public List<Lichsunhapxuat> LoadTableList_Lichsuxuathomnay()
         {
