@@ -23,7 +23,8 @@ namespace Vietinak_Kho.f_Thongke
         private void FormLichsunhapxuat_Load(object sender, EventArgs e)
         {
             var lichsunhapxuat = LichsunhapxuatDAO.Instance.LoadTableList_Lichsunhapxuat(mavattu);
-            dgv.DataSource = lichsunhapxuat;
+            var ls = lichsunhapxuat.Where(x => (x.Trangthai == "NHẬP HOÀN THÀNH" || x.Trangthai == "XUẤT HOÀN THÀNH")).ToList();
+            dgv.DataSource = ls;
 
             dgv.Columns["Id"].Visible = false;
             dgv.Columns["Vattuid"].Visible = false;
@@ -123,6 +124,18 @@ namespace Vietinak_Kho.f_Thongke
                 }
             }
           
+        }
+
+        private void dgv_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (!dgv.Rows[e.RowIndex].IsNewRow && dgv.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "XUẤT HOÀN THÀNH")
+            {
+                dgv.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Goldenrod;
+            }
+            if (!dgv.Rows[e.RowIndex].IsNewRow && dgv.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "NHẬP HOÀN THÀNH")
+            {
+                dgv.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+            }       
         }
     }
 }

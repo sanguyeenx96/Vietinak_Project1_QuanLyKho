@@ -115,7 +115,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                             {
                                 tongsoluongcongthemvtn += (float)Convert.ToDouble(Soluongnhaplai.Replace('.', ','));
                             }
-                            if (vitri == "DRG")
+                            if (vitri == "DRAGON")
                             {
                                 tongsoluongcongthemdrg += (float)Convert.ToDouble(Soluongnhaplai.Replace('.', ','));
                             }

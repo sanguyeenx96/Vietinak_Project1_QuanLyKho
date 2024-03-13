@@ -41,6 +41,7 @@
             this.dgv.Size = new System.Drawing.Size(800, 450);
             this.dgv.TabIndex = 0;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            this.dgv.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgv_RowPrePaint);
             // 
             // FormLichsunhapxuat
             // 

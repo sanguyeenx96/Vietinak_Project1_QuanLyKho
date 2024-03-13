@@ -97,7 +97,7 @@ namespace Vietinak_Kho.f_Nghiemthu
                         bool checktrung = LichsunhapchitietDAO.Instance.Checktrung(mavattu, lotno);
                         if (!checktrung)
                         {
-                            MessageBox.Show("Lotno của mavattu đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Lot No. "+lotno+" của mã vật tư "+ mavattu +" đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             allRowsValid = false; // Đặt biến cờ thành false khi có lỗi
                             break; // Dừng vòng lặp vì không cần kiểm tra các dòng nữa
                         }

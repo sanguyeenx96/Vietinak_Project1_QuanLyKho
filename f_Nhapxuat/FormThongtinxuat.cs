@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -23,8 +24,9 @@ namespace Vietinak_Kho.f_Nhapxuat
         public User userInfo;
         private float tonkhotruocxuatVTN;
         private float tonkhotruocxuatDRG;
-
-
+        private List<Thongtinvattu> allThongtinvattu;
+        private Thongtinvattu infoThongtinvattu;
+        private string invoiceno;
         public FormThongtinxuat(int vattuid, string mavattu, float soluongxuat, string mucdichxuat,
             string donvi, User userInfo, float tonkhotruocxuatVTN, float tonkhotruocxuatDRG)
         {
@@ -49,7 +51,9 @@ namespace Vietinak_Kho.f_Nhapxuat
             if (mucdichxuat == "XUẤT SẢN XUẤT")
             {
                 var danhsachlotno = LichsunhapchitietDAO.Instance.LoadTableList_Lichsunhaporderbyhsd(mavattu);
-                dgv.DataSource = danhsachlotno;
+                var dsVTN = danhsachlotno.Where(x => x.Vitri == "VTN").ToList();
+
+                dgv.DataSource = dsVTN;
 
                 dgv.Columns["Id"].Visible = false;
                 dgv.Columns["Lichsunhapid"].Visible = false;
@@ -82,9 +86,47 @@ namespace Vietinak_Kho.f_Nhapxuat
             }
             if (mucdichxuat == "XUẤT DRG - NHẬP VTN")
             {
-                var lichsunhapxuat = LichsunhapxuatDAO.Instance.LoadTableList_Lichsunhapxuat(mavattu);
-                var dsDRG = lichsunhapxuat.Where(x => x.Nhapvaokho == "DRAGON").ToList();
+                allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
+                infoThongtinvattu = allThongtinvattu.Where(x => x.Mavattu == mavattu).FirstOrDefault();
+
+                var lichsunhapxuat = LichsunhapchitietDAO.Instance.LoadTableList_Lichsunhaporderbyhsd(mavattu);
+                var dsDRG = lichsunhapxuat.Where(x => x.Vitri == "DRAGON").ToList();
                 dgv.DataSource = dsDRG;
+                dgv.Columns["Id"].Visible = false;
+                dgv.Columns["Lichsunhapid"].Visible = false;
+                dgv.Columns["Ngaygionhap"].Visible = false;
+                dgv.Columns["Ngaygionghiemthu"].Visible = false;
+                dgv.Columns["Ngaygioqccheck"].Visible = false;
+                dgv.Columns["Tennguoithaotacnghiemthu"].Visible = false;
+                dgv.Columns["Manhanviennghiemthu"].Visible = false;
+                dgv.Columns["Bophannghiemthu"].Visible = false;
+                dgv.Columns["Tennguoithaotacqccheck"].Visible = false;
+                dgv.Columns["Manhanvienqccheck"].Visible = false;
+                dgv.Columns["Bophanqccheck"].Visible = false;
+                dgv.Columns["Lotno"].Visible = false;
+                dgv.Columns["Hansudung"].Visible = false;
+
+                dgv.Columns["Mavattu"].HeaderText = "Mã vật tư";
+                dgv.Columns["Vitri"].HeaderText = "Vị trí";
+                dgv.Columns["Invoiceno"].HeaderText = "Invoice No.";
+                dgv.Columns["Partno"].HeaderText = "Part No.";
+                dgv.Columns["Soluong"].HeaderText = "Số lượng nhập";
+                dgv.Columns["Conlai"].HeaderText = "Số lượng còn lại";
+                dgv.Columns["Donvi"].HeaderText = "Đơn vị";
+                dgv.Columns["Hansudung"].HeaderText = "Hạn sử dụng";
+
+                DataGridViewTextBoxColumn columnSoluongxuat = new DataGridViewTextBoxColumn();
+                columnSoluongxuat.HeaderText = "Số lượng xuất";
+                columnSoluongxuat.Name = "Soluongxuat";
+                columnSoluongxuat.DefaultCellStyle.BackColor = Color.Yellow;
+                dgv.Columns.Insert(0, columnSoluongxuat);
+                dgv.CellFormatting += dgv_CellFormatting;
+            }
+            if (mucdichxuat == "XUẤT NG")
+            {
+                var danhsachlotno = LichsunhapchitietDAO.Instance.LoadTableList_Lichsunhaporderbyhsd(mavattu);
+
+                dgv.DataSource = danhsachlotno;
                 dgv.Columns["Id"].Visible = false;
                 dgv.Columns["Lichsunhapid"].Visible = false;
                 dgv.Columns["Ngaygionhap"].Visible = false;
@@ -114,7 +156,6 @@ namespace Vietinak_Kho.f_Nhapxuat
                 dgv.Columns.Insert(0, columnSoluongxuat);
                 dgv.CellFormatting += dgv_CellFormatting;
             }
-
         }
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -170,7 +211,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                             {
                                 float checksoluongxuat = (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
                                 float checkconlai = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ','));
-                                if(checksoluongxuat != checkconlai)
+                                if(checksoluongxuat > checkconlai)
                                 {
                                     MessageBox.Show("Số lượng xuất vượt quá số lượng còn lại của Lot No.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     break;
@@ -181,7 +222,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                                 {
                                     tongsoluongxuatvtn += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
                                 }
-                                if (vitri == "DRG")
+                                if (vitri == "DRAGON")
                                 {
                                     tongsoluongxuatdrg += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
                                 }
@@ -219,7 +260,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                                 float tonkhomoi = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ',')) - (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
 
                                 //Lưu lịch sử xuất chi tiết sau khi có lichsuxuatid
-                                bool created = LichsuxuatchitietDAO.Instance.Create(lichsuxuatid, mavattu, invoiceno, partno, lotno, soluongxuat,
+                                bool created = LichsuxuatchitietDAO.Instance.Create(lichsuxuatid, mavattu, invoiceno, partno, lotno, soluongxuat.Replace(',', '.'),
                                     tonkhomoi.ToString().Replace(',', '.'), donvi, hansudung, DateTime.Now.ToString("yyyy/MM/dd HH:mm"));
                                 if (!created)
                                 {
@@ -261,7 +302,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                             {
                                 float checksoluongxuat = (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
                                 float checkconlai = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ','));
-                                if (checksoluongxuat != checkconlai)
+                                if (checksoluongxuat > checkconlai)
                                 {
                                     MessageBox.Show("Số lượng xuất vượt quá số lượng còn lại của Lot No.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     break;
@@ -272,7 +313,128 @@ namespace Vietinak_Kho.f_Nhapxuat
                                 {
                                     tongsoluongxuatvtn += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
                                 }
-                                if (vitri == "DRG")
+                                if (vitri == "DRAGON")
+                                {
+                                    tongsoluongxuatdrg += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
+                                }
+                            }
+                        }
+                    }
+                }
+                if (tongsoluongxuat != soluongxuat)
+                {
+                    MessageBox.Show("Tổng số lượng xuất (" + tongsoluongxuat + " " + donvi + ") không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    float tonkhosauxuatVTN = tonkhotruocxuatVTN - tongsoluongxuatvtn;
+                    float tonkhosauxuatDRG = tonkhotruocxuatDRG - tongsoluongxuatdrg;
+                    //Lưu dữ liệu vào bảng lịch sử NHẬP XUẤT
+                    int lichsuxuatid = LichsunhapxuatDAO.Instance.XuatReturnId(vattuid, mavattu, donvi, userInfo.Hoten,
+                    userInfo.Manhanvien, userInfo.Bophan, "Xuất", DateTime.Now.ToString("yyyy/MM/dd HH:mm"),
+                    soluongxuat.ToString().Replace(',', '.'), mucdichxuat, tonkhotruocxuatVTN.ToString().Replace(',', '.'), tonkhosauxuatVTN.ToString().Replace(',', '.'),
+                    tonkhotruocxuatDRG.ToString().Replace(',', '.'), tonkhosauxuatDRG.ToString().Replace(',', '.'), "XUẤT HOÀN THÀNH");
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            string soluongxuat = Convert.ToString(row.Cells["Soluongxuat"].Value);
+                            if (!string.IsNullOrWhiteSpace(soluongxuat))
+                            {
+                                int id = Convert.ToInt32(row.Cells["Id"].Value.ToString());
+                                string vitri = Convert.ToString(row.Cells["vitri"].Value);
+                                string invoiceno = Convert.ToString(row.Cells["invoiceno"].Value);
+                                string partno = Convert.ToString(row.Cells["partno"].Value);
+                                string donvi = Convert.ToString(row.Cells["donvi"].Value);
+
+                                float tonkhomoi = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ',')) - (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
+
+                                //Lưu lịch sử xuất chi tiết sau khi có lichsuxuatid
+                                bool created = LichsuxuatchitietDAO.Instance.Create(lichsuxuatid, mavattu, invoiceno, partno, "", soluongxuat.Replace(',', '.'),
+                                    tonkhomoi.ToString().Replace(',', '.'), donvi, "", DateTime.Now.ToString("yyyy/MM/dd HH:mm"));
+                                if (!created)
+                                {
+                                    break;
+                                }
+                                //Cập nhật số lượng vào bảng lịch sử NHẬP 
+                                bool updatetonkho = LichsunhapchitietDAO.Instance.UpdateTonkho(tonkhomoi.ToString().Replace(',', '.'), id);
+                                if (!updatetonkho)
+                                {
+                                    break; // Dừng vòng lặp vì không cần thêm dữ liệu nữa
+                                }
+
+                                string tennguoithaotac = userInfo.Hoten;
+                                string manhanvien = userInfo.Manhanvien;
+                                string bophan = userInfo.Bophan;
+                                string loaithaotac = "Nhập";
+                                string thoigian = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+                                float soluongnhap = (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
+                                string nhapvaokho = "VTN";
+                                //Tính toán sô lượng hàng nhập
+                                float tonkhotruocnhapVTN = (float)Convert.ToDouble(infoThongtinvattu.Tonkhovtn.ToString());
+                                float tonkhotruocnhapDRG = (float)Convert.ToDouble(infoThongtinvattu.Tonkhodrg.ToString());
+                                float tonkhosaunhapVTN = tonkhotruocnhapVTN;
+                                float tonkhosaunhapDRG = tonkhotruocnhapDRG;
+                                string trangthai = "CHỜ NGHIỆM THU";
+                                if (nhapvaokho == "VTN")
+                                {
+                                    tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
+                                    tonkhosaunhapDRG -= soluongnhap; 
+
+                                    bool success1 = LichsunhapxuatDAO.Instance.Nhap(vattuid, mavattu, invoiceno, mavattu, donvi, tennguoithaotac,
+                                    manhanvien, bophan, loaithaotac, thoigian,
+                                    soluongnhap.ToString().Replace(',', '.'), nhapvaokho, tonkhotruocnhapVTN.ToString().Replace(',', '.'), tonkhosaunhapVTN.ToString().Replace(',', '.'),
+                                    tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
+
+                                    bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
+                                    if (success1 && success2)
+                                    {
+                                        this.Close();
+                                        FormThanhcong fthanhcong = new FormThanhcong();
+                                        fthanhcong.ShowDialog();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            }
+
+            if (mucdichxuat == "XUẤT NG")
+            {
+                float tongsoluongxuat = 0;
+                float tongsoluongxuatvtn = 0;
+                float tongsoluongxuatdrg = 0;
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        string soluongxuat = Convert.ToString(row.Cells["Soluongxuat"].Value);
+                        if (!string.IsNullOrWhiteSpace(soluongxuat))
+                        {
+                            if (!IsNumeric(soluongxuat))
+                            {
+                                MessageBox.Show("Vui lòng chỉ nhập số và dấu chấm cho trường số lượng xuất!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+                            }
+                            else
+                            {
+                                float checksoluongxuat = (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
+                                float checkconlai = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ','));
+                                if (checksoluongxuat > checkconlai)
+                                {
+                                    MessageBox.Show("Số lượng xuất vượt quá số lượng còn lại của Lot No.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    break;
+                                }
+                                tongsoluongxuat += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
+                                string vitri = Convert.ToString(row.Cells["Vitri"].Value);
+                                if (vitri == "VTN")
+                                {
+                                    tongsoluongxuatvtn += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
+                                }
+                                if (vitri == "DRAGON")
                                 {
                                     tongsoluongxuatdrg += (float)Convert.ToDouble(soluongxuat.Replace('.', ','));
                                 }
@@ -310,7 +472,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                                 float tonkhomoi = (float)Convert.ToDouble(row.Cells["Conlai"].Value.ToString().Replace('.', ',')) - (float)Convert.ToDouble(row.Cells["Soluongxuat"].Value.ToString().Replace('.', ','));
 
                                 //Lưu lịch sử xuất chi tiết sau khi có lichsuxuatid
-                                bool created = LichsuxuatchitietDAO.Instance.Create(lichsuxuatid, mavattu, invoiceno, partno, lotno, soluongxuat,
+                                bool created = LichsuxuatchitietDAO.Instance.Create(lichsuxuatid, mavattu, invoiceno, partno, lotno, soluongxuat.Replace(',', '.'),
                                     tonkhomoi.ToString().Replace(',', '.'), donvi, hansudung, DateTime.Now.ToString("yyyy/MM/dd HH:mm"));
                                 if (!created)
                                 {
