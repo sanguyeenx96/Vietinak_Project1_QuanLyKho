@@ -388,7 +388,7 @@
             this.cbMucdichxuat.Items.AddRange(new object[] {
             "XUẤT SẢN XUẤT",
             "XUẤT DRG - NHẬP VTN",
-            "XUẤT NG "});
+            "XUẤT NG"});
             this.cbMucdichxuat.Location = new System.Drawing.Point(347, 119);
             this.cbMucdichxuat.Name = "cbMucdichxuat";
             this.cbMucdichxuat.Size = new System.Drawing.Size(352, 33);

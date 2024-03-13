@@ -160,5 +160,24 @@ namespace Vietinak_Kho.f_Thongke
             UpdateDataGridView(allLichsuxuat);
             groupBoxLichsunhap.Text = "Lịch sử xuất từ " + tungay + " - " + denngay;
         }
+
+        private void dgvLichsuxuat_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (!dgvLichsuxuat.Rows[e.RowIndex].IsNewRow && dgvLichsuxuat.Rows[e.RowIndex].Cells["Mucdichxuat"].Value.ToString() == "XUẤT NG")
+            {
+                dgvLichsuxuat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                dgvLichsuxuat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+
+            }
+            if (!dgvLichsuxuat.Rows[e.RowIndex].IsNewRow && dgvLichsuxuat.Rows[e.RowIndex].Cells["Mucdichxuat"].Value.ToString() == "XUẤT SẢN XUẤT")
+            {
+                dgvLichsuxuat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
+                dgvLichsuxuat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+            if (!dgvLichsuxuat.Rows[e.RowIndex].IsNewRow && dgvLichsuxuat.Rows[e.RowIndex].Cells["Mucdichxuat"].Value.ToString() == "XUẤT DRG - NHẬP VTN")
+            {
+                dgvLichsuxuat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Goldenrod;
+            }
+        }
     }
 }

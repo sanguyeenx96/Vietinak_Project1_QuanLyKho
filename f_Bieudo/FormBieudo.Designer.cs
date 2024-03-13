@@ -82,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(947, 476);
+            this.panel1.Size = new System.Drawing.Size(947, 601);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -96,10 +96,10 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.32911F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.67088F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.95238F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 476);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(947, 601);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -108,7 +108,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 105);
+            this.panel2.Size = new System.Drawing.Size(941, 98);
             this.panel2.TabIndex = 1;
             // 
             // groupBox1
@@ -127,7 +127,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(941, 105);
+            this.groupBox1.Size = new System.Drawing.Size(941, 98);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chọn chế độ xem";
@@ -238,9 +238,9 @@
             // 
             this.groupBoxBieudo.Controls.Add(this.chart);
             this.groupBoxBieudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxBieudo.Location = new System.Drawing.Point(3, 114);
+            this.groupBoxBieudo.Location = new System.Drawing.Point(3, 107);
             this.groupBoxBieudo.Name = "groupBoxBieudo";
-            this.groupBoxBieudo.Size = new System.Drawing.Size(941, 304);
+            this.groupBoxBieudo.Size = new System.Drawing.Size(941, 436);
             this.groupBoxBieudo.TabIndex = 2;
             this.groupBoxBieudo.TabStop = false;
             this.groupBoxBieudo.Text = "Biểu đồ dữ liệu";
@@ -260,7 +260,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(935, 285);
+            this.chart.Size = new System.Drawing.Size(935, 417);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart";
             // 
@@ -277,7 +277,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 424);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 549);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -430,7 +430,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 476);
+            this.ClientSize = new System.Drawing.Size(947, 601);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBieudo";

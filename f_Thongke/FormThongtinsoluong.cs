@@ -50,11 +50,33 @@ namespace Vietinak_Kho.f_Thongke
                 dgvlotno.Columns["Tennguoithaotacqccheck"].HeaderText = "Người thao tác QC Check";
                 dgvlotno.Columns["Manhanvienqccheck"].HeaderText = "Mã nhân viên QC Check";
                 dgvlotno.Columns["Bophanqccheck"].HeaderText = "Bộ phận QC Check";
+                dgvlotno.CellFormatting += dgvlotno_CellFormatting;
             }
             else
             {
                 // Xử lý trường hợp danh sách trả về là rỗng
                 MessageBox.Show("Không tìm thấy thông tin vật tư có mã: " + mavattu, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dgvlotno_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra nếu cột hiện tại là cột "Conlai"
+            if (dgvlotno.Columns[e.ColumnIndex].Name == "Conlai" && e.RowIndex >= 0)
+            {
+                // Lấy giá trị của ô cột "Conlai"
+                int conlaiValue = Convert.ToInt32(e.Value);
+
+                // Nếu giá trị là 0, vô hiệu hóa dòng hiện tại620
+                if (conlaiValue == 0)
+                {
+                    dgvlotno.Rows[e.RowIndex].ReadOnly = true; // Vô hiệu hóa chỉnh sửa
+                    dgvlotno.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Gray; // Đổi màu nền
+                }
+                else
+                {
+                    dgvlotno.Rows[e.RowIndex].ReadOnly = false; // Cho phép chỉnh sửa
+                }
             }
         }
     }

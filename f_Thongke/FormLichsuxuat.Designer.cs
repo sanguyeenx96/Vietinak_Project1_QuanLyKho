@@ -266,10 +266,10 @@
             this.dgvLichsuxuat.Location = new System.Drawing.Point(3, 16);
             this.dgvLichsuxuat.Name = "dgvLichsuxuat";
             this.dgvLichsuxuat.ReadOnly = true;
-            this.dgvLichsuxuat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLichsuxuat.Size = new System.Drawing.Size(935, 364);
             this.dgvLichsuxuat.TabIndex = 0;
             this.dgvLichsuxuat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLichsuxuat_CellClick);
+            this.dgvLichsuxuat.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvLichsuxuat_RowPrePaint);
             // 
             // groupBox3
             // 
