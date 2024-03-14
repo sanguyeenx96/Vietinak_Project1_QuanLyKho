@@ -64,7 +64,7 @@ namespace Vietinak_Kho.f_Khohang
 
         private void FormThongke_Load(object sender, EventArgs e)
         {
-            btnLichsunhap.PerformClick();
+            btnDanhsachvattu.PerformClick();
         }
     }
 }

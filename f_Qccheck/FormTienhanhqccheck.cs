@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Nghiemthu;
 using Vietinak_Kho.f_Nhapxuat;
 
 namespace Vietinak_Kho.f_Qccheck
 {
     public partial class FormTienhanhqccheck : Form
     {
+        public event EventHandler<DialogClosedEventArgs> DialogClosed;
+
         private User userInfo;
         private int lichsunhapid;
         private string tennguoithaotac;
@@ -178,6 +181,7 @@ namespace Vietinak_Kho.f_Qccheck
                     bool result = LichsunhapxuatDAO.Instance.UpdateXacNhanQcCheck(lichsunhapid);
                     if (result)
                     {
+                        DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
                         this.Close();
                         FormThanhcong fthanhcong = new FormThanhcong();
                         fthanhcong.ShowDialog();

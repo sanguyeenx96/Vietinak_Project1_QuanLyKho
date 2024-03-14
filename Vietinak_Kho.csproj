@@ -170,6 +170,7 @@
     <Compile Include="f_Danhsach\FormDanhsach.Designer.cs">
       <DependentUpon>FormDanhsach.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_Nghiemthu\DialogClosedEventArgs.cs" />
     <Compile Include="f_Nghiemthu\FormDanhsachchonghiemthu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -51,7 +52,7 @@ namespace Vietinak_Kho.f_Nhapxuat
             if (mucdichxuat == "XUẤT SẢN XUẤT")
             {
                 var danhsachlotno = LichsunhapchitietDAO.Instance.LoadTableList_Lichsunhaporderbyhsd(mavattu);
-                var dsVTN = danhsachlotno.Where(x => x.Vitri == "VTN").ToList();
+                var dsVTN = danhsachlotno.Where(x => (x.Vitri == "VTN" && x.Hansudung != "")).ToList();
 
                 dgv.DataSource = dsVTN;
 
@@ -125,7 +126,7 @@ namespace Vietinak_Kho.f_Nhapxuat
             if (mucdichxuat == "XUẤT NG")
             {
                 var danhsachlotno = LichsunhapchitietDAO.Instance.LoadTableList_Lichsunhaporderbyhsd(mavattu);
-
+                danhsachlotno = danhsachlotno.Where(x => x.Hansudung != "").ToList();
                 dgv.DataSource = danhsachlotno;
                 dgv.Columns["Id"].Visible = false;
                 dgv.Columns["Lichsunhapid"].Visible = false;
@@ -159,6 +160,37 @@ namespace Vietinak_Kho.f_Nhapxuat
         }
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                var cellValue = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (cellValue != null)
+                {
+                    if (dgv.Columns[e.ColumnIndex].Name == "Hansudung")
+                    {
+                        // Chuyển đổi giá trị của ô sang kiểu DateTime
+                        DateTime dateValue;
+                        if (DateTime.TryParseExact(cellValue.ToString(), "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateValue))
+                        {
+                            // Tính toán số ngày chênh lệch giữa ngày hiện tại và ngày trong ô
+                            TimeSpan difference = dateValue - DateTime.Now;
+                            int daysDifference = (int)difference.TotalDays;
+
+                            // Nếu số ngày chênh lệch nhỏ hơn 30, tô màu đỏ cho ô
+                            if (daysDifference < 30)
+                            {
+                                e.CellStyle.BackColor = Color.Red;
+                                e.CellStyle.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                e.CellStyle.BackColor = Color.Green;
+                                e.CellStyle.ForeColor = Color.White;
+                            }
+                        }
+                    }
+                }
+            }
             // Kiểm tra nếu cột hiện tại là cột "Conlai"
             if (dgv.Columns[e.ColumnIndex].Name == "Conlai" && e.RowIndex >= 0)
             {
