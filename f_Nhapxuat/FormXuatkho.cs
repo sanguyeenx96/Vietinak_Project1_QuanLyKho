@@ -188,13 +188,3 @@ namespace Vietinak_Kho.f_Nhapxuat
         }
     }
 }
-
-
-// Firstly, I want to thank everyone for giving me the opportunity to be here today.
-// I studied Information Technology for two years at Hanoi Vocational College of Technology
-// Then i was retook the university exam and passed to national economic university, business manager major.
-// during university studies time, i has a job at pumpkin jsc, its an outsourcing company that develops software and I discovered my passion for coding and software development.
-// After about 2 year working at that about develop winform application,I joined Canon Electronics Vietnam in the Product Engineering Department.
-// My job is making website using asp .net , making application using c# winform and making python application to computer vision.
-// and after about 3 year working at that, i know mektec are hiring employee and i draw my cv to mektec. 
-// I am confident in my experience and knowledge, please give me the opportunity to show my abilities to you. Thank you!

@@ -55,8 +55,43 @@ namespace Vietinak_Kho.f_Qccheck
             Button clickedButton = (Button)sender;
             Lichsunhapxuat lichsu = (Lichsunhapxuat)clickedButton.Tag;
             FormTienhanhqccheck fthqcc = new FormTienhanhqccheck(userInfo);
+            fthqcc.DialogClosed += Dialog_DialogClosed;
+
             fthqcc.LoadData(lichsu); // Truyền thông tin vào form fthnt
             fthqcc.ShowDialog();
+        }
+
+        private void Dialog_DialogClosed(object sender, DialogClosedEventArgs e)
+        {
+            // Thực hiện xử lý thông tin được truyền từ form dialog
+            string infoFromDialog = e.Info;
+            // Thực hiện những công việc cần thiết với thông tin nhận được từ form dialog
+            if (infoFromDialog.ToString() == "OK")
+            {
+                flowLayoutPanel.Controls.Clear();
+                allCQC = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchoqccheck();
+                foreach (var lichsu in allCQC)
+                {
+                    // Tạo một Button để hiển thị thông tin của mỗi phần tử
+                    Button itemButton = new Button();
+                    itemButton.Size = new Size(220, 130);
+                    itemButton.Text = lichsu.Mavattu + "\n"
+                    + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                    + "Part No.: " + lichsu.Partno + "\n"
+                     + "\n"
+                    + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                    + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
+                    + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+
+                    itemButton.BackColor = Color.Blue;
+                    itemButton.ForeColor = Color.White;
+
+                    itemButton.Tag = lichsu;
+                    itemButton.Click += ItemButtonClick;
+                    // Thêm Button vào FlowLayoutPanel
+                    flowLayoutPanel.Controls.Add(itemButton);
+                }
+            }
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Vietinak_Kho.DAO
         public List<Lichsunhapchitiet> LoadTableList_Lichsunhap(string mavattu)
         {
             List<Lichsunhapchitiet> tableList = new List<Lichsunhapchitiet>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'  ORDER BY ngaygionhap DESC");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbllichsunhapchitiet WHERE mavattu ='" + mavattu + "'  ORDER BY hansudung");
             foreach (DataRow item in data.Rows)
             {
                 Lichsunhapchitiet table = new Lichsunhapchitiet(item);

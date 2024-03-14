@@ -63,16 +63,57 @@ namespace Vietinak_Kho.f_Nghiemthu
             if(lichsu.Nhapvaokho == "NHẬP LẠI")
             {
                 FormNhaplai fnl = new FormNhaplai(userInfo);
+                fnl.DialogClosed += Dialog_DialogClosed;
                 fnl.LoadData(lichsu); // Truyền thông tin vào form fthnt
                 fnl.ShowDialog();
             }
             else
             {
                 FormTienhanhnghiemthu fthnt = new FormTienhanhnghiemthu(userInfo);
+                fthnt.DialogClosed += Dialog_DialogClosed;
+
                 fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
                 fthnt.ShowDialog();
             }
        
+        }
+
+        private void Dialog_DialogClosed(object sender, DialogClosedEventArgs e)
+        {
+            // Thực hiện xử lý thông tin được truyền từ form dialog
+            string infoFromDialog = e.Info;
+            // Thực hiện những công việc cần thiết với thông tin nhận được từ form dialog
+            if(infoFromDialog.ToString() == "OK")
+            {
+                flowLayoutPanel.Controls.Clear();
+                allCNT = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchonghiemthu();
+                foreach (var lichsu in allCNT)
+                {
+                    // Tạo một Button để hiển thị thông tin của mỗi phần tử
+                    Button itemButton = new Button();
+                    itemButton.Size = new Size(220, 130);
+                    itemButton.Text = lichsu.Mavattu + "\n"
+                        + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                        + "Part No.: " + lichsu.Partno + "\n"
+                         + "\n"
+                        + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                        + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
+                        + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+                    if (lichsu.Nhapvaokho == "NHẬP LẠI")
+                    {
+                        itemButton.BackColor = Color.Purple;
+                        itemButton.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        itemButton.BackColor = Color.Gold; // Tuỳ chỉnh màu nền và kích thước
+                    }
+                    itemButton.Tag = lichsu;
+                    itemButton.Click += ItemButtonClick;
+                    // Thêm Button vào FlowLayoutPanel
+                    flowLayoutPanel.Controls.Add(itemButton);
+                }
+            }
         }
 
     }

@@ -121,6 +121,17 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnDanhsachvattu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVDhPldM/S0JRHMbxUw6GGAThEi6OTiKEY0tLIQ0m
+        YmNuDr4EN2cXcWtpF2uJ1qB6AQ06tTW0hQRCBfbn+9zrkXtM8/TAB37neO/DUY5mmm0cooIC1uCdPYzw
+        HfGAEmJYGT18gWSwMiaHHj4RLZ1giFM40QfVcHSSwTH0teQEHeh5p0TtesA3KhmEY5j/FugkOsUs8wVb
+        OII9+rw29M4B4nAKdvEC7fm4RDDYgnvcIhWs/k4DrxpswQ6+UIRPznCnwRbUMcYGfPKIlgZbcI2+NjyS
+        ht7b1+IZTbzh1y1bkhrekdCiiw/o6q768dahP9sTzrWhbOIKOpKvG+i+OMkievcXKSOPaYz5AbDuVFpo
+        npVVAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnLichsunhap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -161,17 +172,6 @@
         NVrY6jAxTxNVnRHmCkvkvmpIWJysL9Q0Vdjd4I/YInzTVkFsxMifLyaLOq0Xtj/AgUeFD5cDw54zb8ET
         41qRKFZg3O0xrpftgplz0ESfmfDcHSFiY9JvqHWCBwQrBEwY3Du5ZfIUVWToI321id1g2Kee+bgmieMi
         XskgQgz85WaKaFvcJrhXXhcsS7F3mNRIkaCP9JWHHPpeu9UNV6XyD4G5c3NBO7K9AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnDanhsachvattu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVDhPldM/S0JRHMbxUw6GGAThEi6OTiKEY0tLIQ0m
-        YmNuDr4EN2cXcWtpF2uJ1qB6AQ06tTW0hQRCBfbn+9zrkXtM8/TAB37neO/DUY5mmm0cooIC1uCdPYzw
-        HfGAEmJYGT18gWSwMiaHHj4RLZ1giFM40QfVcHSSwTH0teQEHeh5p0TtesA3KhmEY5j/FugkOsUs8wVb
-        OII9+rw29M4B4nAKdvEC7fm4RDDYgnvcIhWs/k4DrxpswQ6+UIRPznCnwRbUMcYGfPKIlgZbcI2+NjyS
-        ht7b1+IZTbzh1y1bkhrekdCiiw/o6q768dahP9sTzrWhbOIKOpKvG+i+OMkievcXKSOPaYz5AbDuVFpo
-        npVVAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

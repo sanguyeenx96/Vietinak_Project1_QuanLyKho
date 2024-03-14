@@ -20,6 +20,8 @@ namespace Vietinak_Kho.f_Nghiemthu
 {
     public partial class FormTienhanhnghiemthu : Form
     {
+        public event EventHandler<DialogClosedEventArgs> DialogClosed;
+
         private User userInfo;
         private int lichsunhapid;
         private string mavattu;
@@ -136,6 +138,7 @@ namespace Vietinak_Kho.f_Nghiemthu
                         bool result = LichsunhapxuatDAO.Instance.UpdateXacNhanNghiemThu(lichsunhapid);
                         if (result)
                         {
+                            DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
                             this.Close();
                             FormThanhcong fthanhcong = new FormThanhcong();
                             fthanhcong.ShowDialog();

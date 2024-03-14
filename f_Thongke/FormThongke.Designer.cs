@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThongke));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnDanhsachvattu = new System.Windows.Forms.ToolStripButton();
             this.btnLichsunhap = new System.Windows.Forms.ToolStripButton();
             this.btnLichsuxuat = new System.Windows.Forms.ToolStripButton();
+            this.btnDanhsachvattu = new System.Windows.Forms.ToolStripButton();
             this.panelChinh = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -40,23 +40,14 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDanhsachvattu,
             this.btnLichsunhap,
-            this.btnLichsuxuat,
-            this.btnDanhsachvattu});
+            this.btnLichsuxuat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(947, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnDanhsachvattu
-            // 
-            this.btnDanhsachvattu.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsachvattu.Image")));
-            this.btnDanhsachvattu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDanhsachvattu.Name = "btnDanhsachvattu";
-            this.btnDanhsachvattu.Size = new System.Drawing.Size(115, 22);
-            this.btnDanhsachvattu.Text = "Danh sách vật tư";
-            this.btnDanhsachvattu.Click += new System.EventHandler(this.btnDanhsachvattu_Click);
             // 
             // btnLichsunhap
             // 
@@ -75,6 +66,15 @@
             this.btnLichsuxuat.Size = new System.Drawing.Size(93, 22);
             this.btnLichsuxuat.Text = "Lịch sử xuất ";
             this.btnLichsuxuat.Click += new System.EventHandler(this.btnLichsuxuat_Click);
+            // 
+            // btnDanhsachvattu
+            // 
+            this.btnDanhsachvattu.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsachvattu.Image")));
+            this.btnDanhsachvattu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDanhsachvattu.Name = "btnDanhsachvattu";
+            this.btnDanhsachvattu.Size = new System.Drawing.Size(115, 22);
+            this.btnDanhsachvattu.Text = "Danh sách vật tư";
+            this.btnDanhsachvattu.Click += new System.EventHandler(this.btnDanhsachvattu_Click);
             // 
             // panelChinh
             // 

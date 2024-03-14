@@ -11,11 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Nghiemthu;
 
 namespace Vietinak_Kho.f_Nhapxuat
 {
     public partial class FormNhaplai : Form
     {
+        public event EventHandler<DialogClosedEventArgs> DialogClosed;
+
         private int lichsunhapid;
         private string mavattu;
         private string donvi;
@@ -168,6 +171,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 bool result = LichsunhapxuatDAO.Instance.UpdateXacNhanNhaplai(lichsunhapid);
                 if (result)
                 {
+                    DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
                     this.Close();
                     FormThanhcong fthanhcong = new FormThanhcong();
                     fthanhcong.ShowDialog();
