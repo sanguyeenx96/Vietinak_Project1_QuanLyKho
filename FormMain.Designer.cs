@@ -59,6 +59,7 @@
             this.btnTaikhoan = new System.Windows.Forms.Button();
             this.btnTrangchinh = new System.Windows.Forms.Button();
             this.panelTong = new System.Windows.Forms.Panel();
+            this.btnPPC = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,6 +99,7 @@
             // txtRole
             // 
             this.txtRole.AutoSize = true;
+            this.txtRole.BackColor = System.Drawing.SystemColors.Info;
             this.txtRole.Location = new System.Drawing.Point(438, 9);
             this.txtRole.Name = "txtRole";
             this.txtRole.Size = new System.Drawing.Size(31, 13);
@@ -107,6 +109,7 @@
             // txtCode
             // 
             this.txtCode.AutoSize = true;
+            this.txtCode.BackColor = System.Drawing.SystemColors.Info;
             this.txtCode.Location = new System.Drawing.Point(343, 9);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(31, 13);
@@ -116,6 +119,7 @@
             // txtBophan
             // 
             this.txtBophan.AutoSize = true;
+            this.txtBophan.BackColor = System.Drawing.SystemColors.Info;
             this.txtBophan.Location = new System.Drawing.Point(250, 9);
             this.txtBophan.Name = "txtBophan";
             this.txtBophan.Size = new System.Drawing.Size(31, 13);
@@ -125,6 +129,7 @@
             // txtHoten
             // 
             this.txtHoten.AutoSize = true;
+            this.txtHoten.BackColor = System.Drawing.SystemColors.Info;
             this.txtHoten.Location = new System.Drawing.Point(75, 9);
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.Size = new System.Drawing.Size(85, 13);
@@ -184,7 +189,7 @@
             // txtDate
             // 
             this.txtDate.AutoSize = true;
-            this.txtDate.BackColor = System.Drawing.Color.Transparent;
+            this.txtDate.BackColor = System.Drawing.SystemColors.Info;
             this.txtDate.ForeColor = System.Drawing.Color.Black;
             this.txtDate.Location = new System.Drawing.Point(58, 8);
             this.txtDate.Name = "txtDate";
@@ -228,7 +233,7 @@
             // txtClock
             // 
             this.txtClock.AutoSize = true;
-            this.txtClock.BackColor = System.Drawing.Color.Transparent;
+            this.txtClock.BackColor = System.Drawing.SystemColors.Info;
             this.txtClock.ForeColor = System.Drawing.Color.Black;
             this.txtClock.Location = new System.Drawing.Point(195, 8);
             this.txtClock.Name = "txtClock";
@@ -278,6 +283,7 @@
             this.panel5.Controls.Add(this.btnNghiemthu);
             this.panel5.Controls.Add(this.btnCaidat);
             this.panel5.Controls.Add(this.btnKhohang);
+            this.panel5.Controls.Add(this.btnPPC);
             this.panel5.Controls.Add(this.btnNhapXuat);
             this.panel5.Controls.Add(this.btnTaikhoan);
             this.panel5.Controls.Add(this.btnTrangchinh);
@@ -294,7 +300,7 @@
             this.btnqccheck.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnqccheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnqccheck.Image = ((System.Drawing.Image)(resources.GetObject("btnqccheck.Image")));
-            this.btnqccheck.Location = new System.Drawing.Point(3, 120);
+            this.btnqccheck.Location = new System.Drawing.Point(3, 177);
             this.btnqccheck.Name = "btnqccheck";
             this.btnqccheck.Size = new System.Drawing.Size(82, 51);
             this.btnqccheck.TabIndex = 0;
@@ -311,7 +317,7 @@
             this.btnNghiemthu.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNghiemthu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNghiemthu.Image = ((System.Drawing.Image)(resources.GetObject("btnNghiemthu.Image")));
-            this.btnNghiemthu.Location = new System.Drawing.Point(3, 63);
+            this.btnNghiemthu.Location = new System.Drawing.Point(3, 120);
             this.btnNghiemthu.Name = "btnNghiemthu";
             this.btnNghiemthu.Size = new System.Drawing.Size(82, 51);
             this.btnNghiemthu.TabIndex = 0;
@@ -328,7 +334,7 @@
             this.btnCaidat.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCaidat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaidat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaidat.Image")));
-            this.btnCaidat.Location = new System.Drawing.Point(3, 348);
+            this.btnCaidat.Location = new System.Drawing.Point(3, 405);
             this.btnCaidat.Name = "btnCaidat";
             this.btnCaidat.Size = new System.Drawing.Size(82, 51);
             this.btnCaidat.TabIndex = 0;
@@ -345,7 +351,7 @@
             this.btnKhohang.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnKhohang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKhohang.Image = ((System.Drawing.Image)(resources.GetObject("btnKhohang.Image")));
-            this.btnKhohang.Location = new System.Drawing.Point(3, 177);
+            this.btnKhohang.Location = new System.Drawing.Point(3, 234);
             this.btnKhohang.Name = "btnKhohang";
             this.btnKhohang.Size = new System.Drawing.Size(82, 51);
             this.btnKhohang.TabIndex = 0;
@@ -362,7 +368,7 @@
             this.btnNhapXuat.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnNhapXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhapXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnNhapXuat.Image")));
-            this.btnNhapXuat.Location = new System.Drawing.Point(3, 6);
+            this.btnNhapXuat.Location = new System.Drawing.Point(3, 63);
             this.btnNhapXuat.Name = "btnNhapXuat";
             this.btnNhapXuat.Size = new System.Drawing.Size(82, 51);
             this.btnNhapXuat.TabIndex = 0;
@@ -379,7 +385,7 @@
             this.btnTaikhoan.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTaikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTaikhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnTaikhoan.Image")));
-            this.btnTaikhoan.Location = new System.Drawing.Point(3, 291);
+            this.btnTaikhoan.Location = new System.Drawing.Point(3, 348);
             this.btnTaikhoan.Name = "btnTaikhoan";
             this.btnTaikhoan.Size = new System.Drawing.Size(82, 51);
             this.btnTaikhoan.TabIndex = 0;
@@ -396,7 +402,7 @@
             this.btnTrangchinh.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTrangchinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrangchinh.Image = ((System.Drawing.Image)(resources.GetObject("btnTrangchinh.Image")));
-            this.btnTrangchinh.Location = new System.Drawing.Point(3, 234);
+            this.btnTrangchinh.Location = new System.Drawing.Point(3, 291);
             this.btnTrangchinh.Name = "btnTrangchinh";
             this.btnTrangchinh.Size = new System.Drawing.Size(82, 51);
             this.btnTrangchinh.TabIndex = 0;
@@ -414,6 +420,23 @@
             this.panelTong.Size = new System.Drawing.Size(947, 601);
             this.panelTong.TabIndex = 3;
             // 
+            // btnPPC
+            // 
+            this.btnPPC.BackColor = System.Drawing.Color.Transparent;
+            this.btnPPC.FlatAppearance.BorderSize = 0;
+            this.btnPPC.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPPC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPPC.Image = ((System.Drawing.Image)(resources.GetObject("btnPPC.Image")));
+            this.btnPPC.Location = new System.Drawing.Point(3, 6);
+            this.btnPPC.Name = "btnPPC";
+            this.btnPPC.Size = new System.Drawing.Size(82, 51);
+            this.btnPPC.TabIndex = 0;
+            this.btnPPC.Text = "PPC ";
+            this.btnPPC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPPC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPPC.UseVisualStyleBackColor = false;
+            this.btnPPC.Click += new System.EventHandler(this.btnPPC_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +451,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "在庫管理システム。";
+            this.Text = "QUẢN LÝ XUẤT NHẬP TỒN KHO";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelDate.ResumeLayout(false);
@@ -476,6 +499,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnNghiemthu;
         private System.Windows.Forms.Button btnqccheck;
+        private System.Windows.Forms.Button btnPPC;
     }
 }
 

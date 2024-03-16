@@ -23,7 +23,7 @@ namespace Vietinak_Kho.f_Thongke
         private void FormLichsunhapxuat_Load(object sender, EventArgs e)
         {
             var lichsunhapxuat = LichsunhapxuatDAO.Instance.LoadTableList_Lichsunhapxuat(mavattu);
-            var ls = lichsunhapxuat.Where(x => (x.Trangthai == "NHẬP HOÀN THÀNH" || x.Trangthai == "XUẤT HOÀN THÀNH")).ToList();
+            var ls = lichsunhapxuat.Where(x => (x.Trangthai == "NHẬP HOÀN THÀNH" || x.Trangthai == "XUẤT HOÀN THÀNH" || x.Trangthai == "NGHIỆM THU MỘT PHẦN")).ToList();
             dgv.DataSource = ls;
 
             dgv.Columns["Id"].Visible = false;
@@ -87,6 +87,15 @@ namespace Vietinak_Kho.f_Thongke
 
                 string idValue = selectedRow.Cells["Id"].Value.ToString();
                 if (trangThaiValue != null && trangThaiValue.ToString() == "CHỜ QC CHECK")
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        FormLichsunghiemthuxemnhanh fls = new FormLichsunghiemthuxemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
+                        fls.ShowDialog();
+                    }
+                }
+                if (trangThaiValue != null && trangThaiValue.ToString() == "NGHIỆM THU MỘT PHẦN")
                 {
                     DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)

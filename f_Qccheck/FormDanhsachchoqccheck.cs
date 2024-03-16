@@ -29,19 +29,36 @@ namespace Vietinak_Kho.f_Qccheck
             allCQC = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchoqccheck();
             foreach (var lichsu in allCQC)
             {
+                float slnhap = (float)Convert.ToDouble(lichsu.Soluongnhap.ToString());
+                float sldanghiemthu = (float)Convert.ToDouble(lichsu.Soluongdanghiemthu.ToString());
+                float slchuanghiemthu = slnhap - sldanghiemthu;
+
                 // Tạo một Button để hiển thị thông tin của mỗi phần tử
                 Button itemButton = new Button();
-                itemButton.Size = new Size(220, 130);
-                itemButton.Text = lichsu.Mavattu + "\n"
-                + "Invoice No.: " + lichsu.Invoiceno + "\n"
-                + "Part No.: " + lichsu.Partno + "\n"
-                 + "\n"
-                + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
-                + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
-                + "Thời gian nhập: " + lichsu.Thoigian + "\n";
-
-                itemButton.BackColor = Color.Blue;
-                itemButton.ForeColor = Color.White;
+                itemButton.Size = new Size(220, 150);
+                itemButton.Text =
+                    "\n"
+                    + lichsu.Mavattu + "\n"
+                    + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                    + "Part No.: " + lichsu.Partno + "\n"
+                    + "\n"
+                    + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                    + "Số lượng chưa nghiệm thu: " + slchuanghiemthu.ToString() + " " + lichsu.Donvi + "\n"
+                    + "\n"
+                    + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
+                    + "Thời gian nhập: " + lichsu.Thoigian + "\n"
+                    + "\n"
+                    ;
+                if (sldanghiemthu != slnhap)
+                {
+                    itemButton.BackColor = Color.Orange;
+                }
+                else
+                {
+                    itemButton.BackColor = Color.Blue;
+                    itemButton.ForeColor = Color.White;
+                }
+               
 
                 itemButton.Tag = lichsu;
                 itemButton.Click += ItemButtonClick;
@@ -72,19 +89,36 @@ namespace Vietinak_Kho.f_Qccheck
                 allCQC = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchoqccheck();
                 foreach (var lichsu in allCQC)
                 {
+                    float slnhap = (float)Convert.ToDouble(lichsu.Soluongnhap.ToString());
+                    float sldanghiemthu = (float)Convert.ToDouble(lichsu.Soluongdanghiemthu.ToString());
+                    float slchuanghiemthu = slnhap - sldanghiemthu;
+
                     // Tạo một Button để hiển thị thông tin của mỗi phần tử
                     Button itemButton = new Button();
-                    itemButton.Size = new Size(220, 130);
-                    itemButton.Text = lichsu.Mavattu + "\n"
-                    + "Invoice No.: " + lichsu.Invoiceno + "\n"
-                    + "Part No.: " + lichsu.Partno + "\n"
-                     + "\n"
-                    + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
-                    + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
-                    + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+                    itemButton.Size = new Size(220, 150);
+                    itemButton.Text =
+                        "\n"
+                        + lichsu.Mavattu + "\n"
+                        + "Invoice No.: " + lichsu.Invoiceno + "\n"
+                        + "Part No.: " + lichsu.Partno + "\n"
+                        + "\n"
+                        + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                        + "Số lượng chưa nghiệm thu: " + slchuanghiemthu.ToString() + " " + lichsu.Donvi + "\n"
+                        + "\n"
+                        + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
+                        + "Thời gian nhập: " + lichsu.Thoigian + "\n"
+                        + "\n"
+                        ;
+                    if (sldanghiemthu != slnhap)
+                    {
+                        itemButton.BackColor = Color.Orange;
+                    }
+                    else
+                    {
+                        itemButton.BackColor = Color.Blue;
+                        itemButton.ForeColor = Color.White;
+                    }
 
-                    itemButton.BackColor = Color.Blue;
-                    itemButton.ForeColor = Color.White;
 
                     itemButton.Tag = lichsu;
                     itemButton.Click += ItemButtonClick;

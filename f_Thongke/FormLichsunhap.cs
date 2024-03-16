@@ -104,7 +104,7 @@ namespace Vietinak_Kho.f_Khohang
                 string donvi = selectedRow.Cells["Donvi"].Value.ToString();
 
                 string idValue = selectedRow.Cells["Id"].Value.ToString();
-                if (trangThaiValue != null && trangThaiValue.ToString() == "CHỜ QC CHECK")
+                if (trangThaiValue != null && (trangThaiValue.ToString() == "CHỜ QC CHECK" || trangThaiValue.ToString() == "CHỜ NGHIỆM THU"))
                 {
                     DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
@@ -128,6 +128,15 @@ namespace Vietinak_Kho.f_Khohang
                     if (result == DialogResult.Yes)
                     {
                         FormLichsunhaplaixemnhanh fls = new FormLichsunhaplaixemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
+                        fls.ShowDialog();
+                    }
+                }
+                if (trangThaiValue != null && trangThaiValue.ToString() == "NGHIỆM THU MỘT PHẦN")
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn xem chi tiết nghiệm thu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        FormLichsunghiemthuxemnhanh fls = new FormLichsunghiemthuxemnhanh(Convert.ToInt32(idValue), mavattu, nhapvaokho, soluongnhap, donvi);
                         fls.ShowDialog();
                     }
                 }
@@ -222,6 +231,11 @@ namespace Vietinak_Kho.f_Khohang
             {
                 dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Purple;
                 dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
+            }
+            if (!dgvLichsunhap.Rows[e.RowIndex].IsNewRow && dgvLichsunhap.Rows[e.RowIndex].Cells["Trangthai"].Value.ToString() == "NGHIỆM THU MỘT PHẦN")
+            {
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Orange;
+                dgvLichsunhap.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
             }
         }
     }

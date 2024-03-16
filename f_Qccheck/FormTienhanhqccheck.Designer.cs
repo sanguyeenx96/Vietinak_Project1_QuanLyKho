@@ -99,7 +99,7 @@
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 3);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(782, 387);
+            this.dgv.Size = new System.Drawing.Size(782, 375);
             this.dgv.TabIndex = 1;
             this.dgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_CellFormatting);
             // 
@@ -107,9 +107,9 @@
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 390);
+            this.panel3.Location = new System.Drawing.Point(3, 378);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(782, 32);
+            this.panel3.Size = new System.Drawing.Size(782, 44);
             this.panel3.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -125,7 +125,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(782, 32);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(782, 44);
             this.tableLayoutPanel3.TabIndex = 9;
             // 
             // btnHuybo
@@ -137,7 +137,7 @@
             this.btnHuybo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.Image")));
             this.btnHuybo.Location = new System.Drawing.Point(4, 4);
             this.btnHuybo.Name = "btnHuybo";
-            this.btnHuybo.Size = new System.Drawing.Size(383, 24);
+            this.btnHuybo.Size = new System.Drawing.Size(383, 36);
             this.btnHuybo.TabIndex = 1;
             this.btnHuybo.Text = "Hủy bỏ";
             this.btnHuybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -154,7 +154,7 @@
             this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
             this.btnXacNhan.Location = new System.Drawing.Point(394, 4);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(384, 24);
+            this.btnXacNhan.Size = new System.Drawing.Size(384, 36);
             this.btnXacNhan.TabIndex = 0;
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

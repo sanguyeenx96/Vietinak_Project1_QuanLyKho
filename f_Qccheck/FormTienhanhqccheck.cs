@@ -24,6 +24,10 @@ namespace Vietinak_Kho.f_Qccheck
         private string tennguoithaotac;
         private string manhanvien;
         private string bophan;
+
+        private float soluongnhap;
+        private float soluongchuanghiemthu;
+        private float soluongdanghiemthu;
         public FormTienhanhqccheck(User userInfo)
         {
             InitializeComponent();
@@ -35,6 +39,10 @@ namespace Vietinak_Kho.f_Qccheck
             tennguoithaotac = userInfo.Hoten;
             manhanvien = userInfo.Manhanvien;
             bophan = userInfo.Bophan;
+
+            soluongnhap = (float)Convert.ToDouble(lichsu.Soluongnhap.ToString());
+            soluongdanghiemthu = (float)Convert.ToDouble(lichsu.Soluongdanghiemthu.ToString());
+            soluongchuanghiemthu = soluongnhap - soluongdanghiemthu;
         }
         private void FormTienhanhqccheck_Load(object sender, EventArgs e)
         {
@@ -92,7 +100,6 @@ namespace Vietinak_Kho.f_Qccheck
             //    }
             //}
         }
-
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
@@ -107,7 +114,6 @@ namespace Vietinak_Kho.f_Qccheck
                 }
             }
         }
-
         private void btnHuybo_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -121,7 +127,6 @@ namespace Vietinak_Kho.f_Qccheck
             DateTime result;
             return DateTime.TryParseExact(input, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
         }
-
 
         private void btnXacNhan_Click_1(object sender, EventArgs e)
         {
@@ -178,16 +183,25 @@ namespace Vietinak_Kho.f_Qccheck
                 // Nếu tất cả các dòng đã được lưu thành công, hiển thị FormThanhcong
                 if (allRowsSavedSuccessfully)
                 {
-                    bool result = LichsunhapxuatDAO.Instance.UpdateXacNhanQcCheck(lichsunhapid);
-                    if (result)
+                    if(soluongchuanghiemthu != 0)
                     {
                         DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
                         this.Close();
                         FormThanhcong fthanhcong = new FormThanhcong();
                         fthanhcong.ShowDialog();
                     }
+                    else
+                    {
+                        bool result = LichsunhapxuatDAO.Instance.UpdateXacNhanQcCheck(lichsunhapid);
+                        if (result)
+                        {
+                            DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
+                            this.Close();
+                            FormThanhcong fthanhcong = new FormThanhcong();
+                            fthanhcong.ShowDialog();
+                        }
+                    }
                 }
-
             }
             else
             {
