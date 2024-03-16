@@ -19,7 +19,7 @@ namespace Vietinak_Kho
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void login()
         {
             string manv = txtUsername.Text;
             string pwd = txtPassword.Text;
@@ -59,7 +59,7 @@ namespace Vietinak_Kho
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnLogin.PerformClick();
+                login();
             }
         }
 

@@ -13,7 +13,7 @@ namespace Vietinak_Kho.DTO
     {
         public Lichsunhapxuat(int id, int vattuid, string mavattu, string invoiceno, string partno, string donvi, string tennguoithaotac,
             string manhanvien, string bophan, string loaithaotac, string thoigian, 
-            float soluongnhap, string nhapvaokho, float tonkhotruocnhapVTN, float tonkhosaunhapVTN,
+            float soluongnhap, string nhapvaokho, float soluongdanghiemthu, float tonkhotruocnhapVTN, float tonkhosaunhapVTN,
             float tonkhotruocnhapDRG, float tonkhosaunhapDRG,float soluongxuat, string mucdichxuat, float tonkhotruocxuatVTN,
             float tonkhosauxuatVTN, float tonkhotruocxuatDRG,float tonkhosauxuatDRG,string trangthai)
         {
@@ -30,6 +30,7 @@ namespace Vietinak_Kho.DTO
             this.Thoigian = thoigian;
             this.Soluongnhap = soluongnhap;
             this.Nhapvaokho = nhapvaokho;
+            this.Soluongdanghiemthu = soluongdanghiemthu;
             this.TonkhotruocnhapVTN = tonkhotruocnhapVTN;
             this.TonkhosaunhapVTN = tonkhosaunhapVTN;
             this.TonkhotruocnhapDRG = tonkhotruocnhapDRG;
@@ -61,6 +62,7 @@ namespace Vietinak_Kho.DTO
             // Kiểm tra và chuyển đổi giá trị từ DBNull sang float
             this.Soluongnhap = row["soluongnhap"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["soluongnhap"]);
             this.Nhapvaokho = row["nhapvaokho"].ToString();
+            this.Soluongdanghiemthu = row["soluongdanghiemthu"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["soluongdanghiemthu"]);
             this.TonkhotruocnhapVTN = row["tonkhotruocnhapVTN"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["tonkhotruocnhapVTN"]);
             this.TonkhosaunhapVTN = row["tonkhosaunhapVTN"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["tonkhosaunhapVTN"]);
             this.TonkhotruocnhapDRG = row["tonkhotruocnhapDRG"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["tonkhotruocnhapDRG"]);
@@ -86,6 +88,7 @@ namespace Vietinak_Kho.DTO
         private string thoigian;
         private float soluongnhap;
         private string nhapvaokho;
+        private float soluongdanghiemthu;
         private float tonkhotruocnhapVTN;
         private float tonkhosaunhapVTN;
         private float tonkhotruocnhapDRG;
@@ -112,6 +115,7 @@ namespace Vietinak_Kho.DTO
         public string Thoigian { get => thoigian; set => thoigian = value; }
         public float Soluongnhap { get => soluongnhap; set => soluongnhap = value; }
         public string Nhapvaokho { get => nhapvaokho; set => nhapvaokho = value; }
+        public float Soluongdanghiemthu { get => soluongdanghiemthu; set => soluongdanghiemthu = value; }
         public float TonkhotruocnhapVTN { get => tonkhotruocnhapVTN; set => tonkhotruocnhapVTN = value; }
         public float TonkhosaunhapVTN { get => tonkhosaunhapVTN; set => tonkhosaunhapVTN = value; }
         public float TonkhotruocnhapDRG { get => tonkhotruocnhapDRG; set => tonkhotruocnhapDRG = value; }

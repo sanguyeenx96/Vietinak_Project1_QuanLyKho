@@ -11,6 +11,7 @@ using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
 using Vietinak_Kho.f_Khohang;
 using Vietinak_Kho.f_Nghiemthu;
+using Vietinak_Kho.f_PPC;
 using Vietinak_Kho.f_Qccheck;
 
 namespace Vietinak_Kho
@@ -45,7 +46,7 @@ namespace Vietinak_Kho
             txtRole.Text = userInfo.Role;
             txtCode.Text = userInfo.Manhanvien;
 
-            btnNhapXuat.PerformClick();
+            btnPPC.PerformClick();
         }
 
         private void timerClock_Tick(object sender, EventArgs e)
@@ -125,6 +126,13 @@ namespace Vietinak_Kho
         {
             FormQccheck fqcc = new FormQccheck(userInfo);
             loadform(fqcc);
+            UpdateButtonColor(sender as Button);
+        }
+
+        private void btnPPC_Click(object sender, EventArgs e)
+        {
+            FormPPC fppc= new FormPPC(userInfo);
+            loadform(fppc);
             UpdateButtonColor(sender as Button);
         }
     }

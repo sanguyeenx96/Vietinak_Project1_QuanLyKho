@@ -55,6 +55,8 @@
     <Compile Include="DAO\LichsunhaplaichitietDAO.cs" />
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
     <Compile Include="DAO\LichsuxuatchitietDAO.cs" />
+    <Compile Include="DAO\PoDAO.cs" />
+    <Compile Include="DAO\SupplierInfoDAO.cs" />
     <Compile Include="DAO\ThongtinvattuDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DAO\UserlogsDAO.cs" />
@@ -65,6 +67,9 @@
     <Compile Include="DTO\Lichsunhaplaichitiet.cs" />
     <Compile Include="DTO\Lichsunhapxuat.cs" />
     <Compile Include="DTO\Lichsuxuatchitiet.cs" />
+    <Compile Include="DTO\Po.cs" />
+    <Compile Include="DTO\PoInfo.cs" />
+    <Compile Include="DTO\SupplierInfo.cs" />
     <Compile Include="DTO\Thongtinvattu.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="DTO\Userlogs.cs" />
@@ -206,6 +211,42 @@
     </Compile>
     <Compile Include="f_Nhapxuat\FormXuatkho.Designer.cs">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\FormDanhsachPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormDanhsachPO.Designer.cs">
+      <DependentUpon>FormDanhsachPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\FormPPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormPPC.Designer.cs">
+      <DependentUpon>FormPPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\FormTaoPo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormTaoPo.Designer.cs">
+      <DependentUpon>FormTaoPo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormSuaNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormSuaNCC.Designer.cs">
+      <DependentUpon>FormSuaNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormThemNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormThemNCC.Designer.cs">
+      <DependentUpon>FormThemNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormThongtinNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\ThongtinSupplier\FormThongtinNCC.Designer.cs">
+      <DependentUpon>FormThongtinNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="f_Qccheck\FormDanhsachchoqccheck.cs">
       <SubType>Form</SubType>
@@ -438,6 +479,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_Nhapxuat\FormXuatkho.resx">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormDanhsachPO.resx">
+      <DependentUpon>FormDanhsachPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormPPC.resx">
+      <DependentUpon>FormPPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormTaoPo.resx">
+      <DependentUpon>FormTaoPo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormSuaNCC.resx">
+      <DependentUpon>FormSuaNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormThemNCC.resx">
+      <DependentUpon>FormThemNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormThongtinNCC.resx">
+      <DependentUpon>FormThongtinNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_Qccheck\FormDanhsachchoqccheck.resx">
       <DependentUpon>FormDanhsachchoqccheck.cs</DependentUpon>

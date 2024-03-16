@@ -29,20 +29,33 @@ namespace Vietinak_Kho.f_Nghiemthu
             allCNT = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchonghiemthu();
             foreach (var lichsu in allCNT)
             {
+                float slnhap = (float)Convert.ToDouble(lichsu.Soluongnhap.ToString());
+                float sldanghiemthu = (float)Convert.ToDouble(lichsu.Soluongdanghiemthu.ToString());
+                float slchuanghiemthu = slnhap - sldanghiemthu;
                 // Tạo một Button để hiển thị thông tin của mỗi phần tử
                 Button itemButton = new Button();
-                itemButton.Size = new Size(220, 130);
-                itemButton.Text = lichsu.Mavattu + "\n"
+                itemButton.Size = new Size(220, 150);
+                itemButton.Text =
+                    "\n"
+                    + lichsu.Mavattu + "\n"
                     + "Invoice No.: " + lichsu.Invoiceno + "\n"
                     + "Part No.: " + lichsu.Partno + "\n"
-                     + "\n"
+                    + "\n"
                     + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                    + "Số lượng chưa nghiệm thu: " + slchuanghiemthu.ToString() + " " + lichsu.Donvi + "\n"
+                    + "\n"
                     + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
-                    + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+                    + "Thời gian nhập: " + lichsu.Thoigian + "\n"
+                    + "\n"
+                    ;
                 if (lichsu.Nhapvaokho == "NHẬP LẠI")
                 {
                     itemButton.BackColor = Color.Purple;
                     itemButton.ForeColor = Color.White;
+                }
+                else if(sldanghiemthu != 0)
+                {
+                    itemButton.BackColor = Color.Orange;
                 }
                 else
                 {
@@ -75,7 +88,6 @@ namespace Vietinak_Kho.f_Nghiemthu
                 fthnt.LoadData(lichsu); // Truyền thông tin vào form fthnt
                 fthnt.ShowDialog();
             }
-       
         }
 
         private void Dialog_DialogClosed(object sender, DialogClosedEventArgs e)
@@ -89,20 +101,33 @@ namespace Vietinak_Kho.f_Nghiemthu
                 allCNT = LichsunhapxuatDAO.Instance.LoadTableList_Lichsuchonghiemthu();
                 foreach (var lichsu in allCNT)
                 {
+                    float slnhap = (float)Convert.ToDouble(lichsu.Soluongnhap.ToString());
+                    float sldanghiemthu = (float)Convert.ToDouble(lichsu.Soluongdanghiemthu.ToString());
+                    float slchuanghiemthu = slnhap - sldanghiemthu;
                     // Tạo một Button để hiển thị thông tin của mỗi phần tử
                     Button itemButton = new Button();
-                    itemButton.Size = new Size(220, 130);
-                    itemButton.Text = lichsu.Mavattu + "\n"
+                    itemButton.Size = new Size(220, 150);
+                    itemButton.Text =
+                        "\n"
+                        + lichsu.Mavattu + "\n"
                         + "Invoice No.: " + lichsu.Invoiceno + "\n"
                         + "Part No.: " + lichsu.Partno + "\n"
-                         + "\n"
+                        + "\n"
                         + "Số lượng nhập: " + lichsu.Soluongnhap + " " + lichsu.Donvi + "\n"
+                        + "Số lượng chưa nghiệm thu: " + slchuanghiemthu.ToString() + " " + lichsu.Donvi + "\n"
+                        + "\n"
                         + "Nhập vào kho: " + lichsu.Nhapvaokho + "\n"
-                        + "Thời gian nhập: " + lichsu.Thoigian + "\n";
+                        + "Thời gian nhập: " + lichsu.Thoigian + "\n"
+                        + "\n"
+                        ;
                     if (lichsu.Nhapvaokho == "NHẬP LẠI")
                     {
                         itemButton.BackColor = Color.Purple;
                         itemButton.ForeColor = Color.White;
+                    }
+                    else if (slchuanghiemthu != slnhap)
+                    {
+                        itemButton.BackColor = Color.Orange;
                     }
                     else
                     {
