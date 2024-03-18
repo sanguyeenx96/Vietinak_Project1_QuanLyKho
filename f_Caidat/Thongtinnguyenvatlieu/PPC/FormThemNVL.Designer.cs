@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtvtncode = new System.Windows.Forms.TextBox();
+            this.txtnote = new System.Windows.Forms.TextBox();
+            this.txtisoiatfcertificate = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -55,7 +58,6 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.txtmaterialno = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.txtsuppliername = new System.Windows.Forms.TextBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.txtmaterialppc = new System.Windows.Forms.TextBox();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -68,6 +70,16 @@
             this.txtaddresscoabox = new System.Windows.Forms.TextBox();
             this.panel23 = new System.Windows.Forms.Panel();
             this.checkBoxCOAISO = new System.Windows.Forms.CheckBox();
+            this.panel44 = new System.Windows.Forms.Panel();
+            this.txtitemcode = new System.Windows.Forms.TextBox();
+            this.panel45 = new System.Windows.Forms.Panel();
+            this.txtvietnamesename = new System.Windows.Forms.TextBox();
+            this.panel46 = new System.Windows.Forms.Panel();
+            this.cbUnit = new System.Windows.Forms.ComboBox();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.txtunitprice = new System.Windows.Forms.TextBox();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.cbCurrency = new System.Windows.Forms.ComboBox();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
@@ -84,28 +96,16 @@
             this.label23 = new System.Windows.Forms.Label();
             this.panel39 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.panel44 = new System.Windows.Forms.Panel();
-            this.txtisoiatfcertificate = new System.Windows.Forms.TextBox();
-            this.panel45 = new System.Windows.Forms.Panel();
-            this.panel46 = new System.Windows.Forms.Panel();
-            this.txtnote = new System.Windows.Forms.TextBox();
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.txtvtncode = new System.Windows.Forms.TextBox();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.txtitemcode = new System.Windows.Forms.TextBox();
-            this.txtvietnamesename = new System.Windows.Forms.TextBox();
-            this.txtunitprice = new System.Windows.Forms.TextBox();
             this.panel52 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.panel53 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbCurrency = new System.Windows.Forms.ComboBox();
-            this.cbUnit = new System.Windows.Forms.ComboBox();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.cbsuppliername = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -127,6 +127,11 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.panel44.SuspendLayout();
+            this.panel45.SuspendLayout();
+            this.panel46.SuspendLayout();
+            this.panel47.SuspendLayout();
+            this.panel48.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel34.SuspendLayout();
@@ -135,11 +140,6 @@
             this.panel37.SuspendLayout();
             this.panel38.SuspendLayout();
             this.panel39.SuspendLayout();
-            this.panel44.SuspendLayout();
-            this.panel45.SuspendLayout();
-            this.panel46.SuspendLayout();
-            this.panel47.SuspendLayout();
-            this.panel48.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel53.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -226,6 +226,30 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(845, 291);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // txtvtncode
+            // 
+            this.txtvtncode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtvtncode.Location = new System.Drawing.Point(627, 103);
+            this.txtvtncode.Name = "txtvtncode";
+            this.txtvtncode.Size = new System.Drawing.Size(200, 20);
+            this.txtvtncode.TabIndex = 0;
+            // 
+            // txtnote
+            // 
+            this.txtnote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtnote.Location = new System.Drawing.Point(627, 73);
+            this.txtnote.Name = "txtnote";
+            this.txtnote.Size = new System.Drawing.Size(200, 20);
+            this.txtnote.TabIndex = 0;
+            // 
+            // txtisoiatfcertificate
+            // 
+            this.txtisoiatfcertificate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtisoiatfcertificate.Location = new System.Drawing.Point(627, 13);
+            this.txtisoiatfcertificate.Name = "txtisoiatfcertificate";
+            this.txtisoiatfcertificate.Size = new System.Drawing.Size(200, 20);
+            this.txtisoiatfcertificate.TabIndex = 0;
             // 
             // panel4
             // 
@@ -426,20 +450,12 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.txtsuppliername);
+            this.panel17.Controls.Add(this.cbsuppliername);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(221, 73);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(197, 24);
             this.panel17.TabIndex = 0;
-            // 
-            // txtsuppliername
-            // 
-            this.txtsuppliername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtsuppliername.Location = new System.Drawing.Point(0, 0);
-            this.txtsuppliername.Name = "txtsuppliername";
-            this.txtsuppliername.Size = new System.Drawing.Size(197, 20);
-            this.txtsuppliername.TabIndex = 0;
             // 
             // panel18
             // 
@@ -544,6 +560,104 @@
             this.checkBoxCOAISO.TabIndex = 0;
             this.checkBoxCOAISO.Text = "Có";
             this.checkBoxCOAISO.UseVisualStyleBackColor = true;
+            // 
+            // panel44
+            // 
+            this.panel44.Controls.Add(this.txtitemcode);
+            this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel44.Location = new System.Drawing.Point(627, 133);
+            this.panel44.Name = "panel44";
+            this.panel44.Size = new System.Drawing.Size(200, 24);
+            this.panel44.TabIndex = 0;
+            // 
+            // txtitemcode
+            // 
+            this.txtitemcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtitemcode.Location = new System.Drawing.Point(0, 0);
+            this.txtitemcode.Name = "txtitemcode";
+            this.txtitemcode.Size = new System.Drawing.Size(200, 20);
+            this.txtitemcode.TabIndex = 0;
+            // 
+            // panel45
+            // 
+            this.panel45.Controls.Add(this.txtvietnamesename);
+            this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel45.Location = new System.Drawing.Point(627, 163);
+            this.panel45.Name = "panel45";
+            this.panel45.Size = new System.Drawing.Size(200, 24);
+            this.panel45.TabIndex = 0;
+            // 
+            // txtvietnamesename
+            // 
+            this.txtvietnamesename.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtvietnamesename.Location = new System.Drawing.Point(0, 0);
+            this.txtvietnamesename.Name = "txtvietnamesename";
+            this.txtvietnamesename.Size = new System.Drawing.Size(200, 20);
+            this.txtvietnamesename.TabIndex = 0;
+            // 
+            // panel46
+            // 
+            this.panel46.Controls.Add(this.cbUnit);
+            this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel46.Location = new System.Drawing.Point(627, 193);
+            this.panel46.Name = "panel46";
+            this.panel46.Size = new System.Drawing.Size(200, 24);
+            this.panel46.TabIndex = 0;
+            // 
+            // cbUnit
+            // 
+            this.cbUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUnit.FormattingEnabled = true;
+            this.cbUnit.Items.AddRange(new object[] {
+            "Kg",
+            "Ltr",
+            "Pcs"});
+            this.cbUnit.Location = new System.Drawing.Point(0, 0);
+            this.cbUnit.Name = "cbUnit";
+            this.cbUnit.Size = new System.Drawing.Size(200, 21);
+            this.cbUnit.TabIndex = 0;
+            // 
+            // panel47
+            // 
+            this.panel47.Controls.Add(this.txtunitprice);
+            this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel47.Location = new System.Drawing.Point(627, 223);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(200, 24);
+            this.panel47.TabIndex = 0;
+            // 
+            // txtunitprice
+            // 
+            this.txtunitprice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtunitprice.Location = new System.Drawing.Point(0, 0);
+            this.txtunitprice.Name = "txtunitprice";
+            this.txtunitprice.Size = new System.Drawing.Size(200, 20);
+            this.txtunitprice.TabIndex = 0;
+            this.txtunitprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtunitprice_KeyPress);
+            // 
+            // panel48
+            // 
+            this.panel48.Controls.Add(this.cbCurrency);
+            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel48.Location = new System.Drawing.Point(627, 253);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(200, 25);
+            this.panel48.TabIndex = 0;
+            // 
+            // cbCurrency
+            // 
+            this.cbCurrency.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCurrency.FormattingEnabled = true;
+            this.cbCurrency.Items.AddRange(new object[] {
+            "USD",
+            "JPY",
+            "VND"});
+            this.cbCurrency.Location = new System.Drawing.Point(0, 0);
+            this.cbCurrency.Name = "cbCurrency";
+            this.cbCurrency.Size = new System.Drawing.Size(200, 21);
+            this.cbCurrency.TabIndex = 0;
             // 
             // panel32
             // 
@@ -681,100 +795,6 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "Unit price";
             // 
-            // panel44
-            // 
-            this.panel44.Controls.Add(this.txtitemcode);
-            this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel44.Location = new System.Drawing.Point(627, 133);
-            this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(200, 24);
-            this.panel44.TabIndex = 0;
-            // 
-            // txtisoiatfcertificate
-            // 
-            this.txtisoiatfcertificate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtisoiatfcertificate.Location = new System.Drawing.Point(627, 13);
-            this.txtisoiatfcertificate.Name = "txtisoiatfcertificate";
-            this.txtisoiatfcertificate.Size = new System.Drawing.Size(200, 20);
-            this.txtisoiatfcertificate.TabIndex = 0;
-            // 
-            // panel45
-            // 
-            this.panel45.Controls.Add(this.txtvietnamesename);
-            this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(627, 163);
-            this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(200, 24);
-            this.panel45.TabIndex = 0;
-            // 
-            // panel46
-            // 
-            this.panel46.Controls.Add(this.cbUnit);
-            this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel46.Location = new System.Drawing.Point(627, 193);
-            this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(200, 24);
-            this.panel46.TabIndex = 0;
-            // 
-            // txtnote
-            // 
-            this.txtnote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtnote.Location = new System.Drawing.Point(627, 73);
-            this.txtnote.Name = "txtnote";
-            this.txtnote.Size = new System.Drawing.Size(200, 20);
-            this.txtnote.TabIndex = 0;
-            // 
-            // panel47
-            // 
-            this.panel47.Controls.Add(this.txtunitprice);
-            this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel47.Location = new System.Drawing.Point(627, 223);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(200, 24);
-            this.panel47.TabIndex = 0;
-            // 
-            // txtvtncode
-            // 
-            this.txtvtncode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtvtncode.Location = new System.Drawing.Point(627, 103);
-            this.txtvtncode.Name = "txtvtncode";
-            this.txtvtncode.Size = new System.Drawing.Size(200, 20);
-            this.txtvtncode.TabIndex = 0;
-            // 
-            // panel48
-            // 
-            this.panel48.Controls.Add(this.cbCurrency);
-            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel48.Location = new System.Drawing.Point(627, 253);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(200, 25);
-            this.panel48.TabIndex = 0;
-            // 
-            // txtitemcode
-            // 
-            this.txtitemcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtitemcode.Location = new System.Drawing.Point(0, 0);
-            this.txtitemcode.Name = "txtitemcode";
-            this.txtitemcode.Size = new System.Drawing.Size(200, 20);
-            this.txtitemcode.TabIndex = 0;
-            // 
-            // txtvietnamesename
-            // 
-            this.txtvietnamesename.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtvietnamesename.Location = new System.Drawing.Point(0, 0);
-            this.txtvietnamesename.Name = "txtvietnamesename";
-            this.txtvietnamesename.Size = new System.Drawing.Size(200, 20);
-            this.txtvietnamesename.TabIndex = 0;
-            // 
-            // txtunitprice
-            // 
-            this.txtunitprice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtunitprice.Location = new System.Drawing.Point(0, 0);
-            this.txtunitprice.Name = "txtunitprice";
-            this.txtunitprice.Size = new System.Drawing.Size(200, 20);
-            this.txtunitprice.TabIndex = 0;
-            this.txtunitprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtunitprice_KeyPress);
-            // 
             // panel52
             // 
             this.panel52.Controls.Add(this.label25);
@@ -791,6 +811,14 @@
             this.label25.Size = new System.Drawing.Size(49, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Currency";
+            // 
+            // dtp
+            // 
+            this.dtp.CustomFormat = "yyyy/MM/dd";
+            this.dtp.Location = new System.Drawing.Point(627, 43);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(200, 20);
+            this.dtp.TabIndex = 1;
             // 
             // panel53
             // 
@@ -872,41 +900,15 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // cbCurrency
+            // cbsuppliername
             // 
-            this.cbCurrency.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCurrency.FormattingEnabled = true;
-            this.cbCurrency.Items.AddRange(new object[] {
-            "USD",
-            "JPY",
-            "VND"});
-            this.cbCurrency.Location = new System.Drawing.Point(0, 0);
-            this.cbCurrency.Name = "cbCurrency";
-            this.cbCurrency.Size = new System.Drawing.Size(200, 21);
-            this.cbCurrency.TabIndex = 0;
-            // 
-            // cbUnit
-            // 
-            this.cbUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUnit.FormattingEnabled = true;
-            this.cbUnit.Items.AddRange(new object[] {
-            "Kg",
-            "Ltr",
-            "Pcs"});
-            this.cbUnit.Location = new System.Drawing.Point(0, 0);
-            this.cbUnit.Name = "cbUnit";
-            this.cbUnit.Size = new System.Drawing.Size(200, 21);
-            this.cbUnit.TabIndex = 0;
-            // 
-            // dtp
-            // 
-            this.dtp.CustomFormat = "yyyy/MM/dd";
-            this.dtp.Location = new System.Drawing.Point(627, 43);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(200, 20);
-            this.dtp.TabIndex = 1;
+            this.cbsuppliername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbsuppliername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbsuppliername.FormattingEnabled = true;
+            this.cbsuppliername.Location = new System.Drawing.Point(0, 0);
+            this.cbsuppliername.Name = "cbsuppliername";
+            this.cbsuppliername.Size = new System.Drawing.Size(197, 21);
+            this.cbsuppliername.TabIndex = 0;
             // 
             // FormThemNVL
             // 
@@ -948,7 +950,6 @@
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel19.ResumeLayout(false);
@@ -961,6 +962,14 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
+            this.panel44.ResumeLayout(false);
+            this.panel44.PerformLayout();
+            this.panel45.ResumeLayout(false);
+            this.panel45.PerformLayout();
+            this.panel46.ResumeLayout(false);
+            this.panel47.ResumeLayout(false);
+            this.panel47.PerformLayout();
+            this.panel48.ResumeLayout(false);
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
             this.panel33.ResumeLayout(false);
@@ -977,14 +986,6 @@
             this.panel38.PerformLayout();
             this.panel39.ResumeLayout(false);
             this.panel39.PerformLayout();
-            this.panel44.ResumeLayout(false);
-            this.panel44.PerformLayout();
-            this.panel45.ResumeLayout(false);
-            this.panel45.PerformLayout();
-            this.panel46.ResumeLayout(false);
-            this.panel47.ResumeLayout(false);
-            this.panel47.PerformLayout();
-            this.panel48.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
             this.panel53.ResumeLayout(false);
@@ -1024,7 +1025,6 @@
     private System.Windows.Forms.Panel panel16;
     private System.Windows.Forms.TextBox txtmaterialno;
     private System.Windows.Forms.Panel panel17;
-    private System.Windows.Forms.TextBox txtsuppliername;
     private System.Windows.Forms.Panel panel18;
     private System.Windows.Forms.TextBox txtmaterialppc;
     private System.Windows.Forms.Panel panel19;
@@ -1074,5 +1074,6 @@
         private System.Windows.Forms.ComboBox cbCurrency;
         private System.Windows.Forms.ComboBox cbUnit;
         private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.ComboBox cbsuppliername;
     }
 }

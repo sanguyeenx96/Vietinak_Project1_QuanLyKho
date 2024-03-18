@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvlotno = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBoxHienthixuathet = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtLoc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxHienthixuathet = new System.Windows.Forms.CheckBox();
+            this.dgvlotno = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlotno)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlotno)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,17 +49,6 @@
             this.panel1.Size = new System.Drawing.Size(978, 342);
             this.panel1.TabIndex = 0;
             // 
-            // dgvlotno
-            // 
-            this.dgvlotno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvlotno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvlotno.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvlotno.Location = new System.Drawing.Point(0, 0);
-            this.dgvlotno.Name = "dgvlotno";
-            this.dgvlotno.ReadOnly = true;
-            this.dgvlotno.Size = new System.Drawing.Size(978, 300);
-            this.dgvlotno.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtLoc);
@@ -70,6 +59,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(978, 36);
             this.panel2.TabIndex = 2;
+            // 
+            // txtLoc
+            // 
+            this.txtLoc.Location = new System.Drawing.Point(751, 8);
+            this.txtLoc.Name = "txtLoc";
+            this.txtLoc.Size = new System.Drawing.Size(215, 20);
+            this.txtLoc.TabIndex = 2;
+            this.txtLoc.TextChanged += new System.EventHandler(this.txtLoc_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(662, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tìm kiếm dữ liệu";
             // 
             // checkBoxHienthixuathet
             // 
@@ -85,23 +92,16 @@
             this.checkBoxHienthixuathet.UseVisualStyleBackColor = false;
             this.checkBoxHienthixuathet.CheckedChanged += new System.EventHandler(this.checkBoxHienthixuathet_CheckedChanged);
             // 
-            // label1
+            // dgvlotno
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(662, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tìm kiếm dữ liệu";
-            // 
-            // txtLoc
-            // 
-            this.txtLoc.Location = new System.Drawing.Point(751, 8);
-            this.txtLoc.Name = "txtLoc";
-            this.txtLoc.Size = new System.Drawing.Size(215, 20);
-            this.txtLoc.TabIndex = 2;
-            this.txtLoc.TextChanged += new System.EventHandler(this.txtLoc_TextChanged);
+            this.dgvlotno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvlotno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvlotno.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvlotno.Location = new System.Drawing.Point(0, 0);
+            this.dgvlotno.Name = "dgvlotno";
+            this.dgvlotno.ReadOnly = true;
+            this.dgvlotno.Size = new System.Drawing.Size(978, 300);
+            this.dgvlotno.TabIndex = 1;
             // 
             // FormThongtinsoluong
             // 
@@ -114,9 +114,9 @@
             this.Text = "FormThongtinsoluong";
             this.Load += new System.EventHandler(this.FormThongtinsoluong_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvlotno)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlotno)).EndInit();
             this.ResumeLayout(false);
 
         }

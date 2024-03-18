@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTaoPo));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLammoi = new System.Windows.Forms.Button();
+            this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,12 +45,12 @@
             this.txtTel = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtNo = new System.Windows.Forms.TextBox();
-            this.txtCurrency = new System.Windows.Forms.TextBox();
-            this.txtShippingmethod = new System.Windows.Forms.TextBox();
-            this.txtDeliveryTerm = new System.Windows.Forms.TextBox();
             this.txtPaymentTerm = new System.Windows.Forms.TextBox();
             this.txtIssuedate = new System.Windows.Forms.TextBox();
             this.txtDept = new System.Windows.Forms.TextBox();
+            this.cbDeliveryTerm = new System.Windows.Forms.ComboBox();
+            this.cbShippingmethod = new System.Windows.Forms.ComboBox();
+            this.cbCurrency = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,7 +78,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btnLammoi, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnHuybo, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnXacNhan, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 320);
@@ -88,21 +88,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1064, 47);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // btnLammoi
+            // btnHuybo
             // 
-            this.btnLammoi.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnLammoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnLammoi.FlatAppearance.BorderSize = 0;
-            this.btnLammoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLammoi.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi.Image")));
-            this.btnLammoi.Location = new System.Drawing.Point(3, 3);
-            this.btnLammoi.Name = "btnLammoi";
-            this.btnLammoi.Size = new System.Drawing.Size(526, 41);
-            this.btnLammoi.TabIndex = 1;
-            this.btnLammoi.Text = "Làm mới";
-            this.btnLammoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLammoi.UseVisualStyleBackColor = false;
+            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHuybo.FlatAppearance.BorderSize = 0;
+            this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHuybo.Image = ((System.Drawing.Image)(resources.GetObject("btnHuybo.Image")));
+            this.btnHuybo.Location = new System.Drawing.Point(3, 3);
+            this.btnHuybo.Name = "btnHuybo";
+            this.btnHuybo.Size = new System.Drawing.Size(526, 41);
+            this.btnHuybo.TabIndex = 1;
+            this.btnHuybo.Text = "Hủy bỏ";
+            this.btnHuybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHuybo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHuybo.UseVisualStyleBackColor = false;
+            this.btnHuybo.Click += new System.EventHandler(this.btnHuybo_Click);
             // 
             // btnXacNhan
             // 
@@ -119,6 +120,7 @@
             this.btnXacNhan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXacNhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // groupBox1
             // 
@@ -136,6 +138,9 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.cbCurrency);
+            this.panel1.Controls.Add(this.cbShippingmethod);
+            this.panel1.Controls.Add(this.cbDeliveryTerm);
             this.panel1.Controls.Add(this.cbOderto);
             this.panel1.Controls.Add(this.txtPageno);
             this.panel1.Controls.Add(this.txtFromdate);
@@ -146,9 +151,6 @@
             this.panel1.Controls.Add(this.txtTel);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.txtNo);
-            this.panel1.Controls.Add(this.txtCurrency);
-            this.panel1.Controls.Add(this.txtShippingmethod);
-            this.panel1.Controls.Add(this.txtDeliveryTerm);
             this.panel1.Controls.Add(this.txtPaymentTerm);
             this.panel1.Controls.Add(this.txtIssuedate);
             this.panel1.Controls.Add(this.txtDept);
@@ -202,6 +204,7 @@
             // txtSec
             // 
             this.txtSec.BackColor = System.Drawing.SystemColors.Info;
+            this.txtSec.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSec.Location = new System.Drawing.Point(580, 7);
             this.txtSec.Name = "txtSec";
@@ -248,41 +251,12 @@
             // txtNo
             // 
             this.txtNo.BackColor = System.Drawing.SystemColors.Info;
+            this.txtNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNo.Location = new System.Drawing.Point(486, 82);
             this.txtNo.Name = "txtNo";
             this.txtNo.Size = new System.Drawing.Size(244, 22);
             this.txtNo.TabIndex = 0;
-            // 
-            // txtCurrency
-            // 
-            this.txtCurrency.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrency.Location = new System.Drawing.Point(905, 264);
-            this.txtCurrency.Name = "txtCurrency";
-            this.txtCurrency.Size = new System.Drawing.Size(146, 22);
-            this.txtCurrency.TabIndex = 10;
-            this.txtCurrency.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtShippingmethod
-            // 
-            this.txtShippingmethod.BackColor = System.Drawing.SystemColors.Info;
-            this.txtShippingmethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShippingmethod.Location = new System.Drawing.Point(689, 264);
-            this.txtShippingmethod.Name = "txtShippingmethod";
-            this.txtShippingmethod.Size = new System.Drawing.Size(146, 22);
-            this.txtShippingmethod.TabIndex = 9;
-            this.txtShippingmethod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtDeliveryTerm
-            // 
-            this.txtDeliveryTerm.BackColor = System.Drawing.SystemColors.Info;
-            this.txtDeliveryTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDeliveryTerm.Location = new System.Drawing.Point(432, 264);
-            this.txtDeliveryTerm.Name = "txtDeliveryTerm";
-            this.txtDeliveryTerm.Size = new System.Drawing.Size(146, 22);
-            this.txtDeliveryTerm.TabIndex = 8;
-            this.txtDeliveryTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPaymentTerm
             // 
@@ -307,12 +281,82 @@
             // txtDept
             // 
             this.txtDept.BackColor = System.Drawing.SystemColors.Info;
+            this.txtDept.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDept.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDept.Location = new System.Drawing.Point(371, 7);
             this.txtDept.Name = "txtDept";
             this.txtDept.Size = new System.Drawing.Size(105, 22);
             this.txtDept.TabIndex = 11;
             this.txtDept.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbDeliveryTerm
+            // 
+            this.cbDeliveryTerm.AutoCompleteCustomSource.AddRange(new string[] {
+            "CIF Hai Phong",
+            "CIF Noi Bai",
+            "FCA Nagoya",
+            "Ex-work",
+            "DDU Vietinak",
+            "FOB JKT"});
+            this.cbDeliveryTerm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbDeliveryTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbDeliveryTerm.BackColor = System.Drawing.SystemColors.Info;
+            this.cbDeliveryTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDeliveryTerm.FormattingEnabled = true;
+            this.cbDeliveryTerm.Items.AddRange(new object[] {
+            "CIF Hai Phong",
+            "CIF Noi Bai",
+            "FCA Nagoya",
+            "Ex-work",
+            "DDU Vietinak",
+            "FOB JKT"});
+            this.cbDeliveryTerm.Location = new System.Drawing.Point(432, 263);
+            this.cbDeliveryTerm.Name = "cbDeliveryTerm";
+            this.cbDeliveryTerm.Size = new System.Drawing.Size(146, 24);
+            this.cbDeliveryTerm.TabIndex = 1;
+            this.cbDeliveryTerm.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
+            // 
+            // cbShippingmethod
+            // 
+            this.cbShippingmethod.AutoCompleteCustomSource.AddRange(new string[] {
+            "Sea Freight",
+            "Air Freight",
+            "Truck"});
+            this.cbShippingmethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbShippingmethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbShippingmethod.BackColor = System.Drawing.SystemColors.Info;
+            this.cbShippingmethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShippingmethod.FormattingEnabled = true;
+            this.cbShippingmethod.Items.AddRange(new object[] {
+            "Sea Freight",
+            "Air Freight",
+            "Truck"});
+            this.cbShippingmethod.Location = new System.Drawing.Point(685, 263);
+            this.cbShippingmethod.Name = "cbShippingmethod";
+            this.cbShippingmethod.Size = new System.Drawing.Size(146, 24);
+            this.cbShippingmethod.TabIndex = 1;
+            this.cbShippingmethod.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
+            // 
+            // cbCurrency
+            // 
+            this.cbCurrency.AutoCompleteCustomSource.AddRange(new string[] {
+            "USD",
+            "JPY",
+            "VNĐ"});
+            this.cbCurrency.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCurrency.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbCurrency.BackColor = System.Drawing.SystemColors.Info;
+            this.cbCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCurrency.FormattingEnabled = true;
+            this.cbCurrency.Items.AddRange(new object[] {
+            "USD",
+            "JPY",
+            "VNĐ"});
+            this.cbCurrency.Location = new System.Drawing.Point(905, 263);
+            this.cbCurrency.Name = "cbCurrency";
+            this.cbCurrency.Size = new System.Drawing.Size(146, 24);
+            this.cbCurrency.TabIndex = 1;
+            this.cbCurrency.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
             // 
             // FormTaoPo
             // 
@@ -351,14 +395,14 @@
         private System.Windows.Forms.TextBox txtNo;
         private System.Windows.Forms.TextBox txtDept;
         private System.Windows.Forms.TextBox txtAttn;
-        private System.Windows.Forms.TextBox txtCurrency;
-        private System.Windows.Forms.TextBox txtShippingmethod;
-        private System.Windows.Forms.TextBox txtDeliveryTerm;
         private System.Windows.Forms.TextBox txtPaymentTerm;
         private System.Windows.Forms.TextBox txtIssuedate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button btnLammoi;
+        private System.Windows.Forms.Button btnHuybo;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.ComboBox cbOderto;
+        private System.Windows.Forms.ComboBox cbCurrency;
+        private System.Windows.Forms.ComboBox cbShippingmethod;
+        private System.Windows.Forms.ComboBox cbDeliveryTerm;
     }
 }

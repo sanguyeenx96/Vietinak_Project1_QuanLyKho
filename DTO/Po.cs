@@ -10,7 +10,7 @@ namespace Vietinak_Kho.DTO
     public class Po
     {
         public Po(int id, string no,string code, string dept, string sec, string fromdate, string pageno,
-            string orderno, string address, string tel, string attn, string fax, string issuedate,
+            string orderto, string address, string tel, string attn, string fax, string issuedate,
             string paymentterm, string deliveryterm, string shippingmethod, string currency, string manv, string hoten, string bophan,
             string ngaygio)
         {
@@ -21,7 +21,7 @@ namespace Vietinak_Kho.DTO
             this.Sec = sec;
             this.Fromdate = fromdate;
             this.Pageno = pageno;
-            this.Orderno = orderno;
+            this.Orderto = orderto;
             this.Address = address;
             this.Tel = tel;
             this.Attn = attn;
@@ -45,7 +45,7 @@ namespace Vietinak_Kho.DTO
             this.Sec = row["sec"].ToString();
             this.Fromdate = row["fromdate"].ToString();
             this.Pageno = row["pageno"].ToString();
-            this.Orderno = row["orderno"].ToString();
+            this.Orderto = row["orderto"].ToString();
             this.Address = row["address"].ToString();
             this.Tel = row["tel"].ToString();
             this.Attn = row["attn"].ToString();
@@ -68,7 +68,7 @@ namespace Vietinak_Kho.DTO
         private string sec;
         private string fromdate;
         private string pageno;
-        private string orderno;
+        private string orderto;
         private string address;
         private string tel;
         private string attn;
@@ -90,7 +90,7 @@ namespace Vietinak_Kho.DTO
         public string Sec { get => sec; set => sec = value; }
         public string Fromdate { get => fromdate; set => fromdate = value; }
         public string Pageno { get => pageno; set => pageno = value; }
-        public string Orderno { get => orderno; set => orderno = value; }
+        public string Orderto { get => orderto; set => orderto = value; }
         public string Address { get => address; set => address = value; }
         public string Tel { get => tel; set => tel = value; }
         public string Attn { get => attn; set => attn = value; }

@@ -210,6 +210,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Yellow;
             this.label10.Location = new System.Drawing.Point(854, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 13);
