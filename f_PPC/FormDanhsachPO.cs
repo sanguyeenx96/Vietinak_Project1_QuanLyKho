@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Thongke;
 
 namespace Vietinak_Kho.f_PPC
 {
@@ -27,6 +28,7 @@ namespace Vietinak_Kho.f_PPC
         {
             allds = PoDAO.Instance.LoadTableList_Po();
             dgvDspo.DataSource = allds;
+            dgvDspo.Columns["Id"].Visible = false;
 
             dgvDspo.Columns["No"].HeaderText = "No.";
             dgvDspo.Columns["Code"].HeaderText = "Code";
@@ -34,7 +36,7 @@ namespace Vietinak_Kho.f_PPC
             dgvDspo.Columns["Sec"].HeaderText = "Sec.";
             dgvDspo.Columns["Fromdate"].HeaderText = "From date";
             dgvDspo.Columns["Pageno"].HeaderText = "Page No.";
-            dgvDspo.Columns["Orderno"].HeaderText = "Order No.";
+            dgvDspo.Columns["Orderto"].HeaderText = "Order to";
             dgvDspo.Columns["Address"].HeaderText = "Address";
             dgvDspo.Columns["Tel"].HeaderText = "Tel";
             dgvDspo.Columns["Attn"].HeaderText = "Attn";
@@ -52,8 +54,24 @@ namespace Vietinak_Kho.f_PPC
 
         private void btnTaoPo_Click(object sender, EventArgs e)
         {
-            FormTaoPo ftpo = new FormTaoPo();
+            FormTaoPo ftpo = new FormTaoPo(userInfo);
             ftpo.ShowDialog();
+        }
+
+        private void dgvDspo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvDspo.Rows[e.RowIndex];
+                string idValue = selectedRow.Cells["Id"].Value.ToString();
+                FormChucnangPO fpo = new FormChucnangPO(Convert.ToInt32(idValue));
+                fpo.ShowDialog();
+            }
+        }
+
+        private void txtLoc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 425);
+            this.panel1.Size = new System.Drawing.Size(947, 601);
             this.panel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -81,8 +81,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(817, 425);
-            this.splitContainer1.SplitterDistance = 365;
+            this.splitContainer1.Size = new System.Drawing.Size(947, 601);
+            this.splitContainer1.SplitterDistance = 540;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel2
@@ -92,7 +92,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.panel2.Size = new System.Drawing.Size(817, 365);
+            this.panel2.Size = new System.Drawing.Size(947, 540);
             this.panel2.TabIndex = 0;
             // 
             // groupBox1
@@ -101,7 +101,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 359);
+            this.groupBox1.Size = new System.Drawing.Size(941, 534);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách tài khoản";
@@ -114,7 +114,7 @@
             this.dgvDanhsachtaikhoan.Location = new System.Drawing.Point(3, 16);
             this.dgvDanhsachtaikhoan.Name = "dgvDanhsachtaikhoan";
             this.dgvDanhsachtaikhoan.ReadOnly = true;
-            this.dgvDanhsachtaikhoan.Size = new System.Drawing.Size(805, 340);
+            this.dgvDanhsachtaikhoan.Size = new System.Drawing.Size(935, 515);
             this.dgvDanhsachtaikhoan.TabIndex = 0;
             // 
             // panel3
@@ -123,7 +123,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(817, 56);
+            this.panel3.Size = new System.Drawing.Size(947, 57);
             this.panel3.TabIndex = 0;
             // 
             // groupBox2
@@ -132,7 +132,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(817, 56);
+            this.groupBox2.Size = new System.Drawing.Size(947, 57);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lọc dữ liệu";
@@ -147,14 +147,14 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(3, 16);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(808, 37);
+            this.panel4.Size = new System.Drawing.Size(941, 38);
             this.panel4.TabIndex = 1;
             // 
             // txtLoctukhoa
             // 
             this.txtLoctukhoa.Location = new System.Drawing.Point(738, 8);
             this.txtLoctukhoa.Name = "txtLoctukhoa";
-            this.txtLoctukhoa.Size = new System.Drawing.Size(64, 20);
+            this.txtLoctukhoa.Size = new System.Drawing.Size(200, 20);
             this.txtLoctukhoa.TabIndex = 3;
             this.txtLoctukhoa.TextChanged += new System.EventHandler(this.txtLoctukhoa_TextChanged);
             // 
@@ -170,6 +170,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(668, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
@@ -248,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 425);
+            this.ClientSize = new System.Drawing.Size(947, 601);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormQuanlydanhsachtaikhoan";

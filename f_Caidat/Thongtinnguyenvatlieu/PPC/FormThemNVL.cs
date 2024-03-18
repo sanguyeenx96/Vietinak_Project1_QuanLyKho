@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
+using Vietinak_Kho.DTO;
 
 namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu.Moi
 {
@@ -16,8 +17,17 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu.Moi
         public FormThemNVL()
         {
             InitializeComponent();
+            getSupplierNameToCombobox();
         }
 
+        private void getSupplierNameToCombobox()
+        {
+            List<SupplierInfo> listSup = SupplierInfoDAO.Instance.LoadTableList_Sup();
+            foreach (SupplierInfo item in listSup)
+            {
+                cbsuppliername.Items.Add(item.Name);
+            }
+        }
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             if (
@@ -31,7 +41,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu.Moi
 
             string code = txtcode.Text.ToString();
             int materialno = Convert.ToInt32(txtmaterialno.Text.ToString());
-            string suppliername = txtsuppliername.Text.ToString();
+            string suppliername = cbsuppliername.Text.ToString();
             string materialppc = txtmaterialppc.Text.ToString();
             string materialvtn = txtmaterialvtn.Text.ToString();
             string maker = txtmaker.Text.ToString();
@@ -102,5 +112,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu.Moi
                 e.Handled = true;
             }
         }
+
+
     }
 }

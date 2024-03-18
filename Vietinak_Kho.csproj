@@ -33,8 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=7.0.10.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.7.0.10\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net35\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net35\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +58,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BophanDAO.cs" />
@@ -56,6 +70,7 @@
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
     <Compile Include="DAO\LichsuxuatchitietDAO.cs" />
     <Compile Include="DAO\PoDAO.cs" />
+    <Compile Include="DAO\PoInfoDAO.cs" />
     <Compile Include="DAO\SupplierInfoDAO.cs" />
     <Compile Include="DAO\ThongtinvattuDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
@@ -212,11 +227,23 @@
     <Compile Include="f_Nhapxuat\FormXuatkho.Designer.cs">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_PPC\FormChucnangPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormChucnangPO.Designer.cs">
+      <DependentUpon>FormChucnangPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_PPC\FormDanhsachPO.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="f_PPC\FormDanhsachPO.Designer.cs">
       <DependentUpon>FormDanhsachPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\FormPoInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormPoInfo.Designer.cs">
+      <DependentUpon>FormPoInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="f_PPC\FormPPC.cs">
       <SubType>Form</SubType>
@@ -229,6 +256,12 @@
     </Compile>
     <Compile Include="f_PPC\FormTaoPo.Designer.cs">
       <DependentUpon>FormTaoPo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\FormXemchitietPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormXemchitietPO.Designer.cs">
+      <DependentUpon>FormXemchitietPO.cs</DependentUpon>
     </Compile>
     <Compile Include="f_PPC\ThongtinSupplier\FormSuaNCC.cs">
       <SubType>Form</SubType>
@@ -480,14 +513,23 @@
     <EmbeddedResource Include="f_Nhapxuat\FormXuatkho.resx">
       <DependentUpon>FormXuatkho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormChucnangPO.resx">
+      <DependentUpon>FormChucnangPO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormDanhsachPO.resx">
       <DependentUpon>FormDanhsachPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormPoInfo.resx">
+      <DependentUpon>FormPoInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormPPC.resx">
       <DependentUpon>FormPPC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormTaoPo.resx">
       <DependentUpon>FormTaoPo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormXemchitietPO.resx">
+      <DependentUpon>FormXemchitietPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormSuaNCC.resx">
       <DependentUpon>FormSuaNCC.cs</DependentUpon>
@@ -585,6 +627,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

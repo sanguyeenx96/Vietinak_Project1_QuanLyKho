@@ -40,6 +40,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnTaoPo = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLoc = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -49,6 +52,7 @@
             this.groupBox3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +100,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00062F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99813F));
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -131,12 +136,16 @@
             // 
             // dgvDspo
             // 
+            this.dgvDspo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDspo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDspo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDspo.Location = new System.Drawing.Point(3, 16);
             this.dgvDspo.Name = "dgvDspo";
+            this.dgvDspo.ReadOnly = true;
+            this.dgvDspo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDspo.Size = new System.Drawing.Size(935, 389);
             this.dgvDspo.TabIndex = 0;
+            this.dgvDspo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDspo_CellClick);
             // 
             // groupBox3
             // 
@@ -190,6 +199,34 @@
             this.btnTaoPo.UseVisualStyleBackColor = false;
             this.btnTaoPo.Click += new System.EventHandler(this.btnTaoPo_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tìm kiếm dữ liệu";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtLoc);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(702, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(230, 63);
+            this.panel2.TabIndex = 2;
+            // 
+            // txtLoc
+            // 
+            this.txtLoc.Location = new System.Drawing.Point(3, 27);
+            this.txtLoc.Name = "txtLoc";
+            this.txtLoc.Size = new System.Drawing.Size(221, 20);
+            this.txtLoc.TabIndex = 2;
+            this.txtLoc.TextChanged += new System.EventHandler(this.txtLoc_TextChanged);
+            // 
             // FormDanhsachPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +246,8 @@
             this.groupBox3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +265,8 @@
         private System.Windows.Forms.Button btnTaoPo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtLoc;
+        private System.Windows.Forms.Label label1;
     }
 }

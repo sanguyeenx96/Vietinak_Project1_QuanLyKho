@@ -26,8 +26,13 @@ namespace Vietinak_Kho.f_PPC
         private void FormThongtinNCC_Load(object sender, EventArgs e)
         {
             allds = SupplierInfoDAO.Instance.LoadTableList_Sup();
-            dgvDssup.DataSource = allds;
+            UpdateDataGridView(allds);
             btnSoluongSup.Text = "Tổng số lượng Supplier : " + allds.Count().ToString();
+        }
+
+        private void UpdateDataGridView(List<SupplierInfo> ds)
+        {
+            dgvDssup.DataSource = ds;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -88,6 +93,26 @@ namespace Vietinak_Kho.f_PPC
             {
                 MessageBox.Show("Vui lòng chọn một dòng để xóa thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtLoc_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtLoc.Text.Trim();
+            List < SupplierInfo > filtered;
+            filtered = allds.ToList();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                filtered = filtered.Where(x =>
+                    x.Name.ToLower().Contains(searchText.ToLower()) ||
+                    x.Pic.ToLower().Contains(searchText.ToLower()) ||
+                    x.Tel.ToLower().Contains(searchText.ToLower()) ||
+                    x.Address.ToLower().Contains(searchText.ToLower()) ||
+                    x.Code.ToLower().Contains(searchText.ToLower()) 
+                ).ToList();
+            }
+            // Update the DataGridView with the filtered users
+            UpdateDataGridView(filtered);
         }
     }
 }
