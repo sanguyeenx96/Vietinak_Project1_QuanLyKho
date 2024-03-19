@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 using Vietinak_Kho.DAO;
+using Vietinak_Kho.f_PPC.Invoice;
 
 namespace Vietinak_Kho.f_PPC
 {
@@ -111,7 +112,7 @@ namespace Vietinak_Kho.f_PPC
                             worksheet.Cells["Z" + currentRow + ":AB" + currentRow].Merge = true;
                             worksheet.Cells["Z" + currentRow].Value = item.Factory;
 
-                            worksheet.Cells["AC" + currentRow].Value = item.Etdngo;
+                            worksheet.Cells["AC" + currentRow].Value = item.Etd;
 
                             using (var range = worksheet.Cells["A" + currentRow + ":AC" + currentRow])
                             {
@@ -160,7 +161,11 @@ namespace Vietinak_Kho.f_PPC
             }
         }
 
-
-
+        private void btnQuanlyInvoice_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDanhsachInvoice f = new FormDanhsachInvoice(id);
+            f.ShowDialog();
+        }
     }
 }

@@ -31,15 +31,15 @@ namespace Vietinak_Kho.DAO
         }
 
         public bool Create(int poid, string itemcode, string description, string partno, string qty, string unit,
-            string price, string amount, string group, string requesteddepartment, string factory, string etdngo,
+            string price, string amount, string group, string requesteddepartment, string factory, string etd,
             string total, string remark)
         {          
             string query = string.Format("INSERT dbo.poinfo (poid, itemcode, description, partno," +
                 " qty, unit, price, amount, [group], requesteddepartment," +
-                " factory, etdngo, total, remark) " +
+                " factory, etd, total, remark) " +
                 "VALUES  (N'{0}', N'{1}', N'{2}',N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}'" +
                 ", N'{13}')",
-                poid, itemcode, description, partno, qty, unit, price, amount, group, requesteddepartment, factory, etdngo, total, remark);
+                poid, itemcode, description, partno, qty, unit, price, amount, group, requesteddepartment, factory, etd, total, remark);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
