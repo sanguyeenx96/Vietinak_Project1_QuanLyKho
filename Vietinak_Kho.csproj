@@ -65,6 +65,7 @@
     <Compile Include="DAO\ChucvuDAO.cs" />
     <Compile Include="DAO\DanhsachnguyenvatlieuDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\InvoiceDAO.cs" />
     <Compile Include="DAO\LichsunhapchitietDAO.cs" />
     <Compile Include="DAO\LichsunhaplaichitietDAO.cs" />
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="DTO\Bophan.cs" />
     <Compile Include="DTO\Chucvu.cs" />
     <Compile Include="DTO\Danhsachnguyenvatlieu.cs" />
+    <Compile Include="DTO\Invoice.cs" />
     <Compile Include="DTO\Lichsunhapchitiet.cs" />
     <Compile Include="DTO\Lichsunhaplaichitiet.cs" />
     <Compile Include="DTO\Lichsunhapxuat.cs" />
@@ -262,6 +264,18 @@
     </Compile>
     <Compile Include="f_PPC\FormXemchitietPO.Designer.cs">
       <DependentUpon>FormXemchitietPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormDanhsachInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormDanhsachInvoice.Designer.cs">
+      <DependentUpon>FormDanhsachInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormTaoInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormTaoInvoice.Designer.cs">
+      <DependentUpon>FormTaoInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="f_PPC\ThongtinSupplier\FormSuaNCC.cs">
       <SubType>Form</SubType>
@@ -521,6 +535,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormPoInfo.resx">
       <DependentUpon>FormPoInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormPPC.resx">
       <DependentUpon>FormPPC.cs</DependentUpon>
@@ -530,6 +545,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormXemchitietPO.resx">
       <DependentUpon>FormXemchitietPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormDanhsachInvoice.resx">
+      <DependentUpon>FormDanhsachInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormTaoInvoice.resx">
+      <DependentUpon>FormTaoInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormSuaNCC.resx">
       <DependentUpon>FormSuaNCC.cs</DependentUpon>
@@ -681,5 +702,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

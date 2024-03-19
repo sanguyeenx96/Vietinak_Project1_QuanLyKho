@@ -112,7 +112,7 @@ namespace Vietinak_Kho.f_PPC
             string group = txtGroup.Text;
             string requesteddepartment =txtRequesteddepartment.Text;
             string factory = txtfactory.Text;
-            string etdngo = dtpetdngo.Value.ToString("dd-MMM-yyyy", new System.Globalization.CultureInfo("en-US"));
+            string etd = dtpetdngo.Value.ToString("dd-MMM-yyyy", new System.Globalization.CultureInfo("en-US"));
 
             // Tạo một hàng mới
             DataGridViewRow row = new DataGridViewRow();
@@ -129,7 +129,7 @@ namespace Vietinak_Kho.f_PPC
             row.Cells[8].Value = group;
             row.Cells[9].Value = requesteddepartment;
             row.Cells[10].Value = factory;
-            row.Cells[11].Value = etdngo;
+            row.Cells[11].Value = etd;
 
             // Thêm hàng mới vào DataGridView
             dataGridView1.Rows.Add(row);
@@ -187,12 +187,12 @@ namespace Vietinak_Kho.f_PPC
                     string group = row.Cells["group"].Value.ToString();
                     string requesteddepartment = row.Cells["requesteddepartment"].Value.ToString();
                     string factory = row.Cells["factory"].Value.ToString();
-                    string etdngo = row.Cells["etdngo"].Value.ToString();
+                    string etd = row.Cells["etd"].Value.ToString();
                     string remark = txtRemark.Text;
                     string total = txtTotal.Text.Replace(',', '.');
 
                     PoInfoDAO.Instance.Create(poid, itemcode, description, partNo, qty, unit,
-                        price, amount, group, requesteddepartment, factory, etdngo, total, remark);
+                        price, amount, group, requesteddepartment, factory, etd, total, remark);
                 }
             }
             DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));

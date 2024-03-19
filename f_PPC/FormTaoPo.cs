@@ -34,6 +34,7 @@ namespace Vietinak_Kho.f_PPC
             txtCode.Text = "P-PPC-0003-01Rev02";
             txtFromdate.Text = "1/12/2018";
             txtPageno.Text = "1/1";
+            txtPaymentTerm.Text = "Transfer remittance";
             txtIssuedate.Text = DateTime.Now.ToString("dd-MMM-yyyy", new System.Globalization.CultureInfo("en-US"));
 
         }
@@ -88,6 +89,7 @@ namespace Vietinak_Kho.f_PPC
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                 return;
             }
+            string trangthai = "Chờ confirm";
             string no = txtNo.Text;
             string code = txtCode.Text;
             string dept = txtDept.Text;
@@ -109,7 +111,7 @@ namespace Vietinak_Kho.f_PPC
             string bophan = userInfo.Bophan;
             string ngaygio = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
 
-            int poid = PoDAO.Instance.CreateReturnId(no, code, dept, sec, fromdate, pageno,
+            int poid = PoDAO.Instance.CreateReturnId(trangthai, no, code, dept, sec, fromdate, pageno,
             orderto, address, tel, attn, fax, issuedate,
             paymentterm, deliveryterm, shippingmethod, currency, manv, hoten, bophan,
             ngaygio);

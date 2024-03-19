@@ -11,7 +11,7 @@ namespace Vietinak_Kho.DTO
     public class PoInfo
     {
         public PoInfo(int id, int poid, string itemcode, string description, string partno, float qty, string unit,
-            float price, float amount, string group, string requesteddepartment, string factory, string etdngo,
+            float price, float amount, string group, string requesteddepartment, string factory, string etd,
             float total, string remark)
         {
             this.Id = id;
@@ -26,7 +26,7 @@ namespace Vietinak_Kho.DTO
             this.Group = group;
             this.Requesteddepartment = requesteddepartment;
             this.Factory = factory;
-            this.Etdngo = etdngo;
+            this.Etd = etd;
             this.Total = total;
             this.Remark = remark;
         }
@@ -45,7 +45,7 @@ namespace Vietinak_Kho.DTO
             this.Group = row["group"].ToString();
             this.Requesteddepartment = row["requesteddepartment"].ToString();
             this.Factory = row["factory"].ToString();
-            this.Etdngo = row["etdngo"].ToString();
+            this.Etd = row["etd"].ToString();
             this.Total = row["total"] == DBNull.Value ? 0 : (float)Convert.ToDouble(row["total"]);
             this.Remark = row["remark"].ToString();
         }
@@ -62,7 +62,7 @@ namespace Vietinak_Kho.DTO
         private string group;
         private string requesteddepartment;
         private string factory;
-        private string etdngo;
+        private string etd;
         private float total;
         private string remark;
 
@@ -78,7 +78,7 @@ namespace Vietinak_Kho.DTO
         public string Group { get => group; set => group = value; }
         public string Requesteddepartment { get => requesteddepartment; set => requesteddepartment = value; }
         public string Factory { get => factory; set => factory = value; }
-        public string Etdngo { get => etdngo; set => etdngo = value; }
+        public string Etd { get => etd; set => etd = value; }
         public float Total { get => total; set => total = value; }
         public string Remark { get => remark; set => remark = value; }
     }

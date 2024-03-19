@@ -9,12 +9,13 @@ namespace Vietinak_Kho.DTO
 {
     public class Po
     {
-        public Po(int id, string no,string code, string dept, string sec, string fromdate, string pageno,
+        public Po(int id, string trangthai, string no,string code, string dept, string sec, string fromdate, string pageno,
             string orderto, string address, string tel, string attn, string fax, string issuedate,
             string paymentterm, string deliveryterm, string shippingmethod, string currency, string manv, string hoten, string bophan,
             string ngaygio)
         {
             this.Id = id;
+            this.Trangthai = trangthai;
             this.No = no;
             this.Code = code;
             this.Dept = dept;
@@ -39,6 +40,7 @@ namespace Vietinak_Kho.DTO
         public Po(DataRow row)
         {
             this.Id = Convert.ToInt32(row["id"]);
+            this.Trangthai = row["trangthai"].ToString();
             this.No = row["no"].ToString();
             this.Code = row["code"].ToString();
             this.Dept = row["dept"].ToString();
@@ -62,6 +64,7 @@ namespace Vietinak_Kho.DTO
         }
 
         private int id;
+        private string trangthai;
         private string no;
         private string code;
         private string dept;
@@ -84,6 +87,7 @@ namespace Vietinak_Kho.DTO
         private string ngaygio;
 
         public int Id { get => id; set => id = value; }
+        public string Trangthai { get => trangthai; set => trangthai = value; }
         public string No { get => no; set => no = value; }
         public string Code { get => code; set => code = value; }
         public string Dept { get => dept; set => dept = value; }

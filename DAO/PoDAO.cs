@@ -44,7 +44,7 @@ namespace Vietinak_Kho.DAO
             }
         }
 
-        public int CreateReturnId(string no, string code, string dept, string sec, string fromdate, string pageno,
+        public int CreateReturnId(string trangthai, string no, string code, string dept, string sec, string fromdate, string pageno,
             string orderto, string address, string tel, string attn, string fax, string issuedate,
             string paymentterm, string deliveryterm, string shippingmethod, string currency, string manv, string hoten, string bophan,
             string ngaygio)
@@ -57,14 +57,14 @@ namespace Vietinak_Kho.DAO
                     "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return -1;
             }
-            string query = string.Format("INSERT dbo.po (no, code, dept, sec," +
+            string query = string.Format("INSERT dbo.po (trangthai, no, code, dept, sec," +
                 " fromdate, pageno, orderto, address, tel, attn," +
                 " fax, issuedate, paymentterm, deliveryterm, shippingmethod," +
                 " currency, manv, hoten,bophan,ngaygio) " +
                 "OUTPUT INSERTED.ID " +
                 "VALUES  (N'{0}', N'{1}', N'{2}',N'{3}', N'{4}', N'{5}', N'{6}', N'{7}', N'{8}', N'{9}', N'{10}', N'{11}', N'{12}'" +
-                ", N'{13}', N'{14}', N'{15}', N'{16}', N'{17}', N'{18}', N'{19}')",
-                no, code, dept, sec, fromdate, pageno, orderto, address, tel, attn,
+                ", N'{13}', N'{14}', N'{15}', N'{16}', N'{17}', N'{18}', N'{19}', N'{20}')",
+                trangthai, no, code, dept, sec, fromdate, pageno, orderto, address, tel, attn,
                 fax, issuedate, paymentterm, deliveryterm, shippingmethod, currency,
                 manv, hoten, bophan, ngaygio);
             object result = DataProvider.Instance.ExecuteScalar(query);
