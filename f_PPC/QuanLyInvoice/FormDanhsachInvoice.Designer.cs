@@ -35,20 +35,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtNo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txtIssuedate = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.txtOrderto = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewInvoice = new System.Windows.Forms.TreeView();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnTao = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXemchitiet = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnTao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37718F));
@@ -120,7 +122,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(974, 63);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -134,25 +136,16 @@
             this.panel3.Size = new System.Drawing.Size(201, 55);
             this.panel3.TabIndex = 0;
             // 
-            // panel4
+            // txtNo
             // 
-            this.panel4.Controls.Add(this.txtIssuedate);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(212, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(223, 55);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.txtOrderto);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(442, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(528, 55);
-            this.panel5.TabIndex = 0;
+            this.txtNo.AutoSize = true;
+            this.txtNo.BackColor = System.Drawing.Color.White;
+            this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNo.Location = new System.Drawing.Point(5, 31);
+            this.txtNo.Name = "txtNo";
+            this.txtNo.Size = new System.Drawing.Size(15, 16);
+            this.txtNo.TabIndex = 1;
+            this.txtNo.Text = "_";
             // 
             // label1
             // 
@@ -164,36 +157,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "No.";
             // 
-            // label2
+            // panel4
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(3, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Issue date";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(3, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Order to";
-            // 
-            // txtNo
-            // 
-            this.txtNo.AutoSize = true;
-            this.txtNo.BackColor = System.Drawing.Color.White;
-            this.txtNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNo.Location = new System.Drawing.Point(5, 31);
-            this.txtNo.Name = "txtNo";
-            this.txtNo.Size = new System.Drawing.Size(15, 16);
-            this.txtNo.TabIndex = 1;
-            this.txtNo.Text = "_";
+            this.panel4.Controls.Add(this.txtIssuedate);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(212, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(223, 55);
+            this.panel4.TabIndex = 0;
             // 
             // txtIssuedate
             // 
@@ -206,6 +178,26 @@
             this.txtIssuedate.TabIndex = 1;
             this.txtIssuedate.Text = "_";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gold;
+            this.label2.Location = new System.Drawing.Point(3, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Issue date";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.txtOrderto);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(442, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(528, 55);
+            this.panel5.TabIndex = 0;
+            // 
             // txtOrderto
             // 
             this.txtOrderto.AutoSize = true;
@@ -216,6 +208,16 @@
             this.txtOrderto.Size = new System.Drawing.Size(15, 16);
             this.txtOrderto.TabIndex = 1;
             this.txtOrderto.Text = "_";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gold;
+            this.label3.Location = new System.Drawing.Point(3, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Order to";
             // 
             // tableLayoutPanel3
             // 
@@ -243,6 +245,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnXemchitiet);
             this.panel6.Controls.Add(this.btnXoa);
             this.panel6.Controls.Add(this.btnSua);
             this.panel6.Controls.Add(this.btnTao);
@@ -252,11 +255,53 @@
             this.panel6.Size = new System.Drawing.Size(159, 375);
             this.panel6.TabIndex = 1;
             // 
+            // btnXemchitiet
+            // 
+            this.btnXemchitiet.BackColor = System.Drawing.Color.Yellow;
+            this.btnXemchitiet.Image = ((System.Drawing.Image)(resources.GetObject("btnXemchitiet.Image")));
+            this.btnXemchitiet.Location = new System.Drawing.Point(3, 3);
+            this.btnXemchitiet.Name = "btnXemchitiet";
+            this.btnXemchitiet.Size = new System.Drawing.Size(153, 64);
+            this.btnXemchitiet.TabIndex = 0;
+            this.btnXemchitiet.Text = "Xem chi tiết Invoice";
+            this.btnXemchitiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXemchitiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXemchitiet.UseVisualStyleBackColor = false;
+            this.btnXemchitiet.Click += new System.EventHandler(this.btnXemchitiet_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Location = new System.Drawing.Point(3, 213);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(153, 64);
+            this.btnXoa.TabIndex = 0;
+            this.btnXoa.Text = "Xóa Invoice";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Location = new System.Drawing.Point(3, 143);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(153, 64);
+            this.btnSua.TabIndex = 0;
+            this.btnSua.Text = "Sửa Invoice";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
             // btnTao
             // 
             this.btnTao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnTao.Image = ((System.Drawing.Image)(resources.GetObject("btnTao.Image")));
-            this.btnTao.Location = new System.Drawing.Point(3, 3);
+            this.btnTao.Location = new System.Drawing.Point(3, 73);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(153, 64);
             this.btnTao.TabIndex = 0;
@@ -265,32 +310,6 @@
             this.btnTao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTao.UseVisualStyleBackColor = false;
             this.btnTao.Click += new System.EventHandler(this.btnTao_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
-            this.btnSua.Location = new System.Drawing.Point(3, 73);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(153, 64);
-            this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa Invoice";
-            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(3, 143);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(153, 64);
-            this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa Invoice";
-            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnXoa.UseVisualStyleBackColor = false;
             // 
             // FormDanhsachInvoice
             // 
@@ -343,5 +362,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnTao;
+        private System.Windows.Forms.Button btnXemchitiet;
     }
 }

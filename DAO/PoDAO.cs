@@ -29,6 +29,17 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+        public List<Po> LoadTableList_Po(string from, string to)
+        {
+            List<Po> tableList = new List<Po>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.po WHERE ngaygio BETWEEN('" + from + "') AND('" + to + "')");
+            foreach (DataRow item in data.Rows)
+            {
+                Po table = new Po(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
         public Po LoadTableList_PoById(int id)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.po WHERE id = '" + id + "' ");
@@ -70,18 +81,49 @@ namespace Vietinak_Kho.DAO
             object result = DataProvider.Instance.ExecuteScalar(query);
             return result != null ? Convert.ToInt32(result) : -1;
         }
+        public bool UpdateTrangthaiPO(int id, string trangthai)
+        {
+            string query = string.Format("UPDATE dbo.po SET trangthai = N'{0}' " +
+                   "WHERE id = N'{1}'", trangthai, id);
+            int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Không thể cập nhật thông tin trạng thái PO!",
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }            
+        }
+
 
         public bool Delete(int id)
         {
             try
             {
-                string deleteQuery = $"DELETE FROM dbo.tblbophan WHERE id = {id}";
-                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(deleteQuery);
-                return rowsAffected > 0;
+                string deleteQuery1 = $"DELETE FROM dbo.po WHERE id = {id}";
+                int rowsAffected1 = DataProvider.Instance.ExecuteNonQuery(deleteQuery1);
+
+                string deleteQuery2 = $"DELETE FROM dbo.poinfo OUTPUT DELETED.id WHERE poid = {id}";
+                DataTable deletedIDsTable = DataProvider.Instance.ExecuteQuery(deleteQuery2);
+
+                List<int> deletedIDs = new List<int>();
+                foreach (DataRow row in deletedIDsTable.Rows)
+                {
+                    deletedIDs.Add(Convert.ToInt32(row["id"]));
+                }
+                foreach (int deletedID in deletedIDs)
+                {
+                    string deleteQuery3 = $"DELETE FROM dbo.invoiceinfo WHERE itemid = {deletedID}";
+                    int rowsAffected3 = DataProvider.Instance.ExecuteNonQuery(deleteQuery3);
+                }
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi khi xóa bộ phận: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

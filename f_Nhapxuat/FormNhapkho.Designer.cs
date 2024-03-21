@@ -57,7 +57,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cbmavattu = new System.Windows.Forms.ComboBox();
             this.cbNhapvaokho = new System.Windows.Forms.ComboBox();
-            this.txtinvoiceno = new System.Windows.Forms.TextBox();
             this.txtSoluongnhap = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -70,6 +69,10 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXacnhan = new System.Windows.Forms.Button();
             this.btnHuybo = new System.Windows.Forms.Button();
+            this.cbinvoiceno = new System.Windows.Forms.ComboBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txtSoluongtrongInovice = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -85,6 +88,7 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -120,9 +124,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.cbinvoiceno);
             this.panel1.Controls.Add(this.cbmavattu);
             this.panel1.Controls.Add(this.cbNhapvaokho);
-            this.panel1.Controls.Add(this.txtinvoiceno);
             this.panel1.Controls.Add(this.txtSoluongnhap);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label11);
@@ -153,6 +157,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Controls.Add(this.panel10, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.panel8, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 2, 0);
@@ -167,6 +172,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(914, 130);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -386,6 +392,7 @@
             // 
             // cbNhapvaokho
             // 
+            this.cbNhapvaokho.BackColor = System.Drawing.SystemColors.Info;
             this.cbNhapvaokho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNhapvaokho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.cbNhapvaokho.FormattingEnabled = true;
@@ -399,20 +406,10 @@
             this.cbNhapvaokho.TabIndex = 1;
             this.cbNhapvaokho.SelectedIndexChanged += new System.EventHandler(this.cbNhapvaokho_SelectedIndexChanged);
             // 
-            // txtinvoiceno
-            // 
-            this.txtinvoiceno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtinvoiceno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtinvoiceno.Location = new System.Drawing.Point(332, 123);
-            this.txtinvoiceno.Name = "txtinvoiceno";
-            this.txtinvoiceno.Size = new System.Drawing.Size(352, 31);
-            this.txtinvoiceno.TabIndex = 2;
-            this.txtinvoiceno.Enter += new System.EventHandler(this.txtSoluongnhap_Enter);
-            // 
             // txtSoluongnhap
             // 
             this.txtSoluongnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 160);
+            this.txtSoluongnhap.Location = new System.Drawing.Point(332, 162);
             this.txtSoluongnhap.Name = "txtSoluongnhap";
             this.txtSoluongnhap.Size = new System.Drawing.Size(352, 31);
             this.txtSoluongnhap.TabIndex = 4;
@@ -421,28 +418,30 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Yellow;
             this.label13.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label13.Location = new System.Drawing.Point(169, 126);
+            this.label13.Location = new System.Drawing.Point(192, 126);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 25);
+            this.label13.Size = new System.Drawing.Size(108, 25);
             this.label13.TabIndex = 7;
-            this.label13.Text = "3. Invoice No.";
+            this.label13.Text = "Invoice No.";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Yellow;
             this.label11.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label11.Location = new System.Drawing.Point(169, 87);
+            this.label11.Location = new System.Drawing.Point(192, 87);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(152, 25);
+            this.label11.Size = new System.Drawing.Size(131, 25);
             this.label11.TabIndex = 6;
-            this.label11.Text = "2. Nhập vào kho";
+            this.label11.Text = "Nhập vào kho";
             // 
             // txtdonvi2
             // 
             this.txtdonvi2.AutoSize = true;
             this.txtdonvi2.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.txtdonvi2.Location = new System.Drawing.Point(690, 164);
+            this.txtdonvi2.Location = new System.Drawing.Point(690, 167);
             this.txtdonvi2.Name = "txtdonvi2";
             this.txtdonvi2.Size = new System.Drawing.Size(22, 25);
             this.txtdonvi2.TabIndex = 11;
@@ -451,22 +450,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Yellow;
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 163);
+            this.label3.Location = new System.Drawing.Point(192, 165);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 25);
+            this.label3.Size = new System.Drawing.Size(94, 25);
             this.label3.TabIndex = 9;
-            this.label3.Text = "4. Số lượng ";
+            this.label3.Text = "Số lượng ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
             this.label1.Font = new System.Drawing.Font("Arial Unicode MS", 14.25F);
-            this.label1.Location = new System.Drawing.Point(169, 48);
+            this.label1.Location = new System.Drawing.Point(192, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.Size = new System.Drawing.Size(92, 25);
             this.label1.TabIndex = 5;
-            this.label1.Text = "1. Mã vật tư";
+            this.label1.Text = "Mã vật tư";
             // 
             // panel5
             // 
@@ -533,7 +534,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -547,6 +548,49 @@
             this.btnHuybo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuybo.UseVisualStyleBackColor = false;
             this.btnHuybo.Click += new System.EventHandler(this.btnHuybo_Click);
+            // 
+            // cbinvoiceno
+            // 
+            this.cbinvoiceno.BackColor = System.Drawing.SystemColors.Info;
+            this.cbinvoiceno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbinvoiceno.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.cbinvoiceno.FormattingEnabled = true;
+            this.cbinvoiceno.Location = new System.Drawing.Point(332, 123);
+            this.cbinvoiceno.Name = "cbinvoiceno";
+            this.cbinvoiceno.Size = new System.Drawing.Size(352, 33);
+            this.cbinvoiceno.TabIndex = 0;
+            this.cbinvoiceno.SelectedIndexChanged += new System.EventHandler(this.cbinvoiceno_SelectedIndexChanged);
+            this.cbinvoiceno.Leave += new System.EventHandler(this.cbmavattu_Leave);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.txtSoluongtrongInovice);
+            this.panel10.Controls.Add(this.label12);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 89);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(298, 38);
+            this.panel10.TabIndex = 7;
+            // 
+            // txtSoluongtrongInovice
+            // 
+            this.txtSoluongtrongInovice.BackColor = System.Drawing.SystemColors.Info;
+            this.txtSoluongtrongInovice.Location = new System.Drawing.Point(112, 8);
+            this.txtSoluongtrongInovice.Name = "txtSoluongtrongInovice";
+            this.txtSoluongtrongInovice.ReadOnly = true;
+            this.txtSoluongtrongInovice.Size = new System.Drawing.Size(136, 20);
+            this.txtSoluongtrongInovice.TabIndex = 1;
+            this.txtSoluongtrongInovice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Yellow;
+            this.label12.Location = new System.Drawing.Point(21, 11);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Số lượng Invoice";
             // 
             // FormNhapkho
             // 
@@ -582,6 +626,8 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -627,7 +673,10 @@
         private System.Windows.Forms.TextBox txttonkhodrg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtdonvi2;
-        private System.Windows.Forms.TextBox txtinvoiceno;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbinvoiceno;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txtSoluongtrongInovice;
+        private System.Windows.Forms.Label label12;
     }
 }

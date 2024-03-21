@@ -30,17 +30,16 @@
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("PO Done");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Po Pending");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("PO No Invoice");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("PO Waiting for confirmation");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("PO Waiting for confirmation");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhsachPO));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txttotalpo = new System.Windows.Forms.Button();
@@ -105,7 +104,7 @@
             this.groupBox1.Size = new System.Drawing.Size(941, 88);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin chung";
+            this.groupBox1.Text = "`";
             // 
             // tableLayoutPanel3
             // 
@@ -124,9 +123,9 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dateTimePicker2);
+            this.panel4.Controls.Add(this.dtpTo);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.dtpFrom);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -134,15 +133,16 @@
             this.panel4.Size = new System.Drawing.Size(170, 63);
             this.panel4.TabIndex = 3;
             // 
-            // dateTimePicker2
+            // dtpTo
             // 
-            this.dateTimePicker2.CustomFormat = "MM/yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(59, 35);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(106, 20);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dtpTo.CustomFormat = "MM/yyyy";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(59, 35);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.ShowUpDown = true;
+            this.dtpTo.Size = new System.Drawing.Size(106, 20);
+            this.dtpTo.TabIndex = 1;
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             // 
             // label3
             // 
@@ -154,15 +154,16 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tới tháng";
             // 
-            // dateTimePicker1
+            // dtpFrom
             // 
-            this.dateTimePicker1.CustomFormat = "MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(59, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(106, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpFrom.CustomFormat = "MM/yyyy";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(59, 9);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.ShowUpDown = true;
+            this.dtpFrom.Size = new System.Drawing.Size(106, 20);
+            this.dtpFrom.TabIndex = 1;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // label2
             // 
@@ -291,19 +292,14 @@
             treeNode2.ForeColor = System.Drawing.Color.Black;
             treeNode2.Name = "Nodepopending";
             treeNode2.Text = "Po Pending";
-            treeNode3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            treeNode3.BackColor = System.Drawing.Color.Red;
             treeNode3.ForeColor = System.Drawing.Color.White;
-            treeNode3.Name = "Nodepoinvoice";
-            treeNode3.Text = "PO No Invoice";
-            treeNode4.BackColor = System.Drawing.Color.Red;
-            treeNode4.ForeColor = System.Drawing.Color.White;
-            treeNode4.Name = "Nodepowaitingconfirm";
-            treeNode4.Text = "PO Waiting for confirmation";
+            treeNode3.Name = "Nodepowaitingconfirm";
+            treeNode3.Text = "PO Waiting for confirmation";
             this.treeViewPO.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode3});
             this.treeViewPO.Size = new System.Drawing.Size(935, 389);
             this.treeViewPO.TabIndex = 0;
             // 
@@ -431,9 +427,9 @@
         private System.Windows.Forms.TextBox txtLoc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button txtpodone;

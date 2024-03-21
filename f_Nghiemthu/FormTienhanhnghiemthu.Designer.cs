@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtsoluongchuanghiemthu = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNhapvaokho = new System.Windows.Forms.Label();
@@ -48,18 +51,15 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.txtsoluongchuanghiemthu = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,6 +104,37 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin trước nghiệm thu";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Gold;
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.txtsoluongchuanghiemthu);
+            this.panel4.Location = new System.Drawing.Point(525, 39);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(258, 35);
+            this.panel4.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Số lượng chưa nghiệm thu";
+            // 
+            // txtsoluongchuanghiemthu
+            // 
+            this.txtsoluongchuanghiemthu.AutoSize = true;
+            this.txtsoluongchuanghiemthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsoluongchuanghiemthu.ForeColor = System.Drawing.Color.Black;
+            this.txtsoluongchuanghiemthu.Location = new System.Drawing.Point(149, 8);
+            this.txtsoluongchuanghiemthu.Name = "txtsoluongchuanghiemthu";
+            this.txtsoluongchuanghiemthu.Size = new System.Drawing.Size(35, 18);
+            this.txtsoluongchuanghiemthu.TabIndex = 0;
+            this.txtsoluongchuanghiemthu.Text = "___";
             // 
             // label6
             // 
@@ -243,7 +274,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -275,37 +306,6 @@
             this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
-            // txtsoluongchuanghiemthu
-            // 
-            this.txtsoluongchuanghiemthu.AutoSize = true;
-            this.txtsoluongchuanghiemthu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsoluongchuanghiemthu.ForeColor = System.Drawing.Color.Black;
-            this.txtsoluongchuanghiemthu.Location = new System.Drawing.Point(149, 8);
-            this.txtsoluongchuanghiemthu.Name = "txtsoluongchuanghiemthu";
-            this.txtsoluongchuanghiemthu.Size = new System.Drawing.Size(35, 18);
-            this.txtsoluongchuanghiemthu.TabIndex = 0;
-            this.txtsoluongchuanghiemthu.Text = "___";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Số lượng chưa nghiệm thu";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Gold;
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.txtsoluongchuanghiemthu);
-            this.panel4.Location = new System.Drawing.Point(525, 39);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(258, 35);
-            this.panel4.TabIndex = 1;
-            // 
             // FormTienhanhnghiemthu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,13 +322,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }

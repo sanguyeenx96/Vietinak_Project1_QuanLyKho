@@ -66,6 +66,7 @@
     <Compile Include="DAO\DanhsachnguyenvatlieuDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\InvoiceDAO.cs" />
+    <Compile Include="DAO\InvoiceinfoDAO.cs" />
     <Compile Include="DAO\LichsunhapchitietDAO.cs" />
     <Compile Include="DAO\LichsunhaplaichitietDAO.cs" />
     <Compile Include="DAO\LichsunhapxuatDAO.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="DTO\Chucvu.cs" />
     <Compile Include="DTO\Danhsachnguyenvatlieu.cs" />
     <Compile Include="DTO\Invoice.cs" />
+    <Compile Include="DTO\Invoiceinfo.cs" />
     <Compile Include="DTO\Lichsunhapchitiet.cs" />
     <Compile Include="DTO\Lichsunhaplaichitiet.cs" />
     <Compile Include="DTO\Lichsunhapxuat.cs" />
@@ -235,6 +237,12 @@
     <Compile Include="f_PPC\FormChucnangPO.Designer.cs">
       <DependentUpon>FormChucnangPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_PPC\FormQuanlyInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\FormQuanlyInvoice.Designer.cs">
+      <DependentUpon>FormQuanlyInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_PPC\FormDanhsachPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,12 +279,31 @@
     <Compile Include="f_PPC\QuanLyInvoice\FormDanhsachInvoice.Designer.cs">
       <DependentUpon>FormDanhsachInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormSuaInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormSuaInvoice.Designer.cs">
+      <DependentUpon>FormSuaInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_PPC\QuanLyInvoice\FormTaoInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="f_PPC\QuanLyInvoice\FormTaoInvoice.Designer.cs">
       <DependentUpon>FormTaoInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormXemchitietInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormXemchitietInvoice.Designer.cs">
+      <DependentUpon>FormXemchitietInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormXoaInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\FormXoaInvoice.Designer.cs">
+      <DependentUpon>FormXoaInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f_PPC\QuanLyInvoice\NoteInfo.cs" />
     <Compile Include="f_PPC\ThongtinSupplier\FormSuaNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -530,6 +557,9 @@
     <EmbeddedResource Include="f_PPC\FormChucnangPO.resx">
       <DependentUpon>FormChucnangPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\FormQuanlyInvoice.resx">
+      <DependentUpon>FormQuanlyInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\FormDanhsachPO.resx">
       <DependentUpon>FormDanhsachPO.cs</DependentUpon>
     </EmbeddedResource>
@@ -549,8 +579,17 @@
     <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormDanhsachInvoice.resx">
       <DependentUpon>FormDanhsachInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormSuaInvoice.resx">
+      <DependentUpon>FormSuaInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormTaoInvoice.resx">
       <DependentUpon>FormTaoInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormXemchitietInvoice.resx">
+      <DependentUpon>FormXemchitietInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PPC\QuanLyInvoice\FormXoaInvoice.resx">
+      <DependentUpon>FormXoaInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_PPC\ThongtinSupplier\FormSuaNCC.resx">
       <DependentUpon>FormSuaNCC.cs</DependentUpon>

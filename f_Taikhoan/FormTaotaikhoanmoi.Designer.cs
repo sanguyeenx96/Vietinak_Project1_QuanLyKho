@@ -449,7 +449,7 @@
             // 
             // btnLammoi
             // 
-            this.btnLammoi.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnLammoi.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnLammoi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLammoi.FlatAppearance.BorderSize = 0;
             this.btnLammoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

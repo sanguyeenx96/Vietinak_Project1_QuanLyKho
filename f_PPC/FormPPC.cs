@@ -60,5 +60,12 @@ namespace Vietinak_Kho.f_PPC
             loadform(fncc);
             UpdateButtonColor(sender as ToolStripButton);
         }
+
+        private void btnDanhsachInvoice_Click(object sender, EventArgs e)
+        {
+            FormQuanlyInvoice fds = new FormQuanlyInvoice();
+            loadform(fds);
+            UpdateButtonColor(sender as ToolStripButton);
+        }
     }
 }

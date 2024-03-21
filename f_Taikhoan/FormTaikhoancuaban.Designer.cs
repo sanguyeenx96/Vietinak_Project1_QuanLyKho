@@ -253,7 +253,7 @@
             // 
             // btnHuybodoimatkhau
             // 
-            this.btnHuybodoimatkhau.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybodoimatkhau.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybodoimatkhau.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybodoimatkhau.FlatAppearance.BorderSize = 0;
             this.btnHuybodoimatkhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

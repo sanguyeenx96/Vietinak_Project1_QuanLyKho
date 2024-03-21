@@ -50,6 +50,7 @@
             this.btnConfirmPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirmPO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirmPO.UseVisualStyleBackColor = false;
+            this.btnConfirmPO.Click += new System.EventHandler(this.btnConfirmPO_Click);
             // 
             // button2
             // 
@@ -92,6 +93,7 @@
             this.btnXoaPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoaPO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoaPO.UseVisualStyleBackColor = false;
+            this.btnXoaPO.Click += new System.EventHandler(this.btnXoaPO_Click);
             // 
             // button1
             // 

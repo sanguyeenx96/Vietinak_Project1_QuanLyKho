@@ -34,6 +34,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDanhsachPO = new System.Windows.Forms.ToolStripButton();
             this.btnThongtinNCC = new System.Windows.Forms.ToolStripButton();
+            this.btnDanhsachInvoice = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDanhsachPO,
+            this.btnDanhsachInvoice,
             this.btnThongtinNCC});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -84,6 +86,15 @@
             this.btnThongtinNCC.Size = new System.Drawing.Size(162, 22);
             this.btnThongtinNCC.Text = "Danh sách thông tin NCC";
             this.btnThongtinNCC.Click += new System.EventHandler(this.btnThongtinNCC_Click);
+            // 
+            // btnDanhsachInvoice
+            // 
+            this.btnDanhsachInvoice.Image = ((System.Drawing.Image)(resources.GetObject("btnDanhsachInvoice.Image")));
+            this.btnDanhsachInvoice.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDanhsachInvoice.Name = "btnDanhsachInvoice";
+            this.btnDanhsachInvoice.Size = new System.Drawing.Size(123, 22);
+            this.btnDanhsachInvoice.Text = "Danh sách Invoice";
+            this.btnDanhsachInvoice.Click += new System.EventHandler(this.btnDanhsachInvoice_Click);
             // 
             // FormPPC
             // 
@@ -110,5 +121,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnDanhsachPO;
         private System.Windows.Forms.ToolStripButton btnThongtinNCC;
+        private System.Windows.Forms.ToolStripButton btnDanhsachInvoice;
     }
 }
