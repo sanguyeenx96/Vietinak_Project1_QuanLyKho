@@ -13,11 +13,15 @@ using System.Windows.Forms;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.f_PPC.Invoice;
+using Vietinak_Kho.f_Nghiemthu;
+using Vietinak_Kho.f_Nhapxuat;
 
 namespace Vietinak_Kho.f_PPC
 {
     public partial class FormChucnangPO : Form
     {
+        public event EventHandler<DialogClosedEventArgs> DialogClosed;
+
         private int id;
         public FormChucnangPO(int id)
         {
@@ -27,7 +31,12 @@ namespace Vietinak_Kho.f_PPC
 
         private void FormChucnangPO_Load(object sender, EventArgs e)
         {
-
+            var thongtinpo = PoDAO.Instance.LoadTableList_PoById(id);
+            if(thongtinpo.Trangthai != "Chờ confirm")
+            {
+                btnConfirmPO.Enabled = false;
+                btnConfirmPO.BackColor = Color.Gray;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -166,6 +175,39 @@ namespace Vietinak_Kho.f_PPC
             this.Hide();
             FormDanhsachInvoice f = new FormDanhsachInvoice(id);
             f.ShowDialog();
+        }
+
+        private void btnConfirmPO_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Cập nhật trạng thái confirm cho PO?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                bool update = PoDAO.Instance.UpdateTrangthaiPO(id, "Pending");
+                if (update)
+                {
+                    DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
+                    this.Close();
+                    FormThanhcong fthanhcong = new FormThanhcong();
+                    fthanhcong.ShowDialog();
+                }
+            }    
+
+        }
+
+        private void btnXoaPO_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Xác nhận xóa PO và tất cả các thông tin liên quan?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                bool delete = PoDAO.Instance.Delete(id);
+                if (delete)
+                {
+                    DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
+                    this.Close();
+                    FormThanhcong fthanhcong = new FormThanhcong();
+                    fthanhcong.ShowDialog();
+                }
+            }
         }
     }
 }

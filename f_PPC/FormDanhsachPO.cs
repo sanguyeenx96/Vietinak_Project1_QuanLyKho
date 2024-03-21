@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vietinak_Kho.DAO;
 using Vietinak_Kho.DTO;
+using Vietinak_Kho.f_Nghiemthu;
 using Vietinak_Kho.f_Thongke;
+using static OfficeOpenXml.ExcelErrorValue;
 
 namespace Vietinak_Kho.f_PPC
 {
@@ -46,8 +48,24 @@ namespace Vietinak_Kho.f_PPC
             {
                 string idValue = e.Node.Tag.ToString();
                 FormChucnangPO fpo = new FormChucnangPO(Convert.ToInt32(idValue));
+                fpo.DialogClosed += Dialog_DialogClosed;
+
                 fpo.ShowDialog();
             }
+        }
+        private void Dialog_DialogClosed(object sender, DialogClosedEventArgs e)
+        {
+            foreach (TreeNode parentNode in treeViewPO.Nodes)
+            {
+                parentNode.Nodes.Clear();
+            }
+            string from = dtpFrom.Value.ToString("yyyy/MM") + "/01";
+            string to = dtpTo.Value.ToString("yyyy/MM") + "/31";
+            allds = PoDAO.Instance.LoadTableList_Po(from, to);
+            LoadDataIntoTreeView(allds);
+            countpo(allds);
+            groupBoxDulieu.Text = "Danh sách PO từ " + dtpFrom.Value.ToString("yyyy/MM") + " đến " + dtpTo.Value.ToString("yyyy/MM");
+
         }
         private void LoadDataIntoTreeView(List<Po> poItems)
         {
@@ -57,17 +75,6 @@ namespace Vietinak_Kho.f_PPC
                 if (item.Trangthai == "Chờ confirm")
                 {
                     TreeNode parentNode = FindParentNode("Nodepowaitingconfirm");
-                    // Nếu không tìm thấy nút cha, bỏ qua và chuyển đến mục tiếp theo
-                    if (parentNode == null)
-                        continue;
-                    // Thêm nút con cho nút cha "note1"
-                    TreeNode childNode = new TreeNode("No.:" + item.No + "  (Issue date:" + item.Issuedate + ")"); // Sử dụng số No của mục PO làm nút con
-                    childNode.Tag = item.Id;
-                    parentNode.Nodes.Add(childNode);
-                }
-                if (item.Trangthai == "No Invoice")
-                {
-                    TreeNode parentNode = FindParentNode("Nodepoinvoice");
                     // Nếu không tìm thấy nút cha, bỏ qua và chuyển đến mục tiếp theo
                     if (parentNode == null)
                         continue;
@@ -118,17 +125,33 @@ namespace Vietinak_Kho.f_PPC
         {
             foreach (TreeNode node in nodes)
             {
-                if (node.Nodes.Count > 0)
+                int index = node.Text.LastIndexOf('(');
+                if (index != -1)
                 {
-                    node.Text = $"{node.Text} ({node.Nodes.Count})";
+                    if (node.Nodes.Count > 0)
+                    {
+                        // Nếu có ít nhất một nút con, thì hiển thị số lượng nút con
+                        node.Text = $"{node.Text.Substring(0, index)}({node.Nodes.Count})";
+                    }
+                    else
+                    {
+                        // Nếu không có nút con, chỉ giữ lại phần văn bản không chứa số lượng
+                        node.Text = node.Text.Substring(0, index).Trim();
+                    }
                 }
                 else
                 {
-                    node.Text = $"{node.Text} (0)";
-
+                    if (node.Nodes.Count > 0)
+                    {
+                        // Nếu có ít nhất một nút con, thêm số lượng nút con vào cuối văn bản
+                        node.Text = $"{node.Text} ({node.Nodes.Count})";
+                    }
+                    // Không cần làm gì nếu không có số lượng và không có dấu '(' trong văn bản
                 }
             }
         }
+
+
 
         private void btnTaoPo_Click(object sender, EventArgs e)
         {
@@ -136,21 +159,38 @@ namespace Vietinak_Kho.f_PPC
             ftpo.ShowDialog();
         }
 
-        //private void dgvDspo_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        DataGridViewRow selectedRow = dgvDspo.Rows[e.RowIndex];
-        //        string idValue = selectedRow.Cells["Id"].Value.ToString();
-        //        FormChucnangPO fpo = new FormChucnangPO(Convert.ToInt32(idValue));
-        //        fpo.ShowDialog();
-        //    }
-        //}
-
         private void txtLoc_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            foreach (TreeNode parentNode in treeViewPO.Nodes)
+            {
+                parentNode.Nodes.Clear();
+            }
+            string from = dtpFrom.Value.ToString("yyyy/MM") +"/01";
+            string to = dtpTo.Value.ToString("yyyy/MM") + "/31";
+            allds = PoDAO.Instance.LoadTableList_Po(from,to); 
+            LoadDataIntoTreeView(allds);
+            countpo(allds);
+            groupBoxDulieu.Text = "Danh sách PO từ " + dtpFrom.Value.ToString("yyyy/MM") + " đến " + dtpTo.Value.ToString("yyyy/MM");
+        }
+
+        private void dtpTo_ValueChanged(object sender, EventArgs e)
+        {
+            foreach (TreeNode parentNode in treeViewPO.Nodes)
+            {
+                parentNode.Nodes.Clear();
+            }
+            string from = dtpFrom.Value.ToString("yyyy/MM") + "/01";
+            string to = dtpTo.Value.ToString("yyyy/MM") + "/31";
+            allds = PoDAO.Instance.LoadTableList_Po(from, to);
+            LoadDataIntoTreeView(allds);
+            countpo(allds);
+            groupBoxDulieu.Text = "Danh sách PO từ " + dtpFrom.Value.ToString("yyyy/MM") + " đến " + dtpTo.Value.ToString("yyyy/MM");
+
+        }
     }
 }

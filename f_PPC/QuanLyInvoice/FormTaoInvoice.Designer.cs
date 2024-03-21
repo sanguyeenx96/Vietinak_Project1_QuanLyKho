@@ -43,13 +43,17 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtInvoiceDate = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtTotalqty = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtTotalQty = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.txtItemqty = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtInvoiceDate = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,8 +63,10 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +99,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -106,6 +112,7 @@
             this.btnHuybo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuybo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHuybo.UseVisualStyleBackColor = false;
+            this.btnHuybo.Click += new System.EventHandler(this.btnHuybo_Click);
             // 
             // btnXacNhan
             // 
@@ -147,13 +154,14 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 23);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.2267F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 69.7733F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.43299F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.56701F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 388);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Info;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.38461F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.61539F));
@@ -161,16 +169,19 @@
             this.tableLayoutPanel2.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel5, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel8, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel9, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(754, 111);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(754, 147);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel2
@@ -185,6 +196,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
@@ -209,6 +221,7 @@
             this.cbInvoicenumber.Size = new System.Drawing.Size(626, 24);
             this.cbInvoicenumber.TabIndex = 0;
             this.cbInvoicenumber.SelectedIndexChanged += new System.EventHandler(this.cbInvoicenumber_SelectedIndexChanged);
+            this.cbInvoicenumber.TextChanged += new System.EventHandler(this.cbInvoicenumber_TextChanged);
             // 
             // panel4
             // 
@@ -222,6 +235,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(13, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
@@ -237,48 +251,91 @@
             this.panel5.Size = new System.Drawing.Size(633, 31);
             this.panel5.TabIndex = 0;
             // 
+            // txtInvoiceDate
+            // 
+            this.txtInvoiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtInvoiceDate.Location = new System.Drawing.Point(3, 5);
+            this.txtInvoiceDate.Name = "txtInvoiceDate";
+            this.txtInvoiceDate.Size = new System.Drawing.Size(626, 23);
+            this.txtInvoiceDate.TabIndex = 0;
+            this.txtInvoiceDate.Enter += new System.EventHandler(this.txtInvoiceDate_Enter);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.txtTotalqty);
+            this.panel7.Location = new System.Drawing.Point(118, 114);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(633, 30);
+            this.panel7.TabIndex = 0;
+            // 
+            // txtTotalqty
+            // 
+            this.txtTotalqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtTotalqty.Location = new System.Drawing.Point(4, 5);
+            this.txtTotalqty.Name = "txtTotalqty";
+            this.txtTotalqty.ReadOnly = true;
+            this.txtTotalqty.Size = new System.Drawing.Size(626, 23);
+            this.txtTotalqty.TabIndex = 0;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 77);
+            this.panel6.Location = new System.Drawing.Point(3, 114);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(109, 31);
+            this.panel6.Size = new System.Drawing.Size(109, 30);
             this.panel6.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Yellow;
             this.label3.Location = new System.Drawing.Point(13, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Total Q\'ty";
+            this.label3.Text = "Invoice total Q\'ty";
             // 
-            // panel7
+            // panel8
             // 
-            this.panel7.Controls.Add(this.txtTotalQty);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(118, 77);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(633, 31);
-            this.panel7.TabIndex = 0;
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Location = new System.Drawing.Point(3, 77);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(109, 30);
+            this.panel8.TabIndex = 0;
             // 
-            // txtTotalQty
+            // label4
             // 
-            this.txtTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtTotalQty.Location = new System.Drawing.Point(3, 5);
-            this.txtTotalQty.Name = "txtTotalQty";
-            this.txtTotalQty.Size = new System.Drawing.Size(626, 23);
-            this.txtTotalQty.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.LightGreen;
+            this.label4.Location = new System.Drawing.Point(13, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Item Q\'ty";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.txtItemqty);
+            this.panel9.Location = new System.Drawing.Point(118, 77);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(633, 30);
+            this.panel9.TabIndex = 0;
+            // 
+            // txtItemqty
+            // 
+            this.txtItemqty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtItemqty.Location = new System.Drawing.Point(4, 5);
+            this.txtItemqty.Name = "txtItemqty";
+            this.txtItemqty.Size = new System.Drawing.Size(626, 23);
+            this.txtItemqty.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 120);
+            this.groupBox2.Location = new System.Drawing.Point(3, 156);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(754, 265);
+            this.groupBox2.Size = new System.Drawing.Size(754, 229);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết Invoice";
@@ -289,16 +346,8 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(748, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 210);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // txtInvoiceDate
-            // 
-            this.txtInvoiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtInvoiceDate.Location = new System.Drawing.Point(3, 5);
-            this.txtInvoiceDate.Name = "txtInvoiceDate";
-            this.txtInvoiceDate.Size = new System.Drawing.Size(626, 23);
-            this.txtInvoiceDate.TabIndex = 0;
             // 
             // FormTaoInvoice
             // 
@@ -325,10 +374,14 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -351,12 +404,16 @@
         private System.Windows.Forms.ComboBox cbInvoicenumber;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTotalQty;
+        private System.Windows.Forms.TextBox txtTotalqty;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnHuybo;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.TextBox txtInvoiceDate;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox txtItemqty;
     }
 }

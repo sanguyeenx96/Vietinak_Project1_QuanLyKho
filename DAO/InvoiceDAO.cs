@@ -30,6 +30,8 @@ namespace Vietinak_Kho.DAO
             }
             return tableList;
         }
+
+
         public Invoice LoadTableList_InvoiceById(int id)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.invoice WHERE id = '" + id + "' ");
@@ -44,23 +46,38 @@ namespace Vietinak_Kho.DAO
                 return null;
             }
         }
-        public int CreateReturnId(int itemid, string trangthai, string invoicenumber, string invoicedate, float qty)
+
+        public int CreateReturnId(string trangthai, string invoicenumber, string invoicedate, string qty)
         {
-            //string checkQuery1 = string.Format("SELECT COUNT(*) FROM dbo.po WHERE itemid = N'{0}'", itemid);
-            //int existing1 = (int)DataProvider.Instance.ExecuteScalar(checkQuery1);
-            //if (existing1 > 0)
-            //{
-            //    MessageBox.Show("Mã PO đã tồn tại!",
-            //        "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return -1;
-            //}
-            string query = string.Format("INSERT dbo.invoice (itemid, trangthai, invoicenumber, invoicedate, qty) " +
-                "OUTPUT INSERTED.ID " +
-                "VALUES  (N'{0}', N'{1}', N'{2}',N'{3}', N'{4}')",
-                itemid, trangthai, invoicenumber, invoicedate, qty);
-            object result = DataProvider.Instance.ExecuteScalar(query);
-            return result != null ? Convert.ToInt32(result) : -1;
+            // Kiểm tra xem invoicenumber đã tồn tại trong bảng invoice hay chưa
+            string checkQuery = string.Format("SELECT ID FROM dbo.invoice WHERE invoicenumber = N'{0}'", invoicenumber);
+            object existingInvoiceId = DataProvider.Instance.ExecuteScalar(checkQuery);
+
+            if (existingInvoiceId != null) // Nếu invoicenumber đã tồn tại, cập nhật thông tin
+            {
+                string updateQuery = string.Format("UPDATE dbo.invoice SET trangthai = N'{0}', invoicedate = N'{1}', qty = N'{2}' WHERE invoicenumber = N'{3}'", trangthai, invoicedate, qty, invoicenumber);
+                DataProvider.Instance.ExecuteNonQuery(updateQuery);
+                return Convert.ToInt32(existingInvoiceId);
+            }
+            else // Nếu invoicenumber chưa tồn tại, thêm mới thông tin
+            {
+                string insertQuery = string.Format("INSERT dbo.invoice (trangthai, invoicenumber, invoicedate, qty) " +
+                    "OUTPUT INSERTED.ID " +
+                    "VALUES (N'{0}', N'{1}', N'{2}', N'{3}')", trangthai, invoicenumber, invoicedate, qty);
+                object result = DataProvider.Instance.ExecuteScalar(insertQuery);
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
         }
+
+        public bool Update(int id,string invoicenumber, string invoicedate, string qty)
+        {
+            string updateQuery = string.Format("UPDATE dbo.invoice SET invoicenumber = N'{0}', invoicedate = N'{1}', qty = N'{2}' WHERE id = N'{3}'", invoicenumber, invoicedate, qty, id);
+            int rowsAffected = DataProvider.Instance.ExecuteNonQuery(updateQuery);
+            return rowsAffected > 0;
+        }
+
+       
+
 
         public bool Delete(int id)
         {

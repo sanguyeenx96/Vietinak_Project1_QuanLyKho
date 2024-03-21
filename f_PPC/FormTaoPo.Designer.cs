@@ -35,6 +35,9 @@
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbCurrency = new System.Windows.Forms.ComboBox();
+            this.cbShippingmethod = new System.Windows.Forms.ComboBox();
+            this.cbDeliveryTerm = new System.Windows.Forms.ComboBox();
             this.cbOderto = new System.Windows.Forms.ComboBox();
             this.txtPageno = new System.Windows.Forms.TextBox();
             this.txtFromdate = new System.Windows.Forms.TextBox();
@@ -48,9 +51,6 @@
             this.txtPaymentTerm = new System.Windows.Forms.TextBox();
             this.txtIssuedate = new System.Windows.Forms.TextBox();
             this.txtDept = new System.Windows.Forms.TextBox();
-            this.cbDeliveryTerm = new System.Windows.Forms.ComboBox();
-            this.cbShippingmethod = new System.Windows.Forms.ComboBox();
-            this.cbCurrency = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,7 +90,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -159,6 +159,75 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1058, 292);
             this.panel1.TabIndex = 0;
+            // 
+            // cbCurrency
+            // 
+            this.cbCurrency.AutoCompleteCustomSource.AddRange(new string[] {
+            "USD",
+            "JPY",
+            "VNĐ"});
+            this.cbCurrency.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCurrency.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbCurrency.BackColor = System.Drawing.SystemColors.Info;
+            this.cbCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCurrency.FormattingEnabled = true;
+            this.cbCurrency.Items.AddRange(new object[] {
+            "USD",
+            "JPY",
+            "VNĐ"});
+            this.cbCurrency.Location = new System.Drawing.Point(905, 263);
+            this.cbCurrency.Name = "cbCurrency";
+            this.cbCurrency.Size = new System.Drawing.Size(146, 24);
+            this.cbCurrency.TabIndex = 1;
+            this.cbCurrency.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
+            // 
+            // cbShippingmethod
+            // 
+            this.cbShippingmethod.AutoCompleteCustomSource.AddRange(new string[] {
+            "Sea Freight",
+            "Air Freight",
+            "Truck"});
+            this.cbShippingmethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbShippingmethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbShippingmethod.BackColor = System.Drawing.SystemColors.Info;
+            this.cbShippingmethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShippingmethod.FormattingEnabled = true;
+            this.cbShippingmethod.Items.AddRange(new object[] {
+            "Sea Freight",
+            "Air Freight",
+            "Truck"});
+            this.cbShippingmethod.Location = new System.Drawing.Point(685, 263);
+            this.cbShippingmethod.Name = "cbShippingmethod";
+            this.cbShippingmethod.Size = new System.Drawing.Size(146, 24);
+            this.cbShippingmethod.TabIndex = 1;
+            this.cbShippingmethod.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
+            // 
+            // cbDeliveryTerm
+            // 
+            this.cbDeliveryTerm.AutoCompleteCustomSource.AddRange(new string[] {
+            "CIF Hai Phong",
+            "CIF Noi Bai",
+            "FCA Nagoya",
+            "Ex-work",
+            "DDU Vietinak",
+            "FOB JKT"});
+            this.cbDeliveryTerm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbDeliveryTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbDeliveryTerm.BackColor = System.Drawing.SystemColors.Info;
+            this.cbDeliveryTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDeliveryTerm.FormattingEnabled = true;
+            this.cbDeliveryTerm.Items.AddRange(new object[] {
+            "CIF Hai Phong",
+            "CIF Noi Bai",
+            "FCA Nagoya",
+            "Ex-work",
+            "DDU Vietinak",
+            "FOB JKT"});
+            this.cbDeliveryTerm.Location = new System.Drawing.Point(432, 263);
+            this.cbDeliveryTerm.Name = "cbDeliveryTerm";
+            this.cbDeliveryTerm.Size = new System.Drawing.Size(146, 24);
+            this.cbDeliveryTerm.TabIndex = 1;
+            this.cbDeliveryTerm.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
             // 
             // cbOderto
             // 
@@ -288,75 +357,6 @@
             this.txtDept.Size = new System.Drawing.Size(105, 22);
             this.txtDept.TabIndex = 11;
             this.txtDept.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cbDeliveryTerm
-            // 
-            this.cbDeliveryTerm.AutoCompleteCustomSource.AddRange(new string[] {
-            "CIF Hai Phong",
-            "CIF Noi Bai",
-            "FCA Nagoya",
-            "Ex-work",
-            "DDU Vietinak",
-            "FOB JKT"});
-            this.cbDeliveryTerm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbDeliveryTerm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbDeliveryTerm.BackColor = System.Drawing.SystemColors.Info;
-            this.cbDeliveryTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDeliveryTerm.FormattingEnabled = true;
-            this.cbDeliveryTerm.Items.AddRange(new object[] {
-            "CIF Hai Phong",
-            "CIF Noi Bai",
-            "FCA Nagoya",
-            "Ex-work",
-            "DDU Vietinak",
-            "FOB JKT"});
-            this.cbDeliveryTerm.Location = new System.Drawing.Point(432, 263);
-            this.cbDeliveryTerm.Name = "cbDeliveryTerm";
-            this.cbDeliveryTerm.Size = new System.Drawing.Size(146, 24);
-            this.cbDeliveryTerm.TabIndex = 1;
-            this.cbDeliveryTerm.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
-            // 
-            // cbShippingmethod
-            // 
-            this.cbShippingmethod.AutoCompleteCustomSource.AddRange(new string[] {
-            "Sea Freight",
-            "Air Freight",
-            "Truck"});
-            this.cbShippingmethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbShippingmethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbShippingmethod.BackColor = System.Drawing.SystemColors.Info;
-            this.cbShippingmethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbShippingmethod.FormattingEnabled = true;
-            this.cbShippingmethod.Items.AddRange(new object[] {
-            "Sea Freight",
-            "Air Freight",
-            "Truck"});
-            this.cbShippingmethod.Location = new System.Drawing.Point(685, 263);
-            this.cbShippingmethod.Name = "cbShippingmethod";
-            this.cbShippingmethod.Size = new System.Drawing.Size(146, 24);
-            this.cbShippingmethod.TabIndex = 1;
-            this.cbShippingmethod.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
-            // 
-            // cbCurrency
-            // 
-            this.cbCurrency.AutoCompleteCustomSource.AddRange(new string[] {
-            "USD",
-            "JPY",
-            "VNĐ"});
-            this.cbCurrency.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCurrency.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbCurrency.BackColor = System.Drawing.SystemColors.Info;
-            this.cbCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCurrency.FormattingEnabled = true;
-            this.cbCurrency.Items.AddRange(new object[] {
-            "USD",
-            "JPY",
-            "VNĐ"});
-            this.cbCurrency.Location = new System.Drawing.Point(905, 263);
-            this.cbCurrency.Name = "cbCurrency";
-            this.cbCurrency.Size = new System.Drawing.Size(146, 24);
-            this.cbCurrency.TabIndex = 1;
-            this.cbCurrency.SelectedIndexChanged += new System.EventHandler(this.cbOderto_SelectedIndexChanged);
             // 
             // FormTaoPo
             // 

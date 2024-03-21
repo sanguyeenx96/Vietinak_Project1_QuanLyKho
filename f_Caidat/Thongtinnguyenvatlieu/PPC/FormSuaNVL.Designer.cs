@@ -99,13 +99,13 @@
             this.label24 = new System.Windows.Forms.Label();
             this.panel52 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.panel53 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnHuybo = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -818,6 +818,15 @@
             this.label25.TabIndex = 0;
             this.label25.Text = "Currency";
             // 
+            // dtp
+            // 
+            this.dtp.CustomFormat = "yyyy/MM/dd";
+            this.dtp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtp.Location = new System.Drawing.Point(615, 39);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(196, 20);
+            this.dtp.TabIndex = 1;
+            // 
             // panel53
             // 
             this.panel53.Controls.Add(this.tableLayoutPanel3);
@@ -844,7 +853,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -897,15 +906,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // dtp
-            // 
-            this.dtp.CustomFormat = "yyyy/MM/dd";
-            this.dtp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtp.Location = new System.Drawing.Point(615, 39);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(196, 20);
-            this.dtp.TabIndex = 1;
             // 
             // FormSuaNVL
             // 

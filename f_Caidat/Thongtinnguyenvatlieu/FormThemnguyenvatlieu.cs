@@ -27,7 +27,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
             allDanhsachNVL = DanhsachnguyenvatlieuDAO.Instance.LoadTableList_Danhsachnguyenvatlieu();
             foreach (Danhsachnguyenvatlieu item in allDanhsachNVL)
             {
-                cbMavattu.Items.Add(item.Materialvtn);
+                cbMavattu.Items.Add(item.Materialppc);
             }
             // Thiết lập cho ComboBox tự động gợi ý các giá trị khi gõ
             cbMavattu.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -94,7 +94,7 @@ namespace Vietinak_Kho.f_Caidat.Thongtinnguyenvatlieu
         private void cbDonvi_Enter(object sender, EventArgs e)
         {
             string userInput = cbMavattu.Text;
-            if (allDanhsachNVL.Where(x => x.Materialvtn == userInput).Count() == 0)
+            if (allDanhsachNVL.Where(x => x.Materialppc == userInput).Count() == 0)
             {
                 MessageBox.Show("Chỉ được thêm vật tư trong danh sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);           
                 cbMavattu.Focus();

@@ -19,7 +19,9 @@ namespace Vietinak_Kho.f_Nhapxuat
         public User userInfo;
         private List<Thongtinvattu> allThongtinvattu;
         private Thongtinvattu infoThongtinvattu;
-
+        private float checkconlaiinvoice;
+        private int invoiceid;
+        private int invoiceinfoid;
         public FormNhapkho(User userInfo)
         {
             InitializeComponent();
@@ -65,6 +67,22 @@ namespace Vietinak_Kho.f_Nhapxuat
                 txtTonkhovtn.Text = infoThongtinvattu.Tonkhovtn.ToString();
                 txttonkhodrg.Text = infoThongtinvattu.Tonkhodrg.ToString();
                 txtdonvi2.Text = infoThongtinvattu.Donvi.ToString();
+
+                System.Data.DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.invoice JOIN dbo.invoiceinfo ON invoice.id = invoiceinfo.invoiceid JOIN dbo.poinfo ON invoiceinfo.itemid = poinfo.id WHERE poinfo.description  = '" + selectedMavattu + "' AND invoice.trangthai != 'Done' ");
+                // Xóa các mục hiện tại trong ComboBox trước khi thêm các mục mới
+                cbinvoiceno.Items.Clear();
+
+                // Duyệt qua từng dòng trong DataTable và thêm giá trị của cột "invoice.invoicenumber" vào ComboBox
+                foreach (DataRow row in data.Rows)
+                {
+                    // Kiểm tra xem cột "invoice.invoicenumber" có tồn tại và không rỗng
+                    if (row["invoicenumber"] != null && row["invoicenumber"] != DBNull.Value)
+                    {
+                        string invoicenumber = row["invoicenumber"].ToString();
+                        cbinvoiceno.Items.Add(invoicenumber);
+                    }
+                }
+
             }
         }
 
@@ -94,7 +112,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 //tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho VTN
                 int vattuid = infoThongtinvattu.Id;
                 string mavattu = infoThongtinvattu.Mavattu;
-                string invoiceno = txtinvoiceno.Text;
+                string invoiceno = cbinvoiceno.Text;
                 string donvi = infoThongtinvattu.Donvi;
                 string tennguoithaotac = userInfo.Hoten;
                 string manhanvien = userInfo.Manhanvien;
@@ -121,7 +139,7 @@ namespace Vietinak_Kho.f_Nhapxuat
                 if (success1 && success2)
                 {
                     allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-                    txtinvoiceno.Text = "";
+                    cbinvoiceno.Text = "";
                     txtDiengiai.Text = "";
                     txtDonvitinh.Text = "";
                     txtKgtrenbao.Text = "";
@@ -138,7 +156,7 @@ namespace Vietinak_Kho.f_Nhapxuat
             else
             {
                 if (
-                string.IsNullOrWhiteSpace(txtinvoiceno.Text) ||
+                string.IsNullOrWhiteSpace(cbinvoiceno.Text) ||
                 string.IsNullOrWhiteSpace(cbmavattu.Text) ||
                 string.IsNullOrWhiteSpace(txtSoluongnhap.Text) ||
                 string.IsNullOrWhiteSpace(cbNhapvaokho.Text)
@@ -153,9 +171,10 @@ namespace Vietinak_Kho.f_Nhapxuat
                     MessageBox.Show("Vui lòng chỉ nhập số và dấu chấm cho trường số lượng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                float checkslinvoice = (float)Convert.ToDouble(txtSoluongtrongInovice.Text);
                 int vattuid = infoThongtinvattu.Id;
                 string mavattu = infoThongtinvattu.Mavattu;
-                string invoiceno = txtinvoiceno.Text;
+                string invoiceno = cbinvoiceno.Text;
                 string partno = infoThongtinvattu.Mavattu;
                 string donvi = infoThongtinvattu.Donvi;
                 string tennguoithaotac = userInfo.Hoten;
@@ -171,6 +190,12 @@ namespace Vietinak_Kho.f_Nhapxuat
                 float tonkhosaunhapVTN = tonkhotruocnhapVTN;
                 float tonkhosaunhapDRG = tonkhotruocnhapDRG;
                 string trangthai = "CHỜ NGHIỆM THU";
+
+                if(soluongnhap > checkconlaiinvoice)
+                {
+                    MessageBox.Show("Số lượng nhập lớn hơn số lượng invoice!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (nhapvaokho == "VTN")
                 {
                     tonkhosaunhapVTN += soluongnhap; //Tăng tồn kho sau nhập vào VTN
@@ -180,10 +205,13 @@ namespace Vietinak_Kho.f_Nhapxuat
                     tonkhotruocnhapDRG.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'), trangthai);
 
                     bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
-                    if (success1 && success2)
+                    bool success3 = InvoiceinfoDAO.Instance.UpdateSoluongDaveSauNhap(invoiceinfoid, soluongnhap);
+                    if (success1 && success2 && success3)
                     {
                         allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-                        txtinvoiceno.Text = "";
+                        txtSoluongtrongInovice.Text = "";
+
+                        cbinvoiceno.Text = "";
                         txtDiengiai.Text = "";
                         txtDonvitinh.Text = "";
                         txtKgtrenbao.Text = "";
@@ -208,11 +236,13 @@ namespace Vietinak_Kho.f_Nhapxuat
 
                     bool created = LichsunhapchitietDAO.Instance.Create(lichsunhapid, mavattu, "DRAGON", invoiceno, partno, "", soluongnhap.ToString().Replace(',', '.'), donvi, thoigian, "", userInfo.Hoten, userInfo.Manhanvien, userInfo.Bophan);
                     bool success2 = ThongtinvattuDAO.Instance.UpdateTonkho(vattuid, tonkhosaunhapVTN.ToString().Replace(',', '.'), tonkhosaunhapDRG.ToString().Replace(',', '.'));
-
-                    if (created && success2)
+                    bool success3 = InvoiceinfoDAO.Instance.UpdateSoluongDaveSauNhap(invoiceinfoid, soluongnhap);
+                    if (created && success2 && success3)
                     {
                         allThongtinvattu = ThongtinvattuDAO.Instance.LoadTableList_Thongtinvattu();
-                        txtinvoiceno.Text = "";
+                        txtSoluongtrongInovice.Text = "";
+
+                        cbinvoiceno.Text = "";
                         txtDiengiai.Text = "";
                         txtDonvitinh.Text = "";
                         txtKgtrenbao.Text = "";
@@ -263,7 +293,8 @@ namespace Vietinak_Kho.f_Nhapxuat
             string nhapvaokho = cbNhapvaokho.Text;
             if (nhapvaokho == "NHẬP LẠI")
             {
-                txtinvoiceno.Enabled = false;
+                cbinvoiceno.Enabled = false;
+                txtSoluongtrongInovice.Text = "";
                 txtSoluongnhap.Focus();
             }
         }
@@ -277,5 +308,31 @@ namespace Vietinak_Kho.f_Nhapxuat
         {
 
         }
+
+        private void cbinvoiceno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedInvoicenumber = cbinvoiceno.SelectedItem.ToString();
+            // Thực hiện truy vấn SQL để lấy invoiceinfo.dave dựa trên số hóa đơn đã chọn
+            string query = "SELECT invoiceinfo.qty,invoiceinfo.dave,invoiceinfo.id,invoice.id as invoiceid FROM dbo.invoice JOIN dbo.invoiceinfo ON invoice.id = invoiceinfo.invoiceid JOIN dbo.poinfo ON invoiceinfo.itemid = poinfo.id WHERE invoice.invoicenumber  = '" + selectedInvoicenumber + "' AND invoice.trangthai != 'Done'";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+
+            // Kiểm tra xem kết quả truy vấn có dữ liệu không
+            if (result.Rows.Count > 0)
+            {
+                // Lấy giá trị invoiceinfo.dave từ kết quả truy vấn và hiển thị nó
+                string sltronginv = result.Rows[0]["qty"].ToString();
+                string sltronginvdave = result.Rows[0]["dave"].ToString();
+                invoiceid = Convert.ToInt32(result.Rows[0]["invoiceid"].ToString());
+                invoiceinfoid = Convert.ToInt32(result.Rows[0]["id"].ToString());
+
+                checkconlaiinvoice = (float)Convert.ToDouble(sltronginv) - (float)Convert.ToDouble(sltronginvdave);
+                txtSoluongtrongInovice.Text = checkconlaiinvoice.ToString();
+            }
+            else
+            {
+                // Xử lý trường hợp không tìm thấy dữ liệu
+            }
+        }
+
     }
 }

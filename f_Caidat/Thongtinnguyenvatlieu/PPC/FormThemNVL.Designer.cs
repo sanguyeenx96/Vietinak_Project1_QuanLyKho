@@ -58,6 +58,7 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.txtmaterialno = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.cbsuppliername = new System.Windows.Forms.ComboBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.txtmaterialppc = new System.Windows.Forms.TextBox();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -105,7 +106,6 @@
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbsuppliername = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -456,6 +456,16 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(197, 24);
             this.panel17.TabIndex = 0;
+            // 
+            // cbsuppliername
+            // 
+            this.cbsuppliername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbsuppliername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbsuppliername.FormattingEnabled = true;
+            this.cbsuppliername.Location = new System.Drawing.Point(0, 0);
+            this.cbsuppliername.Name = "cbsuppliername";
+            this.cbsuppliername.Size = new System.Drawing.Size(197, 21);
+            this.cbsuppliername.TabIndex = 0;
             // 
             // panel18
             // 
@@ -846,7 +856,7 @@
             // 
             // btnHuybo
             // 
-            this.btnHuybo.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHuybo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnHuybo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHuybo.FlatAppearance.BorderSize = 0;
             this.btnHuybo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -899,16 +909,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // cbsuppliername
-            // 
-            this.cbsuppliername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbsuppliername.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbsuppliername.FormattingEnabled = true;
-            this.cbsuppliername.Location = new System.Drawing.Point(0, 0);
-            this.cbsuppliername.Name = "cbsuppliername";
-            this.cbsuppliername.Size = new System.Drawing.Size(197, 21);
-            this.cbsuppliername.TabIndex = 0;
             // 
             // FormThemNVL
             // 
