@@ -313,7 +313,7 @@ namespace Vietinak_Kho.f_Nhapxuat
         {
             string selectedInvoicenumber = cbinvoiceno.SelectedItem.ToString();
             // Thực hiện truy vấn SQL để lấy invoiceinfo.dave dựa trên số hóa đơn đã chọn
-            string query = "SELECT invoiceinfo.qty,invoiceinfo.dave,invoiceinfo.id,invoice.id as invoiceid FROM dbo.invoice JOIN dbo.invoiceinfo ON invoice.id = invoiceinfo.invoiceid JOIN dbo.poinfo ON invoiceinfo.itemid = poinfo.id WHERE invoice.invoicenumber  = '" + selectedInvoicenumber + "' AND invoice.trangthai != 'Done'";
+            string query = "SELECT invoiceinfo.qty,invoiceinfo.dave,invoiceinfo.id,invoice.id as invoiceid FROM dbo.invoice JOIN dbo.invoiceinfo ON invoice.id = invoiceinfo.invoiceid JOIN dbo.poinfo ON invoiceinfo.itemid = poinfo.id WHERE invoice.invoicenumber  = '" + selectedInvoicenumber + "' AND invoice.trangthai != 'Done' AND poinfo.description = '"+ cbmavattu.Text +"'   ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
 
             // Kiểm tra xem kết quả truy vấn có dữ liệu không

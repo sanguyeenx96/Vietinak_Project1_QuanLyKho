@@ -35,6 +35,7 @@
             this.btnXoaPO = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnConfirmPODone = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,6 +120,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnConfirmPO, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnQuanlyInvoice, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnConfirmPODone, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -128,6 +130,20 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 261);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnConfirmPODone
+            // 
+            this.btnConfirmPODone.BackColor = System.Drawing.Color.Lime;
+            this.btnConfirmPODone.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmPODone.Image")));
+            this.btnConfirmPODone.Location = new System.Drawing.Point(145, 177);
+            this.btnConfirmPODone.Name = "btnConfirmPODone";
+            this.btnConfirmPODone.Size = new System.Drawing.Size(136, 81);
+            this.btnConfirmPODone.TabIndex = 0;
+            this.btnConfirmPODone.Text = "Confirm PO Done";
+            this.btnConfirmPODone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfirmPODone.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfirmPODone.UseVisualStyleBackColor = false;
+            this.btnConfirmPODone.Click += new System.EventHandler(this.btnConfirmPODone_Click);
             // 
             // FormChucnangPO
             // 
@@ -154,5 +170,6 @@
         private System.Windows.Forms.Button btnXoaPO;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnConfirmPODone;
     }
 }

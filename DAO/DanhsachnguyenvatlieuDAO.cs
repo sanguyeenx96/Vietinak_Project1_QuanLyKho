@@ -33,7 +33,7 @@ namespace Vietinak_Kho.DAO
         public List<Danhsachnguyenvatlieu> LoadThongtinvattu(string mavattu)
         {
             List<Danhsachnguyenvatlieu> tableList = new List<Danhsachnguyenvatlieu>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbldanhsachnguyenvatlieu WHERE materialvtn =N'" + mavattu + "' ");
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.tbldanhsachnguyenvatlieu WHERE materialppc =N'" + mavattu + "' ");
             foreach (DataRow item in data.Rows)
             {
                 Danhsachnguyenvatlieu table = new Danhsachnguyenvatlieu(item);
