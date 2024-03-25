@@ -230,5 +230,12 @@ namespace Vietinak_Kho.f_PPC
                 }
             }
         }
+
+        private void btnSuaPO_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormSuaPO f = new FormSuaPO(id);
+            f.ShowDialog();
+        }
     }
 }

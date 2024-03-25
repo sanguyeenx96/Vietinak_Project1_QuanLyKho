@@ -201,5 +201,8 @@ namespace Vietinak_Kho.f_PPC
             FormThanhcong fthanhcong = new FormThanhcong();
             fthanhcong.ShowDialog();
         }
+
+
+
     }
 }

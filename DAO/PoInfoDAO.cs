@@ -43,5 +43,49 @@ namespace Vietinak_Kho.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public bool UpdateTotalAmount(int id, string total)
+        {
+            string query = string.Format("UPDATE dbo.poinfo SET total = N'{0}' " +
+                   "WHERE id = N'{1}'", total, id);
+            int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Không thể cập nhật thông tin total amount!",
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                string deleteQuery2 = $"DELETE FROM dbo.poinfo OUTPUT DELETED.id WHERE id = {id}";
+                DataTable deletedIDsTable = DataProvider.Instance.ExecuteQuery(deleteQuery2);
+
+                List<int> deletedIDs = new List<int>();
+                foreach (DataRow row in deletedIDsTable.Rows)
+                {
+                    deletedIDs.Add(Convert.ToInt32(row["id"]));
+                }
+                foreach (int deletedID in deletedIDs)
+                {
+                    string deleteQuery3 = $"DELETE FROM dbo.invoiceinfo WHERE itemid = {deletedID}";
+                    int rowsAffected3 = DataProvider.Instance.ExecuteNonQuery(deleteQuery3);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
 }
