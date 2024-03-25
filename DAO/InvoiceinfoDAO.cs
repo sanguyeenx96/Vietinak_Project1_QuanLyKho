@@ -42,9 +42,21 @@ namespace Vietinak_Kho.DAO
 
         public bool UpdateSoluongDaveSauNhap(int id, float qtyToAdd)
         {
-            // Lấy giá trị hiện tại của qty từ cơ sở dữ liệu
-            string selectQuery = $"SELECT dave FROM dbo.invoiceinfo WHERE id = {id}";
-            float currentDave = Convert.ToSingle(DataProvider.Instance.ExecuteScalar(selectQuery));
+            // Lấy giá trị hiện tại của dave từ cơ sở dữ liệu
+            string selectQuery = $"SELECT dave, invoiceid,qty FROM dbo.invoiceinfo WHERE id = {id}";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(selectQuery);
+
+            // Kiểm tra nếu không có dữ liệu hoặc lỗi xảy ra
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                return false;
+            }
+
+            DataRow row = dataTable.Rows[0];
+            float qty = Convert.ToSingle(row["qty"]);
+
+            float currentDave = Convert.ToSingle(row["dave"]);
+            int invoiceId = Convert.ToInt32(row["invoiceid"]);
 
             // Cộng giá trị hiện tại với giá trị mới
             float newQtyDave = currentDave + qtyToAdd;
@@ -53,8 +65,25 @@ namespace Vietinak_Kho.DAO
             string updateQuery = string.Format("UPDATE dbo.invoiceinfo SET dave = N'{0}' WHERE id = N'{1}'", newQtyDave, id);
             int rowsAffected = DataProvider.Instance.ExecuteNonQuery(updateQuery);
 
+            // Kiểm tra nếu qty bằng dave
+            if (newQtyDave == qty)
+            {
+                // Kiểm tra xem tất cả các dòng có invoiceid tương ứng có qty bằng dave hay không
+                string checkQuery = $"SELECT COUNT(*) FROM dbo.invoiceinfo WHERE invoiceid = {invoiceId} AND qty <> dave";
+                int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(checkQuery));
+
+                if (count == 0) // Nếu tất cả các dòng có qty bằng dave
+                {
+                    // Cập nhật trạng thái của bảng invoice thành Done
+                    string updateInvoiceStatusQuery = $"UPDATE dbo.invoice SET trangthai = 'Done' WHERE id = {invoiceId}";
+                    DataProvider.Instance.ExecuteNonQuery(updateInvoiceStatusQuery);
+                }
+            }
+
             return rowsAffected > 0;
         }
+
+
         public int CreateReturnId(int invoiceid, int itemid, string qty, string dave)
         {
             //string checkQuery1 = string.Format("SELECT COUNT(*) FROM dbo.po WHERE itemid = N'{0}'", itemid);

@@ -366,7 +366,8 @@
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
-            "User",
+            "PPC",
+            "KHO",
             "Admin"});
             this.cbRole.Location = new System.Drawing.Point(0, 0);
             this.cbRole.Name = "cbRole";

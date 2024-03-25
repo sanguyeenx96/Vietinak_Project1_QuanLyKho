@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,6 +82,48 @@ namespace Vietinak_Kho.DAO
             object result = DataProvider.Instance.ExecuteScalar(query);
             return result != null ? Convert.ToInt32(result) : -1;
         }
+
+        public bool Update(string no,string newNo, string code, string dept, string sec, string fromdate, string pageno,
+        string orderto, string address, string tel, string attn, string fax, string issuedate,
+        string paymentterm, string deliveryterm, string shippingmethod, string currency, int id)
+        {
+            try
+            {
+                if(no != newNo)
+                {
+                    string checkQuery1 = $"SELECT COUNT(*) FROM dbo.po WHERE no = '{newNo}'";
+                    int existing1 = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(checkQuery1));
+                    if (existing1 > 0)
+                    {
+                        MessageBox.Show("Mã PO đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }               
+                string query = string.Format("UPDATE dbo.po SET no = N'{0}',code = N'{1}',dept = N'{2}',sec = N'{3}'" +
+                    ",fromdate = N'{4}',pageno = N'{5}',orderto = N'{6}',address = N'{7}',tel = N'{8}',attn = N'{9}'," +
+                    "fax = N'{10}',issuedate = N'{11}',paymentterm = N'{12}',deliveryterm = N'{13}',shippingmethod = N'{14}',currency = N'{15}' " +
+                    "WHERE id = N'{16}'", newNo, code, dept, sec, fromdate, pageno,orderto, address, tel, attn, fax, issuedate, 
+                    paymentterm,  deliveryterm, shippingmethod, currency, id);
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query);
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi sửa PO: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
         public bool UpdateTrangthaiPO(int id, string trangthai)
         {
             string query = string.Format("UPDATE dbo.po SET trangthai = N'{0}' " +

@@ -32,10 +32,15 @@ namespace Vietinak_Kho.f_PPC
         private void FormChucnangPO_Load(object sender, EventArgs e)
         {
             var thongtinpo = PoDAO.Instance.LoadTableList_PoById(id);
-            if(thongtinpo.Trangthai != "Chờ confirm")
+            if(thongtinpo.Trangthai != "Chờ confirm" )
             {
                 btnConfirmPO.Enabled = false;
                 btnConfirmPO.BackColor = Color.Gray;
+            }
+            if (thongtinpo.Trangthai == "Chờ confirm" || thongtinpo.Trangthai == "Done")
+            {
+                btnConfirmPODone.Enabled = false;
+                btnConfirmPODone.BackColor = Color.Gray;
             }
         }
 
@@ -208,6 +213,29 @@ namespace Vietinak_Kho.f_PPC
                     fthanhcong.ShowDialog();
                 }
             }
+        }
+
+        private void btnConfirmPODone_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Cập nhật trạng thái Done cho PO?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                bool update = PoDAO.Instance.UpdateTrangthaiPO(id, "Done");
+                if (update)
+                {
+                    DialogClosed?.Invoke(this, new DialogClosedEventArgs("OK"));
+                    this.Close();
+                    FormThanhcong fthanhcong = new FormThanhcong();
+                    fthanhcong.ShowDialog();
+                }
+            }
+        }
+
+        private void btnSuaPO_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormSuaPO f = new FormSuaPO(id);
+            f.ShowDialog();
         }
     }
 }

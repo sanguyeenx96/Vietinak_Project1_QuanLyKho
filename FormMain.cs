@@ -45,8 +45,14 @@ namespace Vietinak_Kho
             txtBophan.Text = userInfo.Bophan;
             txtRole.Text = userInfo.Role;
             txtCode.Text = userInfo.Manhanvien;
-
-            btnPPC.PerformClick();
+            if (userInfo.Role == "KHO")
+            {
+                btnNhapXuat.PerformClick();
+            }
+            else
+            {
+                btnPPC.PerformClick();
+            }
         }
 
         private void timerClock_Tick(object sender, EventArgs e)
@@ -90,9 +96,18 @@ namespace Vietinak_Kho
 
         private void btnDonhang_Click(object sender, EventArgs e)
         {
-            FormNhapXuat fNhapxuat = new FormNhapXuat(userInfo);
-            loadform(fNhapxuat);
-            UpdateButtonColor(sender as Button);
+            if (userInfo.Role == "KHO" || userInfo.Role == "Admin")
+            {
+                FormNhapXuat fNhapxuat = new FormNhapXuat(userInfo);
+                loadform(fNhapxuat);
+                UpdateButtonColor(sender as Button);
+            }
+            else
+            {
+                MessageBox.Show("Chỉ tài khoản KHO được phép truy cập!",
+                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnDanhsach_Click(object sender, EventArgs e)
@@ -117,23 +132,49 @@ namespace Vietinak_Kho
 
         private void btnNghiemthu_Click(object sender, EventArgs e)
         {
-            FormNghiemthu fnt = new FormNghiemthu(userInfo);
-            loadform(fnt);
-            UpdateButtonColor(sender as Button);
+            if (userInfo.Role == "KHO" || userInfo.Role == "Admin")
+            {
+                FormNghiemthu fnt = new FormNghiemthu(userInfo);
+                loadform(fnt);
+                UpdateButtonColor(sender as Button);
+            }
+            else
+            {
+                MessageBox.Show("Chỉ tài khoản KHO được phép truy cập!",
+                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnqccheck_Click(object sender, EventArgs e)
         {
-            FormQccheck fqcc = new FormQccheck(userInfo);
-            loadform(fqcc);
-            UpdateButtonColor(sender as Button);
+            if (userInfo.Role == "KHO" || userInfo.Role == "Admin")
+            {
+                FormQccheck fqcc = new FormQccheck(userInfo);
+                loadform(fqcc);
+                UpdateButtonColor(sender as Button);
+            }
+            else
+            {
+                MessageBox.Show("Chỉ tài khoản KHO được phép truy cập!",
+                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnPPC_Click(object sender, EventArgs e)
         {
-            FormPPC fppc= new FormPPC(userInfo);
-            loadform(fppc);
-            UpdateButtonColor(sender as Button);
+            if (userInfo.Role == "PPC"  || userInfo.Role == "Admin")
+            {
+                FormPPC fppc = new FormPPC(userInfo);
+                loadform(fppc);
+                UpdateButtonColor(sender as Button);
+
+            }
+            else
+            {
+                MessageBox.Show("Chỉ tài khoản PPC được phép truy cập!",
+                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }          
         }
     }
 }
